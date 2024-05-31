@@ -4,7 +4,7 @@
 
 Nuestros productos de aromaterapia y blanquería están diseñados para personas que buscan crear espacios de calma y confort en sus vidas diarias. Generalmente personas mayores de 20 años que buscan independizarse.
 
-####Nosotros somos: 
+**Nosotros somos:**
 
 > "Me presento, soy Gabriela, me caracterizo por ser proactiva, me gusta programar y aprender cosas nuevas todo el tiempo, siento que me desenvuelvo bien trabajando en equipo y espero que este trabajo me enseñe mucho."
 
