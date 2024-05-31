@@ -4,7 +4,7 @@
 
 Nuestros productos de aromaterapia y blanquería están diseñados para personas que buscan crear espacios de calma y confort en sus vidas diarias. Generalmente personas mayores de 20 años que buscan independizarse.
 
-###Nosotros somos: 
+####Nosotros somos: 
 
 > "Me presento, soy Gabriela, me caracterizo por ser proactiva, me gusta programar y aprender cosas nuevas todo el tiempo, siento que me desenvuelvo bien trabajando en equipo y espero que este trabajo me enseñe mucho."
 
@@ -16,6 +16,6 @@ Nuestros productos de aromaterapia y blanquería están diseñados para personas
 
 > "Me presento, soy Melisa, soy una persona colaboradora, el trabajo en equipo lo considero esencial para lograr los objetivos, por mi profesión es una constante en mi vida, espero poder contribuir con lo mejor tanto en el proyecto como con cada uno de mis compañeros."
 
-"Me presento, soy Katherina, en los trabajos en grupo destaco por mi habilidad para seguir órdenes, cumplir con los plazos establecidos y ser responsable, también puedo aportar mucho a nivel creativo, diseño e ideas en general. Espero que esta etapa nos llene de habilidades y conocimiento."
+> "Me presento, soy Katherina, en los trabajos en grupo destaco por mi habilidad para seguir órdenes, cumplir con los plazos establecidos y ser responsable, también puedo aportar mucho a nivel creativo, diseño e ideas en general. Espero que esta etapa nos llene de habilidades y conocimiento."
 
 
