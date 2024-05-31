@@ -1,3 +1,5 @@
+# ESENCIANA
+
 ¡Bienvenido a nuestro oasis aromático y de comodidad! Sumérgete en el mundo de la aromaterapia y la suavidad con nuestra exquisita selección de productos. Desde aceites esenciales que despiertan tus sentidos hasta lujosa blanquería que acaricia tu piel, en nuestro sitio encontrarás todo lo necesario para crear un ambiente de serenidad y bienestar en tu hogar. Déjate llevar por la delicadeza de nuestras fragancias y la calidad de nuestros textiles, y convierte cada momento en una experiencia sensorial única. ¡Descubre la magia de equilibrar cuerpo y mente con nosotros!
 
 Nuestros productos de aromaterapia y blanquería están diseñados para personas que buscan crear espacios de calma y confort en sus vidas diarias. Generalmente personas mayores de 20 años que buscan independizarse.
