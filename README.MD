@@ -19,3 +19,14 @@ Nuestros productos de aromaterapia y blanquería están diseñados para personas
 > "Me presento, soy Katherina, en los trabajos en grupo destaco por mi habilidad para seguir órdenes, cumplir con los plazos establecidos y ser responsable, también puedo aportar mucho a nivel creativo, diseño e ideas en general. Espero que esta etapa nos llene de habilidades y conocimiento."
 
 
+Paginas de referencias:
+
+#1 https://www.shirinatural.com.ar/tienda/linea-aromaterapia/?mpage=2
+
+#2 https://audocph.com/#
+
+#3 https://parklanecph.com/
+
+#4 https://www.maitenaika.com.ar/?gad_source=1&gclid=CjwKCAjwgdayBhBQEiwAXhMxthjkmhzg4A6hfxLYLEITHo5xGlP8am4i6GAz21zJAmmnzs6aIg231xoCRZgQAvD_BwE
+
+#5 https://www.shenzen.com.ar/
