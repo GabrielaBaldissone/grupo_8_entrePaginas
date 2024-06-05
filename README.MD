@@ -19,7 +19,7 @@ Nuestros productos de aromaterapia y blanquería están diseñados para personas
 > "Me presento, soy Katherina, en los trabajos en grupo destaco por mi habilidad para seguir órdenes, cumplir con los plazos establecidos y ser responsable, también puedo aportar mucho a nivel creativo, diseño e ideas en general. Espero que esta etapa nos llene de habilidades y conocimiento."
 
 
->Paginas de referencias:
+Paginas de referencias:
 
 #1 https://www.shirinatural.com.ar/tienda/linea-aromaterapia/?mpage=2
 
@@ -32,6 +32,6 @@ Nuestros productos de aromaterapia y blanquería están diseñados para personas
 #5 https://www.shenzen.com.ar/
 
 
->Nuestro trello donden nos organizamos para el trabajo:
+Nuestro trello donden nos organizamos para el trabajo:
 
 https://trello.com/b/dL5vp1Kv/project-essenciana
