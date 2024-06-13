@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+</head>
+<body>
+    <!-- Los br los voy a sacar cuando agrege el css -->
+    <h1>FORMULARIO DE REGISTRO</h1>
+    <form method="POST">
+        <label for="nombre">Nombre:<span>*</span></label> <br>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required><br>
+        <label for="apellido">Apellido:<span>*</span></label><br>
+        <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido" required><br>
+        <label for="email">Email:<span>*</span></label><br>
+        <input type="email" id="email" name="email" placeholder="user@example.com" required><br>
+        <label for="telefono">Teléfono:<span>*</span></label><br>
+        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su telefono" required><br>
+        <label for="direccion">Dirección:<span>*</span></label><br>
+        <input type="text" id="direccion" name="direccion" placeholder="Ingrese su dirección" required><br>
+        <label for="fechaNac">Fecha de Nacimiento:<span>*</span></label><br>
+        <input type="date" id="fechaNac" name="fechaNac" placeholder="Ingrese su fecha de Nacimiento" required><br>
+        <label for="contrasenia">Contraseña:<span>*</span></label><br>
+        <input type="password" id="contrasenia" name="contrasenia" placeholder="Ingrese su contraseña" required><br>
+        <label for="contraConfirmada">Confirmar Contraseña:<span>*</span></label><br>
+        <input type="password" id="contraConfirmada" name="contraConfirmada" placeholder="Confirme su contraseña" required><br>
+        <label for="terminos">
+            <input type="checkbox" id="terminos" name="terminos" value="true" required>Acepto términos y condiciones para ser miembro. <a href="#">Términos y condiciones.</a>
+        </label> <br>
+        <button type="submit">Registrarse</button>
+    </form>
+    
+</body>
+</html>
