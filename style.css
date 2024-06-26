@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-body{
+    background-color: rgba(238,238,238,255);
+}
+
+.iniciar-sesion-login {
+    font-size: 25px;
+    color: rgb(5, 5, 5);
+    text-align: center;
+    margin: 15px;
+}
+
+.user-icon{
+    margin: 0 auto;
+    background-color: rgb(136, 135, 135);
+    text-align: center;
+    border-radius: 150px 150px 0 0;
+    width: 70px;
+    color: #b29f91;
+}
+
+.userline{
+    margin-top: 15px;
+    font-size: 38px;
+}
+
+.login-box{
+    background-color: white;
+    width: 70%;
+    height: 50%;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.form-login{
+    padding: 20px;
+}
+
+.description-login{
+    font-size: 16px; 
+    font-style: italic;
+    margin-left: 10px;
+}
+
+.span-login-red{
+    color: red;
+}
+
+.input-login {
+    margin: 5px;
+    width: 80%;
+    height: 30px;
+}
+
+.checkbox-login{
+    width: 17px;
+    height: 14px;
+    margin-left: 25px;
+}
+
+
+.icons-login {
+    font-size: 20px;
+}
+
+
+.center-login {
+    text-align: center;
+    
+}
+
+.fa-brands {
+    font-size: 25px;
+    margin: 7px;
+    color: #3f3f3f;
+}
+
+.submit-login{
+    background-color: #bfbdc0;
+    color: white;
+    font-weight: 700;
+    border-radius: 20px;
+    border-color:  #bfbdc0;
+    margin: 5px;
+    width: 80%;
+    height: 30px;
+}
+
+.ancla-login {
+    font-size: 15px;
+    margin: 7px;
+    color: #3f3f3f;
+    text-align: center;
+    display: block;
+}
+
+.connect-login{
+    display: block;
+}
+
+
+@media (min-width: 769px) {
+
+    .login-box{
+        background-color: white;
+        width: 25%;
+        height: 60%;
+        border-radius: 20px;
+        margin: 0 auto;
+    }
+}
+
+
