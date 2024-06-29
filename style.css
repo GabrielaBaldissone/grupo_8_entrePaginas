@@ -82,13 +82,17 @@
 
 .submit-login{
     background-color: #bfbdc0;
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: 700;
     border-radius: 20px;
     border-color:  #bfbdc0;
     margin: 5px;
     width: 80%;
     height: 30px;
+}
+
+.submit-login:hover{
+    background-color:  rgb(136, 135, 135);
 }
 
 .ancla-login {
