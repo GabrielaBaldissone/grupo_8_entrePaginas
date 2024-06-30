@@ -1,4 +1,4 @@
-body.productcard-body {
+body.productcart-body {
     font-family: 'Playfair Display';
     margin: 0;
     padding: 0;
@@ -14,7 +14,7 @@ body.productcard-body {
     height: 100vh;
 }
 
-header.productcard-header {
+header.productcart-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,14 +32,14 @@ header.productcard-header {
     margin-left: 15px;
     font-size: 1.2em;
 }
-.productcard-header-button{
+.productcart-header-button{
     background-color: #627281;
     border-style: none;
     color: #ffffff;
     cursor: pointer;
 }
 
-main.productcard-main {
+main.productcart-main {
     flex: 1;
     overflow-y: auto;
     padding: 10px;
@@ -142,7 +142,7 @@ main.productcard-main {
     background-color: #562b1a;
 }
 
-section.productcard-section {
+section.productcart-section {
     background-color: #627281;
     padding: 10px;
     display: flex;
