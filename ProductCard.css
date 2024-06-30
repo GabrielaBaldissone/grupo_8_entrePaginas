@@ -257,15 +257,25 @@ section.productcard-section {
         align-items: center;
     }
     .product-quantity {
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
     }
     .section-content {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
     }
-    .section-left, .section-right {
-        width: 100%;
+    .section-left {
+        flex-direction: column;
+        justify-content:center;
+        width: 90%;
+    }
+    .section-right{
+        flex-direction: column;
+        justify-content:space-between;
+        width: 40%;
+    }
+    .payment-section{
+        width: 30%;
     }
 
 }
