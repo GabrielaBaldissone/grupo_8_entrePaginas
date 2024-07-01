@@ -188,12 +188,6 @@ main.productcart-main {
     color: #dc3545;
 }
 
-.product-quantity {
-    float:inline-end;
-    display: inline-block;
-    align-items:center;
-}
-
 .quantity-btn,
 .remove-btn {
     float: inline-end;
@@ -621,7 +615,7 @@ section.productcart-section {
     align-items: center;
 }
 
-@media (min-width: 430px) {
+@media (min-width: 481px) {
 
     .modificar { 
         width: 85%;
@@ -735,7 +729,7 @@ section.productcart-section {
     .banner{
         padding-right: 10%;
         padding-left: 10%;
-    }
+    } 
     .centrado {
         padding-top: 1.5%;
         display: block;
@@ -744,9 +738,9 @@ section.productcart-section {
         padding-left: 20%;
     }
     .logo-footer{
-     width: 27%;
-     background-color: #8e8e8e;
-     display: block;
+        width: 27%;
+        background-color: #8e8e8e;
+        display: block;
     }
     .product-item {
         flex-direction: row;
