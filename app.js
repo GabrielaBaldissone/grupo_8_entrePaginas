@@ -18,6 +18,12 @@ app.get("/ProductCart.html", (req, res) => {
 app.get("/productDetail.html", (req, res) => {
     res.sendFile(path.resolve(__dirname, 'views/productDetail.html'));
 });
+app.get("/register.html", (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'views/register.html'));
+});
+app.get("/productDetail.html", (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'views/productDetail.html'));
+});
 
 app.listen(port, () => {
     console.log(`Servidor corriendo con éxito en puerto ${port}`)
