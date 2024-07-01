@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    text-decoration: none; 
+    list-style: none;
+}
+
+
+body {
+    background-color: #eeeeee;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0cc9c;
+}
+
+a {
+    text-decoration: none; 
+    color: black;
+}
+
+.title {
+    font-size: 30px;
+    color: #393939;
+    font-weight: 1000;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 7%;
+}
+
+.precios {
+    font-size: 20px;
+    padding-top: 5px;
+    width: 40%;
+}
+
+.desc {
+    font-size: 22px;
+    color: #ff8b2b;
+    padding-top: 5px;
+    padding-left: 10px;
+    width: 60%;
+}
+
+.descripcion {
+    font-size: 16px;
+    padding-top: 15px;
+    font-weight: 500;
+    color: #393939;
+    display: none;
+    visibility: hidden;
+}
+
+
+main {
+    margin: 0 auto;
+    width: 90%;
+}
+article:hover .descripcion{
+    visibility: visible;
+}
+
+article:hover {
+    box-shadow: 0px 0px 20px #ff8b2b;
+}
+
+.modificar{
+    margin: 10px;
+}
+
+img {
+    width: 100%;
+}
+
+
+.box-linea {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: baseline;
+}
+
+.info {
+    display: block;
+    border-top: solid 1px #ebebeb;
+    background-color: white;
+    padding: 10px;
+    position: relative;
+}
+
+footer i {
+    font-size: 1.4em;
+    margin-top: 10px;
+    color: #ff8b2b;
+}
+
+
+@media (min-width: 430px) {
+
+    .modificar { 
+        width: 85%;
+    }
+
+    .descripcion{
+        display: block;
+    }
+    .box-flex{
+        display: flex;  
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    li {
+        padding: 3px;
+    }
+    .nav{
+        max-height: 80px;
+    }
+    .logo{
+        padding-top: 3%;
+        width: 35%;
+    }
+    .productcard-header-actions{
+        font-size: 20px;
+        width: 75%;
+    }
+    .centrado {
+        display: flex;
+        background-color: #f0cc9c;
+        
+    }
+    .logo-footer{
+        display: none;
+    }
+    
+
+}
+
+
+@media (min-width: 769px) {
+    .modificar {
+        width: 20%;
+    }
+
+    .descripcion{
+        display: block;
+    }
+    .box-flex{
+        display: flex;  
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .box-linea {
+    align-items: baseline;
+    }
+    footer{
+        display: flex;
+    }
+    .nav{
+        
+        max-height: 80px;
+    }
+    .logo{
+        padding-top: 2%;
+        width: 11%;
+    }
+    .productcard-header-actions{
+        font-size: 20px;
+        width: 10%;
+    }
+    .banner{
+        padding-right: 10%;
+        padding-left: 10%;
+    }
+    .centrado {
+        padding-top: 1.5%;
+        display: block;
+        width: 100%;
+        background-color: #f0cc9c;
+        padding-left: 20%;
+    }
+    .logo-footer{
+     width: 10%;
+     background-color: #f0cc9c;
+     display: block;
+    }
+}
