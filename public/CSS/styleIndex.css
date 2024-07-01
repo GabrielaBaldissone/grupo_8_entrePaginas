@@ -70,7 +70,7 @@ article:hover .descripcion{
 }
 
 article:hover {
-    box-shadow: 0px 0px 20px #ff8b2b;
+    box-shadow: 6px 0px 20px #ff8b2b;
 }
 
 .modificar{
