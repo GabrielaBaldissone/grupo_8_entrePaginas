@@ -10,7 +10,7 @@
 
 
 body {
-    background-color: #eeeeee;
+    
     font-family: "Playfair Display", serif;
     font-weight: 600;
 }
@@ -20,7 +20,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f0cc9c;
+    background-color: #8e8e8e;
 }
 
 a {
@@ -43,9 +43,11 @@ a {
     width: 40%;
 }
 
+
+
 .desc {
     font-size: 22px;
-    color: #ff8b2b;
+    color: #85938f;
     padding-top: 5px;
     padding-left: 10px;
     width: 60%;
@@ -70,7 +72,7 @@ article:hover .descripcion{
 }
 
 article:hover {
-    box-shadow: 6px 0px 20px #ff8b2b;
+    box-shadow: 6px 0px 20px #4d4c4b;
 }
 
 .modificar{
@@ -100,7 +102,7 @@ img {
 footer i {
     font-size: 1.4em;
     margin-top: 10px;
-    color: #ff8b2b;
+    color: #000000;
 }
 
 .mobile-view {
@@ -245,6 +247,7 @@ section.productcart-section {
     display: flex;
     flex-direction: row;
     align-items: left;
+    margin-top: 4.9%;
 }
 
 .section-content {
@@ -345,12 +348,13 @@ section.productcart-section {
         max-height: 80px;
     }
     .logo{
-        padding-top: 3%;
-        width: 35%;
+        width: 30%;
     }
     .productcard-header-actions{
         font-size: 20px;
         width: 75%;
+    
+        
     }
     .centrado {
         display: flex;
@@ -377,8 +381,12 @@ section.productcart-section {
         width: 100%;
         align-items: center;
     }
-    
-
+    .fa-search, .fa-cart-shopping, .fa-user{
+        font-size: 25px;
+    }
+    section.productcart-section{
+        margin-top: 14.8%;
+    }
 }
 
 
@@ -411,7 +419,7 @@ section.productcart-section {
     }
     .productcard-header-actions{
         font-size: 20px;
-        width: 10%;
+        width: 15%;
     }
     .banner{
         padding-right: 10%;
@@ -421,12 +429,12 @@ section.productcart-section {
         padding-top: 1.5%;
         display: block;
         width: 100%;
-        background-color: #f0cc9c;
+        background-color: #8e8e8e;
         padding-left: 20%;
     }
     .logo-footer{
      width: 10%;
-     background-color: #f0cc9c;
+     background-color: #8e8e8e;
      display: block;
     }
     .product-item {
@@ -453,5 +461,8 @@ section.productcart-section {
     }
     .payment-section{
         width: 30%;
+    }
+    section.productcart-section{
+        margin-top: 4.9%;
     }
 }
