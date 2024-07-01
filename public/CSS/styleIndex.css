@@ -348,7 +348,7 @@ section.productcart-section {
         max-height: 80px;
     }
     .logo{
-        width: 30%;
+        width: 45%;
     }
     .productcard-header-actions{
         font-size: 20px;
@@ -358,7 +358,7 @@ section.productcart-section {
     }
     .centrado {
         display: flex;
-        background-color: #f0cc9c;
+        background-color: #8e8e8e;
         
     }
     .logo-footer{
@@ -381,11 +381,15 @@ section.productcart-section {
         width: 100%;
         align-items: center;
     }
-    .fa-search, .fa-cart-shopping, .fa-user{
+    .fa-search{
+        font-size: 25px;
+        padding-left: 50%;
+    }
+    .fa-cart-shopping, .fa-user{
         font-size: 25px;
     }
     section.productcart-section{
-        margin-top: 14.8%;
+        margin-top: 26%;
     }
 }
 
@@ -415,7 +419,7 @@ section.productcart-section {
     }
     .logo{
         padding-top: 2%;
-        width: 11%;
+        width: 25%;
     }
     .productcard-header-actions{
         font-size: 20px;
