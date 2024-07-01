@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/styleIndex.css">
+</head>
+<body>
+    <header class="nav">
+        <div class="productcard-header-icon">
+        <a href="/"><img src="IMG/essenciana-logo-white.png"  class="logo" alt=""></a>
+        </div>
+        <div class="productcard-header-actions">
+            <a href="#"><i class="fas fa-search" style="padding: 3%;"></i></a>
+            <a href="ProductCart.html"><i class="fa-solid fa-cart-shopping"style="padding: 3%;" ></i></a>
+            <a href="login.html"><i class="fas fa-user" style="padding: 3%;"></i></a>
+        </div>
+    </header>
+    <main>
+        <section class="product-details">
+            <img src="IMG/Cortinas HiZu XXL RIEL.png" class="product-details-img"  alt="Cortinas con Riel">
+            <div class="product-description">
+                <h1>Cortinas con Riel Hizzu</h1>
+                <p>Lorem ipsum dolor sit amet </p>
+                <p>Precio: $37.500</p>
+                <p>Disponibilidad: <span id="disponibilidad">Disponible</span></p>
+                <form action="#">
+                    <div class="cantidad-box">
+                        <label for="cantidad">Cantidad:</label>
+                        <div class="cantidad-controls">
+                            <button type="button" class="cantidad-btn"><i class="fas fa-minus"></i></button>
+                            <input type="number" id="cantidad" name="cantidad" min="1" value="1">
+                            <button type="button" class="cantidad-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="agregar-carrito-btn">Agregar al carrito</button>
+                </div>
+            </div>
+        </section>
+        <h2>Productos Relacionados</h2>
+        <section class="productos-relacionados">
+            <article class="producto">
+                <div class="producto-imagen">
+                    <img src="IMG/Cortinas con riel.png"  class="product-details-img" alt="Producto Relacionado 1">
+                </div>
+                <div class="producto-descripcion">
+                    <h3>Cortinas con Riel</h3>
+                    <p><strong>Precio:</strong> $23.500</p>
+                    <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
+                </div>
+            </article>
+            <article class="producto">
+                <div class="producto-imagen">
+                    <img src="IMG/Gasa Tusor Para Riel.png"  class="product-details-img" alt="Producto Relacionado 1">
+                </div>
+                <div class="producto-descripcion">
+                    <h3>Cortina de DISNEY</h3>
+                    <p><strong>Precio:</strong> $23.500</p>
+                    <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
+                </div>
+            </article>
+            <article class="producto">
+                <div class="producto-imagen">
+                    <img src="IMG/Funda de Edredón de Tusor Pesado Gris + Fundas de Almohadón.png"  class="product-details-img" alt="Producto Relacionado 1">
+                </div>
+                <div class="producto-descripcion">
+                    <h3>Fundas de Almohadón</h3>
+                    <p><strong>Precio:</strong> $23.500</p>
+                    <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
+                </div>
+            </article>
+            <article class="producto">
+                <div class="producto-imagen">
+                    <img src="IMG/perfume2.png"  class="product-details-img" alt="Producto Relacionado 1">
+                </div>
+                <div class="producto-descripcion">
+                    <h3>Keep calm</h3>
+                    <p><strong>Precio:</strong> $23.500</p>
+                    <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
+                </div>
+            </article>
+            <article class="producto">
+                <div class="producto-imagen">
+                    <img src="IMG/Funda de Edredón de Tusor Pesado CRUDO.png" class="product-details-img" alt="Producto Relacionado 2">
+                </div>
+                <div class="producto-descripcion">
+                    <h3>Funda de Edredón de Tusor</h3>
+                    <p><strong>Precio:</strong> $30.500</p>
+                    <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
+                </div>
+            </article>
+            <article class="producto">
+                <div class="producto-imagen">
+                    <img src="IMG/Perfume1.png"class="product-details-img" alt="Producto Relacionado 2">
+                </div>
+                <div class="producto-descripcion">
+                        <h3>Funda de Edredon</h3>
+                        <p><strong>Precio:</strong> $53.500</p>
+                        <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer >
+        <section class="centrado">
+                <h3>Nuestras redes:</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i>  Essenciana</a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i>  essenciana.lr</a></li>
+                    <li><a href="#"><i class="fa-brands fa-pinterest"></i>  Essenciana</a></li>
+                </ul>
+             </section>
+             <img src="IMG/essenciana-logo-white.png"  class="logo-footer" alt="">
+            <section class="centrado">
+                <h3>Contactanos:</h3>
+                <ul>
+                    <li><i class="fa-solid fa-phone"></i>  +5493804506892</li>
+                    <li><a href="#"><i class="fa-solid fa-envelope"></i>  Essen@gmail.com</a></li>
+                    <li><i class="fa-solid fa-map"></i>  Av. Rivadavia 1024</li>
+                </ul>
+             </section>
+        </footer>
+</body>
+</html>
