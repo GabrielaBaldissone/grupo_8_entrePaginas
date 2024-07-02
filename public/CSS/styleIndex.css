@@ -8,7 +8,6 @@
     list-style: none;
 }
 
-
 body {
     background-color: #eeeeee;
     font-family: "Playfair Display", serif;
@@ -22,11 +21,10 @@ body {
     align-items: center;
     background-color: #8e8e8e;
 }
-
 a {
-    text-decoration: none; 
     color: black;
 }
+
 
 .title {
     font-size: 30px;
@@ -41,9 +39,8 @@ a {
     font-size: 20px;
     padding-top: 5px;
     width: 40%;
+    color: black;
 }
-
-
 
 .desc {
     font-size: 22px;
@@ -54,9 +51,9 @@ a {
 }
 
 .descripcion {
-    font-size: 16px;
+    font-size: 17px;
     padding-top: 15px;
-    font-weight: 500;
+    font-weight: 50%;
     color: #393939;
     display: none;
     visibility: hidden;
@@ -72,7 +69,7 @@ article:hover .descripcion{
 }
 
 article:hover {
-    box-shadow: 6px 0px 20px #4d4c4b;
+    box-shadow: 8px 0px 20px #4d4c4b;
 }
 
 .modificar{
@@ -82,7 +79,6 @@ article:hover {
 img {
     width: 100%;
 }
-
 
 .box-linea {
     display: flex;
@@ -99,10 +95,11 @@ img {
     position: relative;
 }
 
-footer i {
-    font-size: 1.4em;
+
+footer i, a,h3{
+    font-size: 1.2em;
     margin-top: 10px;
-    color: #000000;
+    color: #eeeeee;
 }
 
 .mobile-view {
@@ -607,15 +604,17 @@ section.productcart-section {
 .connect-login{
     display: block;
 }
+.fa-arrow-left{
+    color:red
+}
 .arrow-back{
-    background-color: #eeeeee;
     font-size: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-@media (min-width: 481px) {
+@media screen and (min-width: 320px) {
 
     .modificar { 
         width: 85%;
@@ -644,11 +643,12 @@ section.productcart-section {
     }
     .productcard-header-actions{
         font-size: 20px;
-        width: 75%;       
+        width: 50%;       
     }
     .centrado {
         display: flex;
-        background-color: #8e8e8e;
+        justify-content: space-between;
+        background-color: #393939;
         
     }
     .logo-footer{
@@ -688,11 +688,12 @@ section.productcart-section {
         border-radius: 20px;
         margin: 0 auto;
     }
+
 }
 
 
 
-@media (min-width: 769px) {
+@media screen and (min-width: 760px) {
     .modificar {
         width: 20%;
     }
@@ -732,15 +733,21 @@ section.productcart-section {
     } 
     .centrado {
         padding-top: 1.5%;
-        display: block;
-        width: 73%;
-        background-color: #8e8e8e;
-        padding-left: 20%;
+        width: 100%;
+        background-color: #393939;
+        justify-content: space-around;
     }
     .logo-footer{
-        width: 27%;
-        background-color: #8e8e8e;
-        display: block;
+        background-color: #393939;
+        display: flex;
+        width: 100%;
+        padding-left: 20%;
+    }
+    .div-logo-footer{
+    background-color:#393939;
+    align-items: center;
+    display: flex;
+
     }
     .product-item {
         flex-direction: row;
