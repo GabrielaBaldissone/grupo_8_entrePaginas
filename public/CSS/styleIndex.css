@@ -649,6 +649,7 @@ section.productcart-section {
         display: flex;
         justify-content: space-between;
         background-color: #393939;
+        font-size: 75%;
         
     }
     .logo-footer{
