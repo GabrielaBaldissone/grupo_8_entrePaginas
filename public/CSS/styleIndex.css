@@ -446,7 +446,7 @@ section.productcart-section {
 
 .register__form{
     border: 1px solid black;
-    max-width: 500px;
+    min-width: 50%;
     padding: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -463,11 +463,23 @@ section.productcart-section {
     color: black;
 }
 
+.register__form input[type="file"]{
+    margin-bottom: 15px;
+}
+
+.register__form textarea{
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+}
+
 .register__form input[type="text"],
+.register__form input[type="number"],
 .register__form input[type="email"],
 .register__form input[type="tel"],
 .register__form input[type="date"],
-.register__form input[type="password"] {
+.register__form input[type="password"],
+.register__form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
