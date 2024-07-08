@@ -4,14 +4,18 @@ const path = require('path');
 const app = express();
 
 // SERVIDOR.
-let port =  3030 || process.env.PORT;
+let PORT = process.env.PORT ?? 3030;
 
-app.listen(port, () => {
-    console.log(`Servidor corriendo con éxito en puerto ${port}`)
-});
+app.listen(PORT, (err)=>{
+    console.log(
+        err
+        ? "No se pudo levantar el servidor"
+        : `Servidor levantado en http://localhost:${PORT}`
+    );
+})
 
 // PUBLIC.
-const publicPath = path.resolve(__dirname, 'public');
+const publicPath = path.resolve('public');
 app.use(express.static(publicPath));
 
 // RUTA INDEX.
@@ -33,3 +37,7 @@ app.use("/productDetail", rutaProductDetail);
 // RUTA REGISTER.
 const rutaRegister = require('./router/rutaRegister.js');
 app.use("/register", rutaRegister);
+
+//RUTA ADMIN
+const rutaAdmin = require("./router/rutaAdmin.js");
+app.use("/admin", rutaAdmin);
