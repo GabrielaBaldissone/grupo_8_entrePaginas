@@ -20,26 +20,25 @@ app.listen(PORT, (err)=>{
 const publicPath = path.resolve('public');
 app.use(express.static(publicPath));
 
+// REQUIRIENDO RUTAS 
+const indexRoutes = require('./routes/indexRoutes.js');
+const usersRoutes = require('./routes/usersRoutes.js');
+const productsRoutes = require('./routes/productsRoutes.js');
+
 // RUTA INDEX.
-const rutaIndex = require('./router/rutaIndex');
-app.use("/", rutaIndex);
+app.use("/", indexRoutes);
 
 // RUTA LOGIN.
-const rutaLogin = require('./router/rutaLogin.js');
-app.use("/login", rutaLogin);
-
-// RUTA PRODUCT CART.
-const rutaProductCart = require('./router/rutaProductCart.js');
-app.use("/ProductCart", rutaProductCart);
-
-// RUTA PRODUCT DETAIL.
-const rutaProductDetail = require('./router/rutaProductDetail.js');
-app.use("/productDetail", rutaProductDetail);
+app.use("/", usersRoutes);
 
 // RUTA REGISTER.
-const rutaRegister = require('./router/rutaRegister.js');
-app.use("/register", rutaRegister);
+app.use("/", usersRoutes);
 
-//RUTA ADMIN
-const rutaAdmin = require("./router/rutaAdmin.js");
-app.use("/admin", rutaAdmin);
+// RUTA PRODUCT CART.
+app.use("/", productsRoutes);
+
+// RUTA PRODUCT DETAIL.
+app.use("/", productsRoutes);
+
+// RUTA ADMIN
+app.use("/", productsRoutes);
