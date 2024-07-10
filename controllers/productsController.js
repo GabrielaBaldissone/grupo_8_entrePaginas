@@ -2,13 +2,13 @@ const path = require('path');
 
 const productsController = {
     productCart: (req, res) => {
-        res.sendFile(path.resolve('./views/products/productCart.html'));
+        res.render(path.resolve('./views/products/productCart'));
     },
     productDetail: (req, res) => {
-        res.sendFile(path.resolve('./views/products/productDetail.html'));
+        res.render(path.resolve('./views/products/productDetail'));
     },
     productAdmin: (req, res) => {
-        res.sendFile(path.resolve('./views/products/formAdminProduct.html'));
+        res.render(path.resolve('./views/products/formAdminProduct'));
     }
 };
 

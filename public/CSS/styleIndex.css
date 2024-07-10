@@ -656,9 +656,9 @@ section.productcart-section {
         width: 45%;
     }
     .productcard-header-actions{
-        font-size: 20px;
         width: 50%;       
     }
+
     .centrado {
         display: flex;
         justify-content: space-between;
@@ -686,12 +686,10 @@ section.productcart-section {
         width: 100%;
         align-items: center;
     }
-    .fa-search{
-        font-size: 25px;
-        padding-left: 50%;
-    }
-    .fa-cart-shopping, .fa-user{
-        font-size: 25px;
+
+    .icons-style{
+        padding: 3px;
+        font-size: 20px;
     }
     section.productcart-section{
         margin-top: 27.3%;

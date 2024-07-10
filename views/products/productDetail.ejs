@@ -11,16 +11,7 @@
     <link rel="stylesheet" href="CSS/styleIndex.css">
 </head>
 <body>
-    <header class="nav">
-        <div class="productcard-header-icon">
-        <a href="/"><img src="IMG/essenciana-logo-white.png"  class="logo" alt=""></a>
-        </div>
-        <div class="productcard-header-actions">
-            <a href="#"><i class="fas fa-search" style="padding: 3%;"></i></a>
-            <a href="/ProductCart"><i class="fa-solid fa-cart-shopping"style="padding: 3%;" ></i></a>
-            <a href="/login"><i class="fas fa-user" style="padding: 3%;"></i></a>
-        </div>
-    </header>
+    <%- include('../partials/navbar.ejs') %>
     <main>
         <section class="product-details">
             <img src="IMG/Cortinas HiZu XXL RIEL.png" class="product-details-img"  alt="Cortinas con Riel">
@@ -108,24 +99,6 @@
         </section>
     </main>
 
-    <footer >
-        <section class="centrado">
-                <ul>
-                    <h3>Nuestras redes:</h3>
-                    <li><a href="#"><i class="fab fa-facebook"></i>  Essenciana</a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i>  essenciana.lr</a></li>
-                    <li><a href="#"><i class="fab fa-pinterest"></i>  Essenciana</a></li>
-                </ul>
-            <div class="div-logo-footer">
-            <img src="IMG/essenciana-logo-white.png"  class="logo-footer" alt="">
-            </div>
-                <ul>
-                    <h3>Contactanos:</h3>
-                    <li><a href="#"><i class="fa-solid fa-phone"></i>  +5493804506892</a></li>
-                    <li><a href="#"><i class="fa-solid fa-envelope"></i>  Essen@gmail.com</a></li>
-                    <li><a href="#"><i class="fa-solid fa-map"></i>  Av. Rivadavia 1024</a></li>
-                </ul>
-            </section>
-        </footer>
+    <%- include('../partials/footer.ejs') %>
 </body>
 </html>
