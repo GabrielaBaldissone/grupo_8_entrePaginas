@@ -1,15 +1,20 @@
 <header class="nav">
     <% if (datos.activar) { %>     
-    <div class="productcard-header-icon">
+    <div class="header__navbar">
     <a href="/"><img src="/img/essenciana-logo-white.png"  class="logo" alt="logo-essenciana"></a>
     </div>
     <% } else {  %>
-    <div class="productcard-header-icon">
+    <div class="header__navbar">
         <a href="/"><img src="/img/essenciana-logo-white.png"  class="logo" alt="logo-essenciana"></a>
     </div>
-    <div class="productcard-header-actions">
+    <div class="box-input">
+        <form class="search-bar" action="">
+            <input class="input-search" type="search" id="search" name="search" placeholder="Buscar productos, marcas"/>
+            <button class="button-search"><i class="fa-solid fa-magnifying-glass"></i></button> 
+        </form>
+        </div>
+    <div class="header__navbar">
         <a href="/products/admin" ><i class="fa-solid fa-gear icons-style"></i></a>       
-        <a href="#"><i class="fas fa-search icons-style"></i></a>
         <a href="/products/cart"><i class="fa-solid fa-cart-shopping icons-style"></i></a>
         <a href="/users/login"><i class="fas fa-user icons-style"></i></a>
     </div>
