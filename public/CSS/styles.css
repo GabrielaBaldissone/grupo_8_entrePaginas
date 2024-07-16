@@ -456,6 +456,18 @@ section.productcart-section {
     box-shadow: 10px 10px 40px black;
 }
 
+.register__form p{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register__form-a{
+    color: black;
+    font-size: 16px;
+    text-decoration: underline;
+    color: #0000EE;
+}
+
 .register__form label {
     display: block;
     margin-bottom: 5px;
