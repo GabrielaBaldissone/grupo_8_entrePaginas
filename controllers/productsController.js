@@ -4,7 +4,7 @@ const datos = {
 
 const productsController = {
     productCart: (req, res) => {
-        res.render("products/productCart", {'datos': datos});
+        res.render("products/ProductCart", {'datos': datos});
     },
     productDetail: (req, res) => {
         res.render("products/productDetail", {'datos': datos});
