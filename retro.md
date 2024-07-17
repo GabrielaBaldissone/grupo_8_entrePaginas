@@ -28,16 +28,6 @@ En base a lo trabajado durante el sprint N° 2 y utilizando la temática de estr
 - Algo a mejorar es la puntualidad y la asistencia a las reuniones semanales. La presencia constante es clave para mantenernos alineados y evitar malentendidos y retrasos. También evitar distracciones durante las reuniones y enfocarnos en el trabajo.
 
 Esquema realizado con la dinámica estrella de mar:
-Comenzar a hacer:
-![image](https://github.com/user-attachments/assets/f91dc1df-1291-4b71-9066-613e67b974ea)
 
-Hacer más:
-![image](https://github.com/user-attachments/assets/d4de60bf-7600-4121-9f50-c68a3e169494)
+![image](https://github.com/user-attachments/assets/584e0be6-3715-4572-b312-332278167f23)
 
-Continuar haciendo:
-![image](https://github.com/user-attachments/assets/d0d92568-0472-4391-aca2-014a582ab978)
-
-Hacer menos: Vacio
-
-Dejar de hacer:
-![image](https://github.com/user-attachments/assets/77c365cd-ee96-4230-afe6-acf9a27d17d5)
