@@ -1,4 +1,4 @@
-**Retrospectiva del Strint N° 1 – Grupo N° 8:**
+**Retrospectiva del Sprint N° 1 – Grupo N° 8:**
 
 Gracias al análisis y en base a lo que pudimos identificar en la dinámica de la estrella de mar, en primer lugar, como grupo sentimos y pensamos que nos tocaron buenos compañeros, predispuestos y muy activos en cada situación, luego, con respecto al Sprint N° 1, nos sentimos cómodos organizando reuniones y estableciendo roles, tareas para cada participante.
 El grupo está siempre activo y con ganas de aprender como también de ayudar a los compañeros que quizá, por cuestiones de tiempo/trabajo/estudio no pueden seguir las clases, pero generalmente todos participamos.
@@ -15,3 +15,29 @@ Nos encantaría seguir trabajando como venimos hasta fin de año y cada vez mejo
 ![Captura de pantalla 2024-06-18 112940](https://github.com/GabrielaBaldissone/grupo_8_esenciana/assets/113806247/e8ea77e4-fec8-434e-a715-b6b698e85275)
 
 ![Captura de pantalla 2024-06-18 112955](https://github.com/GabrielaBaldissone/grupo_8_esenciana/assets/113806247/1bf8da51-5b78-45b5-9af9-26232d2398eb)
+
+
+**Retrospectiva del Sprint N° 2 – Grupo N° 8:**
+
+En base a lo trabajado durante el sprint N° 2 y utilizando la temática de estrella de mar a modo de autoevaluación, pensamos lo siguiente:
+
+- Nos sentimos cómodos trabajando juntos y organizando reuniones diarias. Es importante que aumentemos nuestra presencia en estas reuniones para mejorar la comunicación y la coordinación.
+- Podemos mejorar siendo más proactivos y comprometiéndonos más con los objetivos del grupo. Tomar la iniciativa y comprometernos plenamente hará una gran diferencia en nuestro rendimiento.
+- Debemos seguir manteniendo la estructura de trabajo en ramas para organizarnos mejor. Las reuniones semanales son esenciales para el seguimiento y la planificación, y resolver dudas en Discord ha sido muy útil. Continuar siendo organizados y respetando los tiempos establecidos es fundamental para ser más eficientes.
+
+- Algo a mejorar es la puntualidad y la asistencia a las reuniones semanales. La presencia constante es clave para mantenernos alineados y evitar malentendidos y retrasos. También evitar distracciones durante las reuniones y enfocarnos en el trabajo.
+
+Esquema realizado con la dinámica estrella de mar:
+Comenzar a hacer:
+![image](https://github.com/user-attachments/assets/f91dc1df-1291-4b71-9066-613e67b974ea)
+
+Hacer más:
+![image](https://github.com/user-attachments/assets/d4de60bf-7600-4121-9f50-c68a3e169494)
+
+Continuar haciendo:
+![image](https://github.com/user-attachments/assets/d0d92568-0472-4391-aca2-014a582ab978)
+
+Hacer menos: Vacio
+
+Dejar de hacer:
+![image](https://github.com/user-attachments/assets/77c365cd-ee96-4230-afe6-acf9a27d17d5)
