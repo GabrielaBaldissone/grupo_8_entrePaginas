@@ -409,6 +409,7 @@ section.productcart-section {
 
 .product-details img {
     max-width: 100%;
+    max-height: 300px;
     margin-right: 20px;
     height: auto;
     background-color: red;
@@ -496,7 +497,7 @@ section.productcart-section {
 
 .producto-imagen img {
     width: 100%; 
-    height: auto; 
+    height: auto;
 }
 /*Register*/
 
