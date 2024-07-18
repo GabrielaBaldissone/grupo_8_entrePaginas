@@ -8,7 +8,6 @@
     list-style: none;
 }
 
-
 body {
     background-color: #eeeeee;
     font-family: "Playfair Display", serif;
@@ -18,8 +17,7 @@ body {
 /* NAV */
 .nav {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: #8e8e8e;
 }
@@ -27,63 +25,6 @@ a {
     color: black;
 }
 
-div.box-input {
-    width: 40%;
-}
-
-.header__navbar-logo{
-    width: 30%;
-}
-
-.logo{
-    width: 100%;
-}
-
-#search{
-    font-size: 14px;
-    padding: 15px;
-    border-radius: 4px;
-    width: 90%;
-    height: 30px;
-    margin-top: 10px;
-    border: white;
-    outline: 0;
-}
-
-#search:focus{
-    border-style: solid;
-    border-color: #3483fa;
-    border-width: 1.7px;
-}
-
-.search-bar{
-    width: 100%;
-}
-
-.button-search{
-    font-size: 18px;
-    margin-right: 10px;
-    padding: 2px;
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    border: none;
-    top: 13px;
-    right: 7px;
-    border-radius: 4px;
-    color: rgba(102, 102, 102, 0.488);
-}
-
-
-
-.box-input{
-    display: flex;
-
-    position: relative;
-}
-
-.search-bar{
-    width: 100%;
-}
 
 .title {
     font-size: 30px;
@@ -404,13 +345,11 @@ section.productcart-section {
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    border-radius: 10px;
 }
 
 .product-details img {
-    max-width: 100%;
+    max-width: 300px;
     margin-right: 20px;
-    height: auto;
     background-color: red;
 }
 
@@ -419,12 +358,12 @@ section.productcart-section {
 }
 
 .cantidad-box {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .cantidad-box label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .cantidad-controls {
@@ -436,7 +375,7 @@ section.productcart-section {
     background-color: #ee7e1c; 
     color: #fff; 
     border: none;
-    padding: 3px 6px;
+    padding: 2px 3px;
     font-size: 1em;
     cursor: pointer;
     border-radius: 5px;
@@ -447,9 +386,9 @@ section.productcart-section {
 }
 
 #cantidad {
-    width: 50px;
+    width: 60px;
     text-align: center;
-    margin: 0 8px;
+    margin: 0 10px;
     padding: 4px;
     font-size: 1em;
 }
@@ -458,7 +397,7 @@ section.productcart-section {
     background-color: #ee7e1c; 
     color: #fff; 
     border: none;
-    padding: 3px 10px;
+    padding: 2px 5px;
     font-size: 1em;
     cursor: pointer;
     border-radius: 5px;
@@ -466,7 +405,6 @@ section.productcart-section {
 
 .agregar-carrito-btn:hover  {
     background-color: #ee7e1c; 
-    padding: 3px 10px;
 }
 
 .productos-relacionados  {
@@ -476,18 +414,16 @@ section.productcart-section {
     flex-wrap:nowrap;
     overflow: auto;
     white-space:nowrap;
-    margin-top: 20px;
     }
 
 .producto {
     display: inline-block; 
-    width: 250px; 
-    margin-right: 10px;
+    width: 300px; 
+    margin-right: 15px;
     text-align: center; 
     border: 1px solid #ccc; 
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    overflow: hidden;
 }
 
 .producto:last-child {
@@ -495,7 +431,7 @@ section.productcart-section {
 }
 
 .producto-imagen img {
-    width: 100%; 
+    width: 50%; 
     height: auto; 
 }
 /*Register*/
@@ -510,7 +446,7 @@ section.productcart-section {
 
 .register__form{
     border: 1px solid black;
-    min-width: 50%;
+    max-width: 500px;
     padding: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -520,18 +456,6 @@ section.productcart-section {
     box-shadow: 10px 10px 40px black;
 }
 
-.register__form p{
-    text-align: center;
-    margin-top: 15px;
-}
-
-.register__form-a{
-    color: black;
-    font-size: 16px;
-    text-decoration: underline;
-    color: #0000EE;
-}
-
 .register__form label {
     display: block;
     margin-bottom: 5px;
@@ -539,23 +463,11 @@ section.productcart-section {
     color: black;
 }
 
-.register__form input[type="file"]{
-    margin-bottom: 15px;
-}
-
-.register__form textarea{
-    width: 100%;
-    height: 100px;
-    padding: 5px;
-}
-
 .register__form input[type="text"],
-.register__form input[type="number"],
 .register__form input[type="email"],
 .register__form input[type="tel"],
 .register__form input[type="date"],
-.register__form input[type="password"],
-.register__form select {
+.register__form input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -625,7 +537,6 @@ section.productcart-section {
 
 .form-login{
     padding: 20px;
-    margin-bottom: 120px;
 }
 
 .description-login{
@@ -705,7 +616,7 @@ section.productcart-section {
     align-items: center;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 320px) {
 
     .modificar { 
         width: 85%;
@@ -732,8 +643,10 @@ section.productcart-section {
     .logo{
         width: 45%;
     }
-
-
+    .productcard-header-actions{
+        font-size: 20px;
+        width: 50%;       
+    }
     .centrado {
         display: flex;
         justify-content: space-between;
@@ -761,10 +674,12 @@ section.productcart-section {
         width: 100%;
         align-items: center;
     }
-
-    .icons-style{
-        padding: 3px;
-        font-size: 20px;
+    .fa-search{
+        font-size: 25px;
+        padding-left: 50%;
+    }
+    .fa-cart-shopping, .fa-user{
+        font-size: 25px;
     }
     section.productcart-section{
         margin-top: 27.3%;
@@ -781,19 +696,7 @@ section.productcart-section {
 
 
 
-@media screen and (min-width: 769px) {
-    .header__navbar-logo{
-        padding-left: 120px;
-    }
-
-    .header__navbar-items{
-        padding-right: 120px;
-    }
-
-    .search-bar{
-        justify-content: center;
-    }
-
+@media screen and (min-width: 760px) {
     .modificar {
         width: 20%;
     }
@@ -823,7 +726,10 @@ section.productcart-section {
         padding-top: 2%;
         width: 25%;
     }
-
+    .productcard-header-actions{
+        font-size: 20px;
+        width: 15%;
+    }
     .banner{
         padding-right: 10%;
         padding-left: 10%;
