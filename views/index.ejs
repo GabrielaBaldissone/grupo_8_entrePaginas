@@ -1,120 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('./partials/head.ejs',{'datos':datos.activar}) %>
     <title>Essenciana</title>
-</head>
-<body>
-        <%- include('partials/navbar.ejs') %>
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
 
-            <div class="banner">
-                <img src="/img/banner2.png" alt=""> 
-            </div>
-        <main>
-            <p class="title">¡Ofertas del mes de julio!</p>           
-            <section class="box-flex">
-                <article class="modificar">
-                    <a href="/products/details">
-                    <img src="/img/Cortinas HiZu XXL RIEL.png" alt="Cortina Roller">
-                    <div class="info">
+    <div class="banner">
+      <img src="/img/banner2.png" alt="Essenciana" />
+    </div>
+    <main>
+      <p class="title">Sabanas</p>
+
+      <section class="box-flex">
+        <% sabanas.forEach(prod => { %>
+            <article class="modificar">
+                <a href="/products/detail/<%= prod.id %>">
+                <img src="/img/<%= prod.image %>" alt="<%= prod.name %>" />
+                <div class="info">
                     <div class="box-linea">
-                    <p class="precios">$6.770</p>
-                    <p class="desc">40% OFF</p>
+                        <p class="precios">$<%= prod.price %></p>
+                        <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
                     </div>
-                    <p class="descripcion">Cortina Roller</p>
-                    </div>
-                    </a>
-                </article>
-                <article class="modificar">
-                    <a href="/products/details">
-                    <img src="/img/Funda de Edredón de Tusor Pesado CRUDO.png" alt="Sobre cama blanco">
+                    <p class="descripcion"><%= prod.name %></p>
+                </div>
+            </a>
+            </article>
+        <%}) %>
+      </section>
+      <p class="title">Acolchados</p>
+      <section class="box-flex">
+        <% acolchados.forEach(prod => { %>
+
+            <article class="modificar">
+                <a href="/products/detail/<%= prod.id %>">
+                    <img
+                    src="/img/<%= prod.image %>"
+                    alt="<%= prod.name %>"
+                    />
                     <div class="info">
-                    <div class="box-linea">
-                    <p class="precios">$86.000</p>
-                    <p class="desc">9% OFF</p>
-                    </div>
-                    <p class="descripcion">Sobre cama blanco</p>
-                    </div>
-                </a>
-                </article>
-                <article class="modificar">
-                    <a href="/products/details">
-                    <img src="/img/Ropa de cama.png" alt="Sobre cama XL">
-                    <div class="info">
-                    <div class="box-linea">
-                    <p class="precios">$70.500</p>
-                    <p class="desc">10% OFF</p>
-                    </div>
-                    <p class="descripcion">Sobre cama PACK XL</p>
-                    </div>
-                    </a>
-                </article>
-                <article class="modificar">
-                    <a href="/products/details">
-                    <img src="/img/Gasa Tusor Para Riel.png" alt="DISNEY">
-                    <div class="info">
-                    <div class="box-linea">
-                    <p class="precios">$23.200</p>
-                    <p class="desc">5% OFF</p>
-                    </div>
-                    <p class="descripcion">Cortina de DISNEY</p>
-                    </div>
-                    </a>
-                </article>
-            </section>
-                <p class="title">Ingresos de la semana</p>
-            <section class="box-flex">   
-                <article class="modificar">
-                    <a href="/products/details">
-                    <img src="/img/Funda de Edredón de Tusor Pesado Gris + Fundas de Almohadón.png" alt="Cafetera Moulinex">
-                        <div class="info">
                         <div class="box-linea">
-                            <p class="precios">$45.500</p>
+                            <p class="precios">$<%= prod.price %></p>
+                            <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
                         </div>
-                    <p class="descripcion">Cubre cama gris</p>
-                    </div>
-                    </a>
-                </article>
-                <article class="modificar">
-                    <a href="/products/details">
-                    <img src="/img/Cortinas con riel.png" alt="Cortina Roller">
-                    <div class="info">
-                    <div class="box-linea">
-                    <p class="precios">$65.000</p>
-                    </div>
-                    <p class="descripcion">Cortina Roller con riel</p>
+                        <p class="descripcion"><%= prod.name %></p>
                     </div>
                 </a>
-                </article>
-                <article class="modificar">
-                    <a href="/products/details">
-                    <img src="/img/Perfume1.png" alt="Geronio perfume">
-                    <div class="info">
-                    <div class="box-linea">
-                    <p class="precios">$25.000</p>
-                    </div>
-                    <p class="descripcion">Geronio perfume</p>
-                    </div>
-                    </a>
-                </article>
-                <article class="modificar">
-                    <a href="/products/details">
-                    <img src="/img/perfume2.png" alt="Keep calm">
-                    <div class="info">
-                    <div class="box-linea">
-                    <p class="precios">$22.000</p>
-                    </div>
-                    <p class="descripcion">Keep calm terapia</p>
-                    </div>
-                </a>
-                </article>
-            </section>
-        </main>
+            </article>
+        <%}) %>
+      </section>
+      <p class="title">Cortinas</p>
+      <section class="box-flex">
+        <% cortinas.forEach(prod => { %>
 
-        <%- include('partials/footer.ejs') %>
-        
-    <script src="https://kit.fontawesome.com/1165876da6.js" crossorigin="anonymous"></script>
+            <article class="modificar">
+                <a href="/products/detail/<%= prod.id %>">
+                    <img
+                    src="/img/<%= prod.image %>"
+                    alt="<%= prod.name %>"
+                    />
+                    <div class="info">
+                        <div class="box-linea">
+                            <p class="precios">$<%= prod.price %></p>
+                            <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
+                        </div>
+                        <p class="descripcion"><%= prod.name %></p>
+                    </div>
+                </a>
+            </article>
+        <%}) %>
+      </section>
+      <p class="title">Velas</p>
+      <section class="box-flex">
+        <% velas.forEach(prod => { %>
+
+            <article class="modificar">
+                <a href="/products/detail/<%= prod.id %>">
+                    <img
+                    src="/img/<%= prod.image %>"
+                    alt="<%= prod.name %>"
+                    />
+                    <div class="info">
+                        <div class="box-linea">
+                            <p class="precios">$<%= prod.price %></p>
+                            <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
+                        </div>
+                        <p class="descripcion"><%= prod.name %></p>
+                    </div>
+                </a>
+            </article>
+        <%}) %>
+      </section>
+      <p class="title">Esencias</p>
+      <section class="box-flex">
+        <% esencias.forEach(prod => { %>
+
+            <article class="modificar">
+                <a href="/products/detail/<%= prod.id %>">
+                    <img
+                    src="/img/<%= prod.image %>"
+                    alt="<%= prod.name %>"
+                    />
+                    <div class="info">
+                        <div class="box-linea">
+                            <p class="precios">$<%= prod.price %></p>
+                            <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
+                        </div>
+                        <p class="descripcion"><%= prod.name %></p>
+                    </div>
+                </a>
+            </article>
+        <%}) %>
+      </section>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
+
+    <script
+      src="https://kit.fontawesome.com/1165876da6.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="/script.js"></script>
-</body>
+  </body>
 </html>

@@ -499,6 +499,10 @@ section.productcart-section {
     width: 100%; 
     height: auto;
 }
+
+.producto-descripcion{
+    color: black;
+}
 /*Register*/
 
 .register__container{

@@ -1,0 +1,182 @@
+[
+    {
+      "id": 1,
+      "name": "Juego de sábanas de algodón",
+      "category": "sábanas",
+      "price": 49.99,
+      "available": true,
+      "image": "gabriel-alenius-lTrbjFd8Iwo-unsplash.jpg",
+      "description": "Juego de sábanas de algodón, suave y cómodo para una noche de descanso."
+    },
+    {
+      "id": 2,
+      "name": "Edredón reversible acolchado",
+      "category": "acolchados",
+      "price": 79.95,
+      "available": false,
+      "image": "Funda-de-Edredón-CRUDO.png",
+      "description": "Edredón reversible acolchado, perfecto para mantener el calor durante el invierno."
+    },
+    {
+      "id": 3,
+      "name": "Cortinas de lino con diseño floral",
+      "category": "cortinas",
+      "price": 34.50,
+      "available": true,
+      "image": "Gasa-Tusor-Para-Riel.png",
+      "description": "Cortinas de lino con diseño floral, añaden un toque elegante a cualquier habitación."
+    },
+    {
+      "id": 4,
+      "name": "Velas aromáticas de lavanda",
+      "category": "velas",
+      "price": 12.99,
+      "available": true,
+      "image": "jocelyn-morales-th0b5nMt2MY-unsplash.jpg",
+      "description": "Velas aromáticas de lavanda, perfectas para crear un ambiente relajante."
+    },
+    {
+      "id": 5,
+      "name": "Esencia de vainilla para difusor",
+      "category": "esencias",
+      "price": 9.95,
+      "available": true,
+      "image": "scentll-co-MSnEcjf6IYE-unsplash.jpg",
+      "description": "Esencia de vainilla para difusor, llena tu hogar con un aroma dulce y acogedor."
+    },
+    {
+      "id": 6,
+      "name": "Juego de sábanas de seda",
+      "category": "sábanas",
+      "price": 119.99,
+      "available": true,
+      "image": "jake-goossen-iiEDcMv3bR8-unsplash.jpg",
+      "description": "Juego de sábanas de seda, lujo y suavidad para tu cama."
+    },
+    {
+      "id": 7,
+      "name": "Edredón nórdico reversible",
+      "category": "acolchados",
+      "price": 89.95,
+      "available": true,
+      "image": "Ropa-de-cama.png",
+      "description": "Edredón nórdico reversible, ideal para mantener la calidez durante el invierno."
+    },
+    {
+      "id": 8,
+      "name": "Cortinas opacas térmicas",
+      "category": "cortinas",
+      "price": 42.75,
+      "available": false,
+      "image": "cortina-brown.jpg",
+      "description": "Cortinas opacas térmicas, bloquean la luz y ayudan a regular la temperatura."
+    },
+    {
+      "id": 9,
+      "name": "Velas perfumadas de jazmín",
+      "category": "velas",
+      "price": 15.50,
+      "available": true,
+      "image": "clare-neilson-jffTWZzhFB0-unsplash.jpg",
+      "description": "Velas perfumadas de jazmín, crean una atmósfera fresca y floral."
+    },
+    {
+      "id": 10,
+      "name": "Esencia de sándalo para difusor",
+      "category": "esencias",
+      "price": 12.45,
+      "available": true,
+      "image": "scentll-co-6ZpXZW82-fU-unsplash.jpg",
+      "description": "Esencia de sándalo para difusor, llena tu espacio con un aroma terroso y calmante."
+    },
+    {
+      "id": 11,
+      "name": "Juego de sábanas de microfibra",
+      "category": "sábanas",
+      "price": 29.99,
+      "available": true,
+      "image": "Funda-de-Edredón-gris.png",
+      "description": "Juego de sábanas de microfibra, ligeras y suaves para un descanso confortable."
+    },
+    {
+      "id": 12,
+      "name": "Edredón ligero de verano",
+      "category": "acolchados",
+      "price": 59.95,
+      "available": false,
+      "image": "liz-vo-pl3sj3DigxM-unsplash.jpg",
+      "description": "Edredón ligero de verano, perfecto para las noches cálidas."
+    },
+    {
+      "id": 13,
+      "name": "Cortinas estampadas infantiles",
+      "category": "cortinas",
+      "price": 28.50,
+      "available": true,
+      "image": "Cortinas-con-riel.png",
+      "description": "Cortinas estampadas infantiles, coloridas y divertidas para la habitación de los niños."
+    },
+    {
+      "id": 14,
+      "name": "Velas sin llama de cera natural",
+      "category": "velas",
+      "price": 18.99,
+      "available": true,
+      "image": "Vela-Inmigrantes.png",
+      "description": "Velas sin llama de cera natural, seguras y decorativas para cualquier espacio."
+    },
+    {
+      "id": 15,
+      "name": "Esencia de eucalipto para difusor",
+      "category": "esencias",
+      "price": 7.95,
+      "available": true,
+      "image": "Perfume1.png",
+      "description": "Esencia de eucalipto para difusor, refrescante y revitalizante."
+    },
+    {
+      "id": 16,
+      "name": "Juego de sábanas de franela",
+      "category": "sábanas",
+      "price": 39.99,
+      "available": true,
+      "image": "anastasia-mezenina-99OHVytUzy8-unsplash.jpg",
+      "description": "Juego de sábanas de franela, cálidas y acogedoras para el invierno."
+    },
+    {
+      "id": 17,
+      "name": "Edredón reversible de invierno",
+      "category": "acolchados",
+      "price": 99.95,
+      "available": true,
+      "image": "tracey-hocking-GpBtG5aFHB0-unsplash.jpg",
+      "description": "Edredón reversible de invierno, perfecto para mantenerte caliente en las noches frías."
+    },
+    {
+      "id": 18,
+      "name": "Cortinas de bambú",
+      "category": "cortinas",
+      "price": 49.75,
+      "available": false,
+      "image": "Cortinas-HiZu-XXL-RIEL.png",
+      "description": "Cortinas de bambú, naturales y ecológicas para un toque zen en tu hogar."
+    },
+    {
+      "id": 19,
+      "name": "Velas aromáticas de sándalo",
+      "category": "velas",
+      "price": 14.50,
+      "available": true,
+      "image": "velas-aromaticas.jpg",
+      "description": "Velas aromáticas de sándalo, crean un ambiente cálido y relajante."
+    },
+    {
+      "id": 20,
+      "name": "Esencia de rosa para difusor",
+      "category": "esencias",
+      "price": 10.75,
+      "available": true,
+      "image": "perfume2.png",
+      "description": "Esencia de rosa para difusor, llena tu hogar con un aroma floral y dulce."
+    }
+]

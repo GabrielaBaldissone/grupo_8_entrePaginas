@@ -2,18 +2,28 @@
 const express = require('express');
 const app = express();
 
+// SERVIDOR.
+const PORT = process.env.PORT ?? 3030;
+
+// PUBLIC.
+app.use(express.static("public"));
+
+// VISTAS EJS
+app.set("view engine", "ejs");
+
 // REQUIRIENDO RUTAS 
 const indexRoutes = require('./routes/indexRoutes.js');
 const usersRoutes = require('./routes/usersRoutes.js');
 const productsRoutes = require('./routes/productsRoutes.js');
 
-app.set("view engine", "ejs");
+// CAPTURAR DATOS DE UN FORMULARIO EN FORMATO JSON
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
-// PUBLIC.
-app.use(express.static("public"));
+// METHOD-OVERRIDE PARA IMPLEMENTAR PUT Y DELETE
+const methodOverride = require("method-override");
+app.use(methodOverride("_method"));
 
-// SERVIDOR.
-const PORT = process.env.PORT ?? 3030;
 
 // RUTA INDEX.
 app.use("/", indexRoutes);

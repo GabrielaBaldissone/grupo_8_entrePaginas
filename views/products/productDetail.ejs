@@ -8,86 +8,41 @@
     <%- include('../partials/navbar.ejs') %>
     <main>
         <section class="product-details">
-            <img src="/img/Cortinas HiZu XXL RIEL.png" class="product-details-img"  alt="Cortinas con Riel">
+            <img src="/img/<%= product.image %>" class="product-details-img"  alt="<%= product.name %>">
             <div class="product-description">
-                <h1>Cortinas con Riel Hizzu</h1>
-                <p>Lorem ipsum dolor sit amet </p>
-                <p>Precio: $37.500</p>
-                <p>Disponibilidad: <span id="disponibilidad">En Stock</span></p>
-                <form action="#">
+                <h1><%= product.name %></h1>
+                <p><%= product.description %> </p>
+                <p>Precio: $<%= product.price %></p>
+                <p>Disponibilidad: <span id="disponibilidad"><%= product.available ? "Disponible" : "Sin Stock" %></span></p>
+                <form action="/products" method="POST">
                     <div class="cantidad-box">
                         <label for="cantidad">Cantidad:</label>
                         <div class="cantidad-controls">
-                            <input type="number" id="cantidad" name="cantidad" min="1" value="1">
+                            <input type="number" id="cantidad" name="quantity" min="1" value="1">
+                            <input type="hidden" name="productId" value="<%= product.id %>">
                         </div>
-                    </div>
-                    
+                    </div>                    
                     <button type="submit" class="agregar-carrito-btn">Agregar al carrito</button>
+                </form>
                 </div>
             </div>
         </section>
         <h2>Productos Relacionados</h2>
         <section class="productos-relacionados">
-            <article class="producto">
-                <div class="producto-imagen">
-                    <img src="/img/Cortinas con riel.png"  class="product-details-img" alt="Producto Relacionado 1">
-                </div>
-                <div class="producto-descripcion">
-                    <h3>Cortinas con Riel</h3>
-                    <p><strong>Precio:</strong> $23.500</p>
-                    <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
-                </div>
-            </article>
-            <article class="producto">
-                <div class="producto-imagen">
-                    <img src="/img/Gasa Tusor Para Riel.png"  class="product-details-img" alt="Producto Relacionado 1">
-                </div>
-                <div class="producto-descripcion">
-                    <h3>Cortina de DISNEY</h3>
-                    <p><strong>Precio:</strong> $23.500</p>
-                    <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
-                </div>
-            </article>
-            <article class="producto">
-                <div class="producto-imagen">
-                    <img src="/img/Funda de Edredón de Tusor Pesado Gris + Fundas de Almohadón.png"  class="product-details-img" alt="Producto Relacionado 1">
-                </div>
-                <div class="producto-descripcion">
-                    <h3>Fundas de Almohadón</h3>
-                    <p><strong>Precio:</strong> $23.500</p>
-                    <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
-                </div>
-            </article>
-            <article class="producto">
-                <div class="producto-imagen">
-                    <img src="/img/perfume2.png"  class="product-details-img" alt="Producto Relacionado 1">
-                </div>
-                <div class="producto-descripcion">
-                    <h3>Keep calm</h3>
-                    <p><strong>Precio:</strong> $23.500</p>
-                    <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
-                </div>
-            </article>
-            <article class="producto">
-                <div class="producto-imagen">
-                    <img src="/img/Funda de Edredón de Tusor Pesado CRUDO.png" class="product-details-img" alt="Producto Relacionado 2">
-                </div>
-                <div class="producto-descripcion">
-                    <h3>Funda de Edredón de Tusor</h3>
-                    <p><strong>Precio:</strong> $30.500</p>
-                    <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
-                </div>
-            </article>
-            <article class="producto">
-                <div class="producto-imagen">
-                    <img src="/img/Perfume1.png"class="product-details-img" alt="Producto Relacionado 2">
-                </div>
-                <div class="producto-descripcion">
-                        <h3>Funda de Edredon</h3>
-                        <p><strong>Precio:</strong> $53.500</p>
-                        <p><strong>Disponibilidad:</strong> <span>Disponible</span></p>
-                </div>
-            </article>
+            <% relatedProducts.forEach(prod =>{ %>
+                <article class="producto">
+                    <a href="/products/detail/<%= prod.id %>">
+                    <div class="producto-imagen">
+                        <img src="/img/<%= prod.image %>"  class="product-details-img" alt="<%= prod.name%>">
+                        </div>
+                    <div class="producto-descripcion">
+                        <h3><%= prod.name %></h3>
+                        <p><strong>Precio:</strong> $<%= prod.price %></p>
+                        <p><strong>Disponibilidad:</strong> <span><%= product.available ? "Disponible" : "Sin Stock" %></span></p>
+                    </div>
+                    </a>
+                </article>
+            <% }) %>
         </section>
     </main>
 
