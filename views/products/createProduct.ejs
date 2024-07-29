@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head.ejs',{'datos':datos.activar}) %>
+    <title>Creación de productos</title>
+</head>
+<body>
+
+    <%- include('../partials/navbar.ejs') %>
+
+    <div class="register__container">
+    <form class="register__form" action="/products/create"  method="POST" enctype="multipart/form-data">
+        <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
+        <input type="text" id="nombreProducto" name="name" required>
+        <label for="category">Categoria:<span class="register__required--red">*</span></label>
+        <select name="category" id="categoriaProducto">
+            <option value="velas">Velas</option>
+            <option value="esencias">Esencias</option>
+            <option value="sábanas">Sabanas</option>
+            <option value="cortinas">Cortinas</option>
+            <option value="acolchados">Acolchados</option>
+        </select>
+        
+        <label for="available">Stock:<span class="register__required--red">*</span></label>
+        <select name="available" id="available">
+            <option value="true">Disponible</option>
+            <option value="false">Sin Stock</option>
+        </select>
+        <label for="imagenProducto">Imagen:<span class="register__required--red">*</span></label>
+        <input type="file" id="imgProducto" name="image">
+        <label for="precioProducto">Precio:<span class="register__required--red">*</span></label>
+        <input type="number" name="price" id="precioProducto" required>
+        <label for="descripcionProducto">Descripcion:<span class="register__required--red">*</span></label>
+        <textarea name="description" id="descripcionProducto" required></textarea>
+        <div class="button-container">
+            <button type="submit">Agregar</button>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
