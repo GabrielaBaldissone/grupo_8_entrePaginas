@@ -8,21 +8,19 @@
     <%- include('../partials/navbar.ejs') %>
 
     <div class="register__container">
-    <form method="POST" class="register__form">
+    <form action="/users/register" method="POST" class="register__form">
         <label for="nombre">Nombre:<span class="register__required--red">*</span></label>
-        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+        <input type="text" id="nombre" name="firstName" placeholder="Ingrese su nombre" required>
         <label for="apellido">Apellido:<span class="register__required--red">*</span></label>
-        <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido" required>
+        <input type="text" id="apellido" name="lastName" placeholder="Ingrese su apellido" required>
         <label for="email">Email:<span class="register__required--red">*</span></label>
         <input type="email" id="email" name="email" placeholder="user@example.com" required>
         <label for="telefono">Teléfono:<span class="register__required--red">*</span></label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su telefono" required><br>
-        <label for="fechaNac">Fecha de Nacimiento:<span class="register__required--red">*</span></label>
-        <input type="date" id="fechaNac" name="fechaNac" placeholder="Ingrese su fecha de Nacimiento" required>
+        <input type="tel" id="telefono" name="phone" placeholder="Ingrese su telefono" required><br>
         <label for="contrasenia">Contraseña:<span class="register__required--red">*</span></label>
-        <input type="password" id="contrasenia" name="contrasenia" placeholder="Ingrese su contraseña" required>
+        <input type="password" id="contrasenia" name="password" placeholder="Ingrese su contraseña" required>
         <label for="contraConfirmada">Confirmar Contraseña:<span class="register__required--red">*</span></label>
-        <input type="password" id="contraConfirmada" name="contraConfirmada" placeholder="Confirme su contraseña" required>
+        <input type="password" id="contraConfirmada" placeholder="Confirme su contraseña" required>
         <label for="terminos">
             <input type="checkbox" id="terminos" name="terminos" value="true" required>Acepto términos y condiciones para ser miembro. <a href="#">Términos y condiciones.</a>
         </label>
