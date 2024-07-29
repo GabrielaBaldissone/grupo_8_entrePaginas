@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head.ejs',{'datos':datos.activar}) %>
+    <title>Actualización de productos</title>
+</head>
+<body>
+
+    <%- include('../partials/navbar.ejs') %>
+
+    <div class="register__container">
+    <form class="register__form" action="/products/edit/<%= product.id %>?_method=PUT"  method="POST" enctype="multipart/form-data">
+        <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
+        <input type="text" id="nombreProducto" name="name" value="<%= product.name %>" required>
+        <label for="category">Categoria:<span class="register__required--red">*</span></label>
+        <select name="category" id="categoriaProducto">
+            <option value="velas" <%= product.category === "velas" ? 'selected' : '' %>>Velas</option>
+            <option value="esencias" <%= product.category === "esencias" ? 'selected' : '' %>>Esencias</option>
+            <option value="sábanas" <%= product.category === "sábanas" ? 'selected' : '' %>>Sabanas</option>
+            <option value="cortinas" <%= product.category === "cortinas" ? 'selected' : '' %>>Cortinas</option>
+            <option value="acolchados" <%= product.category === "acolchados" ? 'selected' : '' %>>Acolchados</option>
+        </select>
+        
+        <label for="available">Stock:<span class="register__required--red">*</span></label>
+        <select name="available" id="available">
+            <option value="true"  <%= product.available == true? 'selected' : '' %>>Disponible</option>
+            <option value="false" <%= product.available == false ? 'selected' : '' %>>Sin Stock</option>
+        </select>
+        <label for="imagenProducto">Imagen:<span class="register__required--red">*</span></label>
+        <input type="file" id="imgProducto" name="image" multiple>
+        <label for="precioProducto">Precio:<span class="register__required--red">*</span></label>
+        <input type="number" name="price" id="precioProducto" value="<%= product.price %>" required>
+        <label for="descripcionProducto">Descripcion:<span class="register__required--red">*</span></label>
+        <textarea name="description" id="descripcionProducto" required><%= product.description %></textarea>
+        <div class="button-container">
+            <button type="submit">Editar</button>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
