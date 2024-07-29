@@ -1,4 +1,3 @@
-const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 
@@ -45,8 +44,9 @@ const productsController = {
 
         res.redirect(`/products/detail/${productId}`);
     },
-    productAdmin: (req, res) => {
-        res.render("products/formAdminProduct", {'datos': datos});
+    getProductAdmin: (req, res) => {
+        const products = JSON.parse(fileProducts);
+        res.render("products/formAdminProduct", {datos, products});
     },
     deleteProductById: (req, res) =>{
         const {id} = req.params;
@@ -63,6 +63,73 @@ const productsController = {
         fs.writeFileSync(productsCartFilePath, newProductsCartJSON);
 
         res.render("products/productCart", {datos, productsCart});
+    },
+    editProduct: (req, res) =>{
+        const {productEditId} = req.query;
+        const products = JSON.parse(fileProducts);
+        const product = products.find(prod => prod.id == productEditId);
+        
+        res.render("products/editProduct", {datos, product});
+    },
+    updateProduct: (req, res) =>{
+        const {id} = req.params;
+        const {name, category, price, available, description} = req.body;
+        const newImage = req.file ? req.file.filename : null;
+        const products = JSON.parse(fileProducts);
+
+        products.forEach(prod =>{
+            if(prod.id == id){
+                prod.name = name,
+                prod.category = category,
+                prod.price = price,
+                prod.available = available,
+                prod.description = description,
+                prod.image = newImage ? newImage : prod.image 
+            }
+        })
+
+        const productsJSON = JSON.stringify(products);
+        fs.writeFileSync(productsFilePath, productsJSON);
+
+        res.render("products/formAdminProduct", {datos, products});
+    },
+    destroy: (req, res) =>{
+        const {productDeleteId} = req.body;
+        let products = JSON.parse(fileProducts);
+        const {image} = products.find(prod => prod.id == productDeleteId);
+        const fileImage = path.join(__dirname, "../public/img/", image);
+
+        const filteredProducts = products.filter(prod => prod.id != productDeleteId);
+        const filteredProductsJSON = JSON.stringify(filteredProducts);
+        fs.writeFileSync(productsFilePath, filteredProductsJSON);
+        if(image != "default.png"){
+            fs.unlinkSync(fileImage);
+        }
+        products = filteredProducts;
+
+        res.render("products/formAdminProduct", {datos, products});
+    },
+    getCreateForm: (req, res) =>{
+        res.render("products/createProduct.ejs", {datos});
+    },
+    createProduct: (req, res) =>{
+        const {name, category, price, available, description} = req.body;
+        const image = req.file ? req.file.filename : "default.png";
+        let products = JSON.parse(fileProducts);
+        const newProduct = {
+            id: products.length ? products[products.length - 1].id + 1 : 1,
+            name,
+            category,
+            price,
+            available,
+            image,
+            description,
+        };
+        products.push(newProduct);
+        const productsJSON = JSON.stringify(products);
+        fs.writeFileSync(productsFilePath, productsJSON);
+
+        res.render("products/formAdminProduct", {datos, products});
     }
 };
 
