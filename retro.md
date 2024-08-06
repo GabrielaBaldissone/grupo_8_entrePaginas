@@ -31,3 +31,10 @@ Esquema realizado con la dinámica estrella de mar:
 
 ![image](https://github.com/user-attachments/assets/584e0be6-3715-4572-b312-332278167f23)
 
+**Retrospectiva del Sprint N° 3 – Grupo N° 8:**
+Durante el proceso del Sprint Nº 3, experimentamos ciertos desafíos que afectaron negativamente nuestro desempeño. Notamos que la falta de organización y una comunicación deficiente entre los miembros del equipo y también por problemas personales individuales, generaron un ambiente de trabajo menos eficiente y, en consecuencia, desánimo entre los integrantes.
+Además, la falta de tiempo para revisar adecuadamente los contenidos de clase y la dificultad en la comprensión de algunos temas contribuyeron a nuestro malestar. Estos factores se combinaron para generar una sensación de frustración y desmotivación.
+Para mejorar nuestra situación, es crucial que enfoquemos nuestros esfuerzos en fortalecer la comunicación y aumentar el compromiso en nuestras reuniones diarias (dayli's). Proponemos implementar una estructura de trabajo más organizada, asignando tareas y roles específicos a cada miembro del equipo, lo que permitirá un desarrollo más eficiente y coordinado.
+En cuanto a la práctica, nuestro objetivo es mejorar el estilo del sitio para hacerlo más intuitivo y optimizar la experiencia del usuario. Creemos que, al comprometerse a realizar estos cambios y mejoras, no solo avanzaremos en nuestros objetivos inmediatos, sino que también fortaleceremos nuestro equipo para futuros sprints.
+Estamos seguros de que, al adoptar estas medidas, mejoraremos nuestro rendimiento, lo que nos permitirá abordar los próximos desafíos con mayor eficacia y confianza.	 
+
