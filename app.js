@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 // SERVIDOR.
-const PORT = process.env.PORT ?? 3030;
+const PORT = process.env.PORT ?? 8080;
 
 // PUBLIC.
 app.use(express.static("public"));

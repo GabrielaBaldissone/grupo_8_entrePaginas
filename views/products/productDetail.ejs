@@ -11,23 +11,21 @@
             <img src="/img/<%= product.image %>" class="product-details-img"  alt="<%= product.name %>">
             <div class="product-description">
                 <h1><%= product.name %></h1>
-                <p><%= product.description %> </p>
-                <p>Precio: $<%= product.price %></p>
-                <p>Disponibilidad: <span id="disponibilidad"><%= product.available ? "Disponible" : "Sin Stock" %></span></p>
-                <form action="/products" method="POST">
-                    <div class="cantidad-box">
+                <p ><%= product.description %> </p>
+                <p class="price-total">Precio: $<%= product.price %></p>
+                <p >Disponibilidad: <span id="disponibilidad"><%= product.available ? "Disponible" : "Sin Stock" %></span></p>
+                <form class="cantidad-box" action="/products" method="POST">
                         <label for="cantidad">Cantidad:</label>
                         <div class="cantidad-controls">
                             <input type="number" id="cantidad" name="quantity" min="1" value="1">
                             <input type="hidden" name="productId" value="<%= product.id %>">
-                        </div>
-                    </div>                    
+                        </div>               
                     <button type="submit" class="agregar-carrito-btn">Agregar al carrito</button>
                 </form>
                 </div>
             </div>
         </section>
-        <h2>Productos Relacionados</h2>
+        <p class="product-relacionado">Productos Relacionados</p>
         <section class="productos-relacionados">
             <% relatedProducts.forEach(prod =>{ %>
                 <article class="producto">
@@ -36,9 +34,9 @@
                         <img src="/img/<%= prod.image %>"  class="product-details-img" alt="<%= prod.name%>">
                         </div>
                     <div class="producto-descripcion">
-                        <h3><%= prod.name %></h3>
-                        <p><strong>Precio:</strong> $<%= prod.price %></p>
-                        <p><strong>Disponibilidad:</strong> <span><%= product.available ? "Disponible" : "Sin Stock" %></span></p>
+                        <p><%= prod.name %></p>
+                        <p>Precio: $<%= prod.price %></p>
+                        <p><span><%= product.available ? "Disponible" : "Sin Stock" %></span></p>
                     </div>
                     </a>
                 </article>

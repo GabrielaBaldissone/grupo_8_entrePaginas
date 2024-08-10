@@ -1,127 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <%- include('./partials/head.ejs',{'datos':datos.activar}) %>
     <title>Essenciana</title>
-  </head>
-  <body>
+</head>
+<body>
     <%- include('partials/navbar.ejs') %>
 
     <div class="banner">
-      <img src="/img/banner2.png" alt="Essenciana" />
+    <img class="img-banner" src="/img/banner-e.png" alt="Essenciana" />
     </div>
     <main>
-      <p class="title">Sabanas</p>
+        <a href=""><p class="title">SÁBANAS</p></a>
 
-      <section class="box-flex">
+
+    <section class="box-flex">
         <% sabanas.forEach(prod => { %>
-            <article class="modificar">
+            <article class="article-style">
                 <a href="/products/detail/<%= prod.id %>">
+                <div class="conteiner-img">
                 <img src="/img/<%= prod.image %>" alt="<%= prod.name %>" />
+                </div>
                 <div class="info">
+                    <p class="descripcion"><%= prod.name %></p>                    
                     <div class="box-linea">
                         <p class="precios">$<%= prod.price %></p>
                         <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
                     </div>
-                    <p class="descripcion"><%= prod.name %></p>
+
                 </div>
             </a>
             </article>
         <%}) %>
-      </section>
-      <p class="title">Acolchados</p>
-      <section class="box-flex">
+    </section>
+    <p class="title">ACOLCHADOS</p>
+    <section class="box-flex">
         <% acolchados.forEach(prod => { %>
 
-            <article class="modificar">
+            <article class="article-style">
                 <a href="/products/detail/<%= prod.id %>">
+                    <div class="conteiner-img">
                     <img
                     src="/img/<%= prod.image %>"
                     alt="<%= prod.name %>"
                     />
+                    </div>
                     <div class="info">
+                        <p class="descripcion"><%= prod.name %></p>                        
                         <div class="box-linea">
                             <p class="precios">$<%= prod.price %></p>
                             <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
                         </div>
-                        <p class="descripcion"><%= prod.name %></p>
                     </div>
                 </a>
             </article>
         <%}) %>
-      </section>
-      <p class="title">Cortinas</p>
-      <section class="box-flex">
+    </section>
+    <p class="title">CORTINAS</p>
+    <section class="box-flex">
         <% cortinas.forEach(prod => { %>
 
-            <article class="modificar">
+            <article class="article-style">
                 <a href="/products/detail/<%= prod.id %>">
+                    <div class="conteiner-img">
                     <img
                     src="/img/<%= prod.image %>"
                     alt="<%= prod.name %>"
                     />
+                    </div>
                     <div class="info">
+                        <p class="descripcion"><%= prod.name %></p>                        
                         <div class="box-linea">
                             <p class="precios">$<%= prod.price %></p>
                             <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
                         </div>
-                        <p class="descripcion"><%= prod.name %></p>
                     </div>
                 </a>
             </article>
         <%}) %>
-      </section>
-      <p class="title">Velas</p>
-      <section class="box-flex">
+    </section>
+    <p class="title">VELAS</p>
+    <section class="box-flex">
         <% velas.forEach(prod => { %>
 
-            <article class="modificar">
+            <article class="article-style">
                 <a href="/products/detail/<%= prod.id %>">
+                    <div class="conteiner-img">
                     <img
                     src="/img/<%= prod.image %>"
                     alt="<%= prod.name %>"
                     />
+                    </div>
                     <div class="info">
+                        <p class="descripcion"><%= prod.name %></p>        
                         <div class="box-linea">
                             <p class="precios">$<%= prod.price %></p>
                             <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
                         </div>
-                        <p class="descripcion"><%= prod.name %></p>
                     </div>
                 </a>
             </article>
         <%}) %>
-      </section>
-      <p class="title">Esencias</p>
-      <section class="box-flex">
+    </section>
+    <p class="title">ESENCIAS</p>
+    <section class="box-flex">
         <% esencias.forEach(prod => { %>
 
-            <article class="modificar">
+            <article class="article-style">
                 <a href="/products/detail/<%= prod.id %>">
+                    <div class="conteiner-img">
                     <img
                     src="/img/<%= prod.image %>"
                     alt="<%= prod.name %>"
                     />
+                    </div>
                     <div class="info">
+                        <p class="descripcion"><%= prod.name %></p>                        
                         <div class="box-linea">
                             <p class="precios">$<%= prod.price %></p>
                             <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
                         </div>
-                        <p class="descripcion"><%= prod.name %></p>
                     </div>
                 </a>
             </article>
         <%}) %>
-      </section>
+    </section>
     </main>
 
     <%- include('partials/footer.ejs') %>
 
     <script
-      src="https://kit.fontawesome.com/1165876da6.js"
-      crossorigin="anonymous"
+    src="https://kit.fontawesome.com/1165876da6.js"
+    crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="/script.js"></script>
-  </body>
+</body>
 </html>
+
