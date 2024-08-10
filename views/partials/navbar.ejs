@@ -14,9 +14,16 @@
         </form>
     </div>
     <div class="header__navbar-items">
-        <a href="/products/admin" ><i class="fa-solid fa-gear icons-style"></i></a>       
-        <a href="/products/cart"><i class="fa-solid fa-cart-shopping icons-style"></i></a>
-        <a href="/users/login"><i class="fas fa-user icons-style"></i></a>
+        <ul class="nav-menu">
+            <li><a href="/users/login"><i class="fas fa-user icons-style"></i></a>
+                <ul>
+                    <li> <a class="items-nav" href="/users/login">Ingresar</a></li>
+                    <li> <a class="items-nav" href="/users/register">Registrarse</a></li>
+                </ul>
+            </li>             
+            <li><a href="/products/cart"><i class="fa-solid fa-cart-shopping icons-style"></i></a></li>  
+            <li><a href="/products/admin" ><i class="fa-solid fa-gear icons-style"></i></a>  </li>
+        </ul>
     </div>
 <% } %>
 </header>
