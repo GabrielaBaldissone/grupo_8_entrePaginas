@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const Product = require("../models/Product");
 
 //products.json
 const productsFilePath = path.join(__dirname, '../data/products.json');
@@ -13,6 +14,7 @@ const datos = {
 }
 
 const productsController = {
+    products: null,
     productCart: (req, res) => {
         let productsCart = [];
         if (fileProductsCart != "") {
@@ -21,10 +23,10 @@ const productsController = {
         res.render("products/productCart", {datos, productsCart});
     },
     productDetail: (req, res) => {
+        this.products = Product.findAll();
         const {id} = req.params;
-        const products = JSON.parse(fileProducts);
-        const product = products.find(prod => prod.id == id);
-        const relatedProducts = products.filter(prod => prod.category == product.category && prod.id != product.id);
+        const product = this.products.find(prod => prod.id == id);
+        const relatedProducts = this.products.filter(prod => prod.category == product.category && prod.id != product.id);
         res.render("products/productDetail", {datos, product, relatedProducts});
     },
     productAddCart: (req, res) =>{
