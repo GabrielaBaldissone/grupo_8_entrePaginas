@@ -42,8 +42,7 @@ const Product = {
         allProducts.forEach(prod => {
             if(prod.id == id){
                 prod.name = product.name;
-                prod.color = product.color;
-                prod.size = product.size;
+                prod.available = product.available;
                 prod.category = product.category;
                 prod.description = product.description;
                 prod.price = product.price;

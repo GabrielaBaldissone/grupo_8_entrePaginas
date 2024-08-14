@@ -77,23 +77,18 @@ const productsController = {
         const {id} = req.params;
         const {name, category, price, available, description} = req.body;
         const newImage = req.file ? req.file.filename : null;
-        const products = JSON.parse(fileProducts);
 
-        products.forEach(prod =>{
-            if(prod.id == id){
-                prod.name = name,
-                prod.category = category,
-                prod.price = price,
-                prod.available = available,
-                prod.description = description,
-                prod.image = newImage ? newImage : prod.image 
-            }
-        })
+        const product = {
+            name,
+            category,
+            price,
+            available: available === "true",
+            description,
+            image: newImage 
+        }
 
-        const productsJSON = JSON.stringify(products);
-        fs.writeFileSync(productsFilePath, productsJSON);
-
-        res.render("products/formAdminProduct", {datos, products});
+        Product.editProduct(id, product);
+        res.redirect(`/products/detail/${id}`);
     },
     destroy: (req, res) =>{
         const {productDeleteId} = req.body;
