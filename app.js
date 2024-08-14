@@ -1,9 +1,17 @@
 // VARIABLES REQUIRIENDO LO NECESARIO.
 const express = require('express');
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const app = express();
 
 // SERVIDOR.
 const PORT = process.env.PORT ?? 8080;
+
+app.use(session({
+    secret: "Shh, It is a secret"
+}));
+
+app.use(cookieParser());
 
 // PUBLIC.
 app.use(express.static("public"));

@@ -40,6 +40,43 @@ const usersController = {
         }else{
             return res.render("users/register", {errors: errors.mapped(), oldData: req.body, datos});
         }
+    },
+    loginProcess(req, res){
+        const { email, password, rememberMe } = req.body;
+        
+        const userToLogin = User.findByField("email", email);
+        if(userToLogin){
+            const isOkThePassword = bcryptjs.compareSync(password, userToLogin.password);
+            if(isOkThePassword){
+                delete userToLogin.password;
+                req.session.userLogged = userToLogin;
+                if(rememberMe){
+                    res.cookie("userEmail", email, { maxAge: (1000*60) * 2 });
+                }
+                // return res.redirect("/users/profile");
+                return res.send(userToLogin);
+            }else{
+                return res.render("users/login", {
+                    errors:{
+                        password: {
+                            msg: "La contraseña que ingresaste es incorrecta"
+                        }
+                    },
+                    oldData: req.body,
+                    datos
+                })
+            }
+        }else{
+            return res.render("users/login", {
+                errors:{
+                    email: {
+                        msg: "Este email no se encuentra registrado"
+                    }
+                },
+                oldData: req.body,
+                datos
+            })
+        }
     }
 };
 
