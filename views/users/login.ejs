@@ -16,19 +16,18 @@
         <section class="login-box">
         <form class="form-login" action="/users/login" method="POST">
 
-            <label class="description-login" for="name-user">Correo Electronico <span class="span-login-red">*</span></label>
+            <label class="description-login" for="name-user">Correo electronico <span class="span-login-red">*</span></label>
             <input class="input-login" type="text" name="email" id="name-user" placeholder="Usuario"
             value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
             <% if (locals.errors && errors.email) { %>
-                <p><%= errors.email.msg %></p>
+                <p class="error-message"><%= errors.email.msg %></p>
             <% } %>
     
             <label class="description-login" for="password-login">Contraseña<span class="span-login-red">*</span></label> 
             <input class="input-login" type="password" name="password" id="password-login" placeholder="Contraseña" >
             <% if (locals.errors && errors.password) { %>
-                <p><%= errors.password.msg %></p>
+                <p class="error-message"><%= errors.password.msg %></p>
             <% } %>
-
             <a class="ancla-login" href="">¿Olvidaste tu contraseña?</a>
 
             <input class="checkbox-login" type="checkbox" name="rememberMe" id="checkbox-login">

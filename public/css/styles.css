@@ -102,6 +102,7 @@ body {
 
 .header__navbar-items{
     display: block;
+    
 }
 
 .items-nav{
@@ -656,7 +657,7 @@ section.productcart-section {
     height: 50%;
     border-radius: 20px;
     margin: 0 auto;
-    box-shadow: 1px 5px 5px 5px rgba(0, 0, 0, 0.508); 
+    box-shadow: 1px 5px 5px 5px #2f2f2f; 
 }
 
 .form-login{
@@ -667,7 +668,7 @@ section.productcart-section {
 
 .description-login{
     display: block;
-    color: black;
+    color: #2f2f2f;
     font-weight: 600;
     font-size: 16px; 
     margin: 7px;
@@ -686,10 +687,25 @@ section.productcart-section {
     display: block;
     width: 80%;
     height: 30px;
+    border-radius: 8px;
+    color:#2f2f2f;
 }
 
 .input-login::placeholder{
     text-align: center;
+}
+
+/* Estilo para el mensaje de error */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Estilo para el borde rojo en los campos con error */
+.input-error {
+    border: 2px solid red;
+    outline: none;
 }
 
 .checkbox-login{
@@ -728,7 +744,7 @@ section.productcart-section {
 
 .submit-login:hover{
     background-color: rgba(199, 199, 199, 0.66);
-    color: black;
+    color: #2f2f2f;
 }
 
 .ancla-login {
@@ -748,14 +764,14 @@ section.productcart-section {
 
 
 .register__form{
-    border: 1px solid black;
+    border: 1px solid #2f2f2f;
     min-width: 50%;
     padding: 20px;
     margin-top: 30px;
     margin-bottom: 500px;
     border-radius: 8px;
     background-color: #ffffff;
-    box-shadow: 1px 5px 5px 5px rgba(0, 0, 0, 0.508); 
+    box-shadow: 1px 5px 5px 5px #2f2f2f; 
 
 }
 
@@ -764,7 +780,7 @@ section.productcart-section {
 }
 
 .register__form a:hover {
-    color: black;
+    color: #2f2f2f;
 }
 
 .register__form p{
@@ -775,7 +791,7 @@ section.productcart-section {
 
 
 .register__form-a{
-    color: black;
+    color: #2f2f2f;
     font-size: 16px;
     text-decoration: underline;
     color: #0000EE;
@@ -785,7 +801,7 @@ section.productcart-section {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: black;
+    color: #2f2f2f;
 }
 
 .register__form input[type="file"]{
@@ -808,9 +824,9 @@ section.productcart-section {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid black;
+    border: 1px solid #2f2f2f;
     border-radius: 4px;
-    color: black;
+    color: #2f2f2f;
 }
 
 .register__form input[type="checkbox"] {
@@ -981,7 +997,7 @@ section.productcart-section {
 /*Estilos de la lupa*/
 .button-search{
     font-size: 18px;
-    margin-right: 88px;
+    margin-right: 58px;
 }
 
 /*Estilos de los iconos*/
