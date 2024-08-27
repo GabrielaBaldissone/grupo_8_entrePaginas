@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head.ejs', {'datos':datos.activar}) %>
+    <title>Perfil de Usuario</title>
+</head>
+<body>
+    <main>
+        <%- include('../partials/navbar.ejs') %>
+    <h1>Perfil de Usuario</h1>
+
+    <% if (image) { %>
+        <img src="/uploads/<%= image %>" alt="Imagen de Perfil" style="max-width: 200px;"><br><br>
+    <% } %>
+    
+    <p><strong>Nombre:</strong> <%= firstName %></p>
+    
+    <p><strong>Apellido:</strong> <%= lastName %></p>
+    
+    <p><strong>Email:</strong> <%= email %></p>
+    
+    <p><strong>Categoría:</strong> <%= category %></p>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="https://kit.fontawesome.com/6868278fd3.js" crossorigin="anonymous"></script>
+</body>
+</html>
