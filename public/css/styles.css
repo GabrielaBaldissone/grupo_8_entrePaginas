@@ -1163,4 +1163,142 @@ footer {
         font-size: 16px;
     }
 }
-    
+
+/* Estilos Formulario perfil de usuario */
+
+body.Perfil {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.User-body {
+    padding: 20px;
+}
+
+.login-box {
+    background-color: white;
+    width: 70%;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 1px 5px 5px 5px #2f2f2f;
+    padding: 20px;
+    text-align: center;
+}
+
+.iniciar-sesion-login {
+    font-size: 20px;
+    color: #362222;
+    margin: 15px 0;
+}
+
+.user-icon {
+    margin: 0 auto;
+    background-color: #2b2b2bca;
+    text-align: center;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-icon img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.description-login {
+    color: #2f2f2f;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 7px 0;
+}
+
+input.input-login {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+    height: 30px;
+    border-radius: 8px;
+    color: #2f2f2f;
+}
+
+input.input-login::placeholder {
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Estilos generales para el perfil de usuario */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="file"] {
+    padding: 0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Añadir margen inferior al formulario */
+form {
+    margin-bottom: 20px;
+}
