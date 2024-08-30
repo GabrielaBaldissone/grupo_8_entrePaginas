@@ -51,10 +51,9 @@ const usersController = {
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
                 if(rememberMe){
-                    res.cookie("userEmail", email, { maxAge: (1000*60) * 2 });
+                    res.cookie("userEmail", email, { maxAge: (1000*60) * 10 });
                 }
-                // return res.redirect("/users/profile");
-                return res.send(userToLogin);
+                return res.redirect("/users/profile");
             }else{
                 return res.render("users/login", {
                     errors:{
@@ -77,6 +76,14 @@ const usersController = {
                 datos
             })
         }
+    },
+    getUserProfile(req, res){
+        return res.render("users/userProfile", {user: req.session.userLogged, datos});
+    },
+    logout(req, res){
+        res.clearCookie("userEmail");
+        req.session.destroy();
+        return res.redirect("/users/login");
     }
 };
 
