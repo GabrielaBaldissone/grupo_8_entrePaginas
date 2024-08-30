@@ -67,9 +67,9 @@ const productsController = {
         res.render("products/productCart", {datos, productsCart});
     },
     editProduct: (req, res) =>{
-        const {productEditId} = req.query;
+        const {id} = req.params;
         const products = JSON.parse(fileProducts);
-        const product = products.find(prod => prod.id == productEditId);
+        const product = products.find(prod => prod.id == id);
         
         res.render("products/editProduct", {datos, product});
     },
