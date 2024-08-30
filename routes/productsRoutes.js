@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const adminMiddleware = require("../middlewares/adminMiddleware");
 const productsController = require("../controllers/productsController.js");
 const upload = require("../services/fileUpload.js");
 
@@ -7,7 +8,7 @@ const upload = require("../services/fileUpload.js");
 router.get('/cart', productsController.productCart);
 
 // RUTA DE PRODUCT DETAIL
-router.get('/detail/:id', productsController.productDetail);
+router.get('/detail/:id', adminMiddleware, productsController.productDetail);
 
 // RUTA DE ADMIN PARA CREAR O ACTUALIZAR PRODUCTOS
 router.get('/admin', productsController.getProductAdmin);
@@ -25,7 +26,7 @@ router.delete("/cart", productsController.deleteAllProducts);
 router.delete("/delete", productsController.destroy);
 
 // MOSTRAR VISTA PARA EDITAR UN PRODUCTO
-router.get("/edit", productsController.editProduct);
+router.get("/edit/:id", adminMiddleware, productsController.editProduct);
 
 // ACTUALIZAR PRODUCTO
 router.put("/edit/:id", upload.single("image"),productsController.updateProduct);
