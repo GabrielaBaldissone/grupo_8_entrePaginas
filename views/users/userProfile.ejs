@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="public\css\styles.css">
+</head>
+<body class="Perfil User-body">
+    <%- include('../partials/navbar.ejs') %>
+    <main class="login-box">
+        <p class="iniciar-sesion-login">Hola <%= user.firstName.toUpperCase() %> <%= user.lastName.toUpperCase() %></p>
+        <div class="user-icon">
+            <img src="/uploads/" alt="Imagen de Perfil" style="max-width: 70px; border-radius: 50%;">
+        </div>
+        <div class="form-login">
+            <p class="description-login"><strong>Nombre:</strong> <%= user.firstName %></p>
+            <p class="description-login"><strong>Apellido:</strong> <%= user.lastName %></p>
+            <p class="description-login"><strong>Email:</strong> <%= user.email %></p>
+            <p class="description-login"><strong>Telefono:</strong> <%= user.phone %></p>
+        </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="https://kit.fontawesome.com/6868278fd3.js" crossorigin="anonymous"></script>
+</body>
+</html>
