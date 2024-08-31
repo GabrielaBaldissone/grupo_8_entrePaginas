@@ -22,34 +22,34 @@
         <input class="input-login" type="text" id="nombre" name="firstName" placeholder="Ingrese su nombre"
         value="<%= locals.oldData ? oldData.firstName : null %>">
         <% if (locals.errors && errors.firstName) { %>
-            <p><%= errors.firstName.msg %></p>
+            <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.firstName.msg %></p>
         <% } %>
 
         <label class="description-login" for="apellido">Apellido:<span class="span-login-red">*</span></label>
         <input class="input-login" type="text" id="apellido" name="lastName" placeholder="Ingrese su apellido"
         value="<%= locals.oldData ? oldData.lastName : null %>">
         <% if (locals.errors && errors.lastName) { %>
-            <p><%= errors.lastName.msg %></p>
+            <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.lastName.msg %></p>
         <% } %>
 
         <label class="description-login" for="email">Email:<span class="span-login-red">*</span></label>
         <input class="input-login" type="email" id="email" name="email" placeholder="user@example.com"
         value="<%= locals.oldData ? oldData.email : null %>">
         <% if (locals.errors && errors.email) { %>
-            <p><%= errors.email.msg %></p>
+            <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.email.msg %></p>
         <% } %>
 
         <label class="description-login" for="telefono">Teléfono:<span class="span-login-red">*</span></label>
         <input class="input-login" type="tel" id="telefono" name="phone" placeholder="Ingrese su telefono"
         value="<%= locals.oldData ? oldData.phone : null %>">
         <% if (locals.errors && errors.phone) { %>
-            <p><%= errors.phone.msg %></p>
+            <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.phone.msg %></p>
         <% } %>
 
         <label class="description-login" for="contrasenia">Contraseña:<span class="span-login-red">*</span></label>
         <input class="input-login" type="password" id="contrasenia" name="password" placeholder="Ingrese su contraseña">
         <% if (locals.errors && errors.password) { %>
-            <p><%= errors.password.msg %></p>
+            <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.password.msg %></p>
         <% } %>
 
         <input class="checkbox-login" type="checkbox" id="terminos" name="terminos" value="true" required>
