@@ -17,7 +17,7 @@
         <ul class="nav-menu">
             <li><a href="/users/login">
                 <% if (locals.isLogged) { %>
-                    <a href="#"><%= locals.userLogged.firstName %> <%= locals.userLogged.lastName %></a>
+                    <a class="user-ingreso" href="#">Hola, <%= locals.userLogged.firstName %></a>
                 <% } else { %>
                     <a href="#"><i class="fas fa-user icons-style"></i></a>
                 <% } %>
@@ -25,9 +25,9 @@
             </a>
                 <ul>
                     <% if(locals.isLogged){ %>
-                        <li><a href="/users/profile">Perfil</a></li>
+                        <li><a class="user-perfil" href="/users/profile">Perfil</a></li>
                         <li><form action="/users/logout" method="POST">
-                            <button type="submit">Cerrar Sesión</button>
+                            <button class="button-logout" type="submit"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
                         </form></li>
                     <% }else{ %>
                         <li> <a class="items-nav" href="/users/login">Ingresar</a></li>

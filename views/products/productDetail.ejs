@@ -25,8 +25,8 @@
                 </div>
             </div>
             <% if (isAdmin) { %>
-                <a href="/products/edit/<%= product.id %>">Editar</a>
-                <button class="btn btn-delete">Eliminar</button>
+                <a class="update-btn" href="/products/edit/<%= product.id %>">Editar</a>
+                <button class="delete-btn">Eliminar</button>
             <% } %>
         </section>
         <p class="product-relacionado">Productos Relacionados</p>

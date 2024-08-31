@@ -95,14 +95,49 @@ body {
     transition: transform 0.3s ease;   
 }
 
-.icons-style:hover{  
+.icons-style:hover {  
+    transform: scale(1.10);
+}
+
+.button-logout{
+    border: none;
+    background: none; 
+    color: white;
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+.button-logout:hover{
+    color: #3483fa;
+}
+
+.user-ingreso{
+    color: white;
+    padding: 3px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    transition: transform 0.3s ease;  
+}
+
+.user-ingreso:hover {
     transform: scale(1.10);
 }
 
 
+.user-perfil{
+    color: white;
+    padding: 3px;
+    font-size: 18px;
+}
+
+.user-perfil:hover{
+    color: #3483fa;
+}
+
 .header__navbar-items{
     display: block;
-    
 }
 
 .items-nav{
@@ -560,6 +595,38 @@ section.productcart-section {
     color: black;
 }
 
+.update-btn{
+    margin-top: 3px;
+    background-color: #ffffffca;
+    color: #ffbb00;
+    border: 1px solid #2b2b2bca;
+    padding: 3px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.update-btn:hover  {
+    background-color: #f1b510f1;
+    color: black;
+}
+
+.delete-btn{
+    margin-top: 3px;
+    background-color: #ffffffca;
+    color: #ff0019;
+    border: 1px solid #2b2b2bca; 
+    padding: 3px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-btn:hover  {
+    background-color: #dc3545;
+    color: black;
+}
+
 .product-relacionado{
     font-size: 22px;
     text-align: center;
@@ -842,8 +909,10 @@ section.productcart-section {
 }
 
 .user-profile{
+    background-color: #36222231;
+    border-radius: 10px;
     width: 80%;
-    height: 60%;
+    padding: 25px;
     margin: 0 auto;
     margin-bottom: 20%;
     margin-top: 10px;
