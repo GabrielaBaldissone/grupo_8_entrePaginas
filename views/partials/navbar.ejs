@@ -1,7 +1,7 @@
 <header class="nav">
     <% if (datos.activar) { %>     
     <div class="header__navbar-logo">
-    <a href="/"><img src="/img/logo-doble.png"  class="logo" alt="logo-essenciana"></a>
+        <a href="/"><img src="/img/logo-doble.png"  class="logo" alt="logo-essenciana"></a>
     </div>
     <% } else {  %>
     <div class="header__navbar-logo">
@@ -13,31 +13,46 @@
             <button class="button-search"><i class="fa-solid fa-magnifying-glass"></i></button> 
         </form>
     </div>
+    <input type="checkbox" id="brg-menu">
+    <label for="brg-menu" class="abrir-menu"><i class="fa-solid fa-bars"></i></label>
     <div class="header__navbar-items">
         <ul class="nav-menu">
-            <li><a href="/users/login">
-                <% if (locals.isLogged) { %>
-                    <a class="user-ingreso" href="#">Hola, <%= locals.userLogged.firstName %></a>
-                <% } else { %>
-                    <a href="#"><i class="fas fa-user icons-style"></i></a>
-                <% } %>
-                
-            </a>
+            <li>
+                <a href="/users/login">
+                    <% if (locals.isLogged) { %>
+                        Hola, <%= locals.userLogged.firstName %>
+                    <% } else { %>
+                        <i class="fas fa-user icons-style"></i> <span>Usuario</span>
+                    <% } %>
+                </a>
                 <ul>
                     <% if(locals.isLogged){ %>
                         <li><a class="user-perfil" href="/users/profile">Perfil</a></li>
-                        <li><form action="/users/logout" method="POST">
-                            <button class="button-logout" type="submit"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
-                        </form></li>
+                        <li>
+                            <form action="/users/logout" method="POST">
+                                <button class="button-logout" type="submit"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                            </form>
+                        </li>
                     <% }else{ %>
-                        <li> <a class="items-nav" href="/users/login">Ingresar</a></li>
-                        <li> <a class="items-nav" href="/users/register">Registrarse</a></li>
+                        <li><a class="items-nav" href="/users/login">Ingresar</a></li>
+                        <li><a class="items-nav" href="/users/register">Registrarse</a></li>
                     <% } %>
                 </ul>
-            </li>             
-            <li><a href="/products/cart"><i class="fa-solid fa-cart-shopping icons-style"></i></a></li>  
-            <li><a href="/products/admin" ><i class="fa-solid fa-gear icons-style"></i></a>  </li>
+            </li>
+            <li><a href="/products/cart"><i class="fa-solid fa-cart-shopping icons-style"></i><span>Carrito</span></a></li>
+            <li><a href="/products/admin"><i class="fa-solid fa-gear icons-style"></i><span>Admin</span></a></li>
         </ul>
     </div>
 <% } %>
 </header>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const abrirMenu = document.querySelector(".abrir-menu");
+    const navMenu = document.querySelector(".header__navbar-items");
+
+    abrirMenu.addEventListener("click", function() {
+        navMenu.classList.toggle("active");
+    });
+});
+
+</script>

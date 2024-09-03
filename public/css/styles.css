@@ -92,7 +92,8 @@ body {
 .icons-style{
     color: rgb(255, 255, 255);
     padding: 1px;
-    transition: transform 0.3s ease;   
+    transition: transform 0.3s ease;
+    display: none;   
 }
 
 .icons-style:hover {  
@@ -136,8 +137,37 @@ body {
     color: #3483fa;
 }
 
+/*Burger menu*/
+#brg-menu{
+    display: none;
+}
+
+.abrir-menu{
+    display:block;
+    font-size: 20px;
+    color: #ffffff;
+    float: right;
+    line-height: 55px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
 .header__navbar-items{
-    display: block;
+    display: none;
+}
+
+.header__navbar-items.active {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-menu li a span{
+    color: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-menu li a span:hover {
+    transform: scale(1.2);
 }
 
 .items-nav{
@@ -153,9 +183,17 @@ body {
     color: black; 
 
 }
+.nav-menu {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
 
 .nav-menu > li {
-    float: left;
+    float: none;
 }
 
 .nav-menu li ul{
@@ -937,6 +975,16 @@ section.productcart-section {
 
 /* NAVBAR */
 
+/*Burger menu*/
+.header__navbar-items{
+    display:none;
+}
+.header__navbar-items.active{
+    display:flex;
+    flex-direction: row;
+    justify-content: center; 
+}
+
 /*Estilos de la lupa*/
 .button-search{
     margin-right: 40px;
@@ -1081,11 +1129,41 @@ section.productcart-section {
     height: 30px;
 }
 
+/*Ocultar burger menu de desktop*/
+.nav-menu li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-menu li a span {
+    display: none;
+}
+    
+#brg-menu{
+    display: none;
+}
+#brg-menu:checked ~ .header__navbar-items {
+    display: block;
+}
+
+.abrir-menu{
+    display: none;
+}
+
+.header__navbar-items{
+    display: block;
+}
+.header__navbar-items.active{
+    display:none;
+}
+
 /*Estilos de la lupa*/
 .button-search{
     font-size: 18px;
     margin-right: 74px;
 }
+
 
 /*Estilos de los iconos*/
 .icons-style{
