@@ -25,7 +25,7 @@ CREATE TABLE products (
     id_product INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
-    available BOOLEAN DEFAULT TRUE,
+    stock INT NOT NULL,
     image LONGBLOB,
     description TEXT,
     id_category INT,
