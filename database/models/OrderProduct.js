@@ -30,6 +30,13 @@ module.exports = (sequelize, DataType) => {
 
     const OrderProduct = sequelize.define(alias, cols, config);
 
+    OrderProduct.associate = function(models) {
+        OrderProduct.hasMany(models.OrderProduct, {
+            as: "product",
+            foreingKey: "id_product"
+        })
+    }
+
     return OrderProduct;
 
 }

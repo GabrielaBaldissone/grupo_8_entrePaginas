@@ -18,6 +18,13 @@ module.exports = (sequelize, DataType) => {
 
     const Order = sequelize.define(alias, cols, config);
 
+    Order.associate = function(models) {
+        Order.belongsTo(models.OrderProduct, {
+            as: "order_product",
+            foreingKey: "id_order"
+        })
+    }
+
     return Order;
 
 }
