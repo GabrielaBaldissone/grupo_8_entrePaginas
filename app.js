@@ -14,8 +14,8 @@ app.use(session({
 
 app.use(cookieParser());
 
-// MiddleWare para pasar la session a las vistas
-app.use(userLoggedMiddleware);
+// // MiddleWare para pasar la session a las vistas
+// app.use(userLoggedMiddleware);
 
 // PUBLIC.
 app.use(express.static("public"));

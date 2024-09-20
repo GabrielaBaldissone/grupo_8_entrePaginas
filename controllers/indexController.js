@@ -1,20 +1,27 @@
-const Product = require("../models/Product");
+const db = require('../database/models')
 
 const datos = {
     activar: false
 }
 
 const indexController = {
-    products: null,
     index: (req, res) => {
-        this.products = Product.findAll();
-        const sabanas = this.products.filter(prod => prod.category === "sábanas");
-        const acolchados = this.products.filter(prod => prod.category === "acolchados");
-        const cortinas = this.products.filter(prod => prod.category === "cortinas");
-        const velas = this.products.filter(prod => prod.category === "velas");
-        const esencias = this.products.filter(prod => prod.category === "esencias");
+        db.Product.findAll()
+        .then((productData) => {
+
+        const sabanas = productData.filter(prod => prod.id_category === 1);
+        const acolchados = productData.filter(prod =>prod.id_category === 2);
+        const cortinas = productData.filter(prod => prod.id_category=== 3);
+        const velas = productData.filter(prod => prod.id_category === 4);
+        const esencias = productData.filter(prod => prod.id_category === 5);
+
         res.render("index", {datos, sabanas, acolchados, cortinas, velas, esencias});
-    }
+
+
+        })
+
+    }   
+
 };
 
 module.exports = indexController;

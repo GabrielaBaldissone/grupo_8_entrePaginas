@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataType) => {
+module.exports = (sequelize, DataTypes) => {
 
     const alias = 'Order';
     const cols = {
@@ -21,7 +21,11 @@ module.exports = (sequelize, DataType) => {
     Order.associate = function(models) {
         Order.belongsTo(models.OrderProduct, {
             as: "order_product",
-            foreingKey: "id_order"
+            foreignKey: "id_order"
+        }),
+        Order.belongsTo(models.User, {
+            as: "users",
+            foreignKey: "id_user"
         })
     }
 

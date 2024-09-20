@@ -17,7 +17,7 @@
     <section class="box-flex">
         <% sabanas.forEach(prod => { %>
             <article class="article-style">
-                <a href="/products/detail/<%= prod.id %>">
+                <a href="/products/detail/<%= prod.id_product %>">
                 <div class="conteiner-img">
                 <img src="/img/<%= prod.image %>" alt="<%= prod.name %>" />
                 </div>
@@ -25,7 +25,7 @@
                     <p class="descripcion"><%= prod.name %></p>                    
                     <div class="box-linea">
                         <p class="precios">$<%= prod.price %></p>
-                        <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
+                        <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
                     </div>
 
                 </div>
@@ -38,7 +38,7 @@
         <% acolchados.forEach(prod => { %>
 
             <article class="article-style">
-                <a href="/products/detail/<%= prod.id %>">
+                <a href="/products/detail/<%= prod.id_product %>">
                     <div class="conteiner-img">
                     <img
                     src="/img/<%= prod.image %>"
@@ -49,7 +49,7 @@
                         <p class="descripcion"><%= prod.name %></p>                        
                         <div class="box-linea">
                             <p class="precios">$<%= prod.price %></p>
-                            <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
+                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>
@@ -61,7 +61,7 @@
         <% cortinas.forEach(prod => { %>
 
             <article class="article-style">
-                <a href="/products/detail/<%= prod.id %>">
+                <a href="/products/detail/<%= prod.id_product %>">
                     <div class="conteiner-img">
                     <img
                     src="/img/<%= prod.image %>"
@@ -72,7 +72,7 @@
                         <p class="descripcion"><%= prod.name %></p>                        
                         <div class="box-linea">
                             <p class="precios">$<%= prod.price %></p>
-                            <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
+                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>
@@ -84,7 +84,7 @@
         <% velas.forEach(prod => { %>
 
             <article class="article-style">
-                <a href="/products/detail/<%= prod.id %>">
+                <a href="/products/detail/<%= prod.id_product %>">
                     <div class="conteiner-img">
                     <img
                     src="/img/<%= prod.image %>"
@@ -95,7 +95,7 @@
                         <p class="descripcion"><%= prod.name %></p>        
                         <div class="box-linea">
                             <p class="precios">$<%= prod.price %></p>
-                            <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
+                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>
@@ -107,7 +107,7 @@
         <% esencias.forEach(prod => { %>
 
             <article class="article-style">
-                <a href="/products/detail/<%= prod.id %>">
+                <a href="/products/detail/<%= prod.id_product %>">
                     <div class="conteiner-img">
                     <img
                     src="/img/<%= prod.image %>"
@@ -118,7 +118,7 @@
                         <p class="descripcion"><%= prod.name %></p>                        
                         <div class="box-linea">
                             <p class="precios">$<%= prod.price %></p>
-                            <p class="desc"><%= prod.available ? "Disponible" : "Sin Stock" %></p>
+                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>

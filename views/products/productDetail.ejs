@@ -8,12 +8,13 @@
     <%- include('../partials/navbar.ejs') %>
     <main>
         <section class="product-details">
-            <img src="/img/<%= product.image %>" class="product-details-img"  alt="<%= product.name %>">
+        
             <div class="product-description">
+                <img src="/img/<%= product.image %>" class="product-details-img"  alt="<%= product.name %>">
                 <h1><%= product.name %></h1>
                 <p ><%= product.description %> </p>
                 <p class="price-total">Precio: $<%= product.price %></p>
-                <p >Disponibilidad: <span id="disponibilidad"><%= product.available ? "Disponible" : "Sin Stock" %></span></p>
+                <p >Disponibilidad: <span id="disponibilidad"><%= product.stock ? "Disponible" : "Sin Stock" %></span></p>
                 <form class="cantidad-box" action="/products" method="POST">
                         <label for="cantidad">Cantidad:</label>
                         <div class="cantidad-controls">
@@ -24,23 +25,20 @@
                 </form>
                 </div>
             </div>
-            <% if (isAdmin) { %>
-                <a class="update-btn" href="/products/edit/<%= product.id %>">Editar</a>
-                <button class="delete-btn">Eliminar</button>
-            <% } %>
+
         </section>
         <p class="product-relacionado">Productos Relacionados</p>
         <section class="productos-relacionados">
             <% relatedProducts.forEach(prod =>{ %>
                 <article class="producto">
-                    <a href="/products/detail/<%= prod.id %>">
+                    <a href="/products/detail/<%= prod.id_product %>">
                     <div class="producto-imagen">
                         <img src="/img/<%= prod.image %>"  class="product-details-img" alt="<%= prod.name%>">
                         </div>
                     <div class="producto-descripcion">
                         <p><%= prod.name %></p>
                         <p>Precio: $<%= prod.price %></p>
-                        <p><span><%= product.available ? "Disponible" : "Sin Stock" %></span></p>
+                        <p><span><%= product.stock  %></span></p>
                     </div>
                     </a>
                 </article>

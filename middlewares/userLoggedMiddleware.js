@@ -1,4 +1,4 @@
-const User = require("../models/User");
+// const User = require("../models/User");
 
 // Pasar la session a las vistas
 function userLoggedMiddleware(req, res, next){

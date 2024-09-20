@@ -1,13 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-const Product = require("../models/Product");
-
-//products.json
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const fileProducts = fs.readFileSync(productsFilePath, 'utf-8');
-//productsCart.json
-const productsCartFilePath = path.join(__dirname, '../data/productsCart.json');
-const fileProductsCart = fs.readFileSync(productsCartFilePath, 'utf-8');
+const { Association } = require('sequelize');
+const db = require('../database/models')
 
 const datos = {
     activar: false
@@ -23,11 +15,25 @@ const productsController = {
         res.render("products/productCart", {datos, productsCart});
     },
     productDetail: (req, res) => {
-        this.products = Product.findAll();
         const {id} = req.params;
-        const product = this.products.find(prod => prod.id == id);
-        const relatedProducts = this.products.filter(prod => prod.category == product.category && prod.id != product.id);
-        res.render("products/productDetail", {datos, product, relatedProducts});
+        db.Product.findByPk(id, { include: [{ association: 'category' }] })
+        .then(product => {
+            if (!product) {
+                return res.status(404).json({ error: 'Producto no encontrado' });
+            }
+
+            return db.Product.findAll({
+                where: {
+                    id_category: product.id_category
+                }
+            }).then(relatedProducts => {
+                res.render("products/productDetail", {datos, product, relatedProducts });
+            });
+        })
+        .catch(error => {
+            console.error(error);
+            res.status(500).json({ error: 'Error interno del servidor' });
+        });
     },
     productAddCart: (req, res) =>{
         const {productId, quantity} = req.body;

@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataType) => {
+module.exports = (sequelize, DataTypes) => {
 
     const alias = 'Category';
     const cols = {
@@ -9,7 +9,7 @@ module.exports = (sequelize, DataType) => {
             autoIncrement: true
         },
         category: {
-            type: DataType.STRING(255),
+            type: DataTypes.STRING(255),
             allowNull: false
         }
 
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataType) => {
     Category.associate = function(models) {
         Category.hasMany(models.Product, {
             as: "product",
-            foreingKey: "id_category"
+            foreignKey: "id_category"
         })
     }
 

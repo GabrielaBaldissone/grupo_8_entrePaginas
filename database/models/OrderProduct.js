@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataType) => {
+module.exports = (sequelize, DataTypes) => {
 
     const alias = 'OrderProduct';
     const cols = {
@@ -9,15 +9,15 @@ module.exports = (sequelize, DataType) => {
             autoIncrement: true
         },
         quantify: {
-            type: DataType.INTERGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         price: {
-            type: DataType.DECIMAL(10.2),
+            type: DataTypes.DECIMAL(10.2),
             allowNull: false
         },
         date: {
-            type: DataType.DATE,
+            type: DataTypes.DATE,
             allowNull: false
         }
 
@@ -33,7 +33,11 @@ module.exports = (sequelize, DataType) => {
     OrderProduct.associate = function(models) {
         OrderProduct.hasMany(models.OrderProduct, {
             as: "product",
-            foreingKey: "id_product"
+            foreignKey: "id_product"
+        }),
+        OrderProduct.hasMany(models.Order, {
+            as: "orders",
+            foreignKey: "id_order"
         })
     }
 

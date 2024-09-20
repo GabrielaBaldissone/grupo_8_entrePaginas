@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataType) => {
+module.exports = (sequelize, DataTypes) => {
 
     const alias = 'User';
     const cols = {
@@ -9,23 +9,23 @@ module.exports = (sequelize, DataType) => {
             allowNull: false
         },
         first_name: {
-            type: DataType.STRING(255),
+            type: DataTypes.STRING(255),
             allowNull: false
         },
         last_name: {
-            type: DataType.STRING(255),
+            type: DataTypes.STRING(255),
             allowNull: false
         },
         email: {
-            type: DataType.STRING(255),
+            type: DataTypes.STRING(255),
             allowNull: false,
             unique: true
         },
         phone: {
-            type: DataType.STRING(50)
+            type: DataTypes.STRING(50)
         },
         password: {
-            type: DataType.STRING(255),
+            type: DataTypes.STRING(255),
             allowNull: false
         },
         rol: {
@@ -41,6 +41,14 @@ module.exports = (sequelize, DataType) => {
     }
 
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models) {
+        User.hasMany(models.Order, {
+            as: "order",
+            foreignKey: "id_user"
+        })       
+
+    }
 
     return User;
 

@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataType) => {
+module.exports = (sequelize, DataTypes) => {
 
     const alias = 'Product';
     const cols = {
@@ -9,23 +9,23 @@ module.exports = (sequelize, DataType) => {
             autoIncrement: true
         },
         name: {
-            type: DataType.STRING(255),
+            type: DataTypes.STRING(255),
             allowNull: false
 
         },
         price: {
-            type: DataType.DECIMAL(10.2),
+            type: DataTypes.DECIMAL(10.2),
             allowNull: false
         },
         stock:{
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         image: {
-            type: DataType.LONGBLOB
+            type: DataTypes.BLOB
         },
         description: {
-            type: DataType.TEXT
+            type: DataTypes.TEXT
         }
 
     }
@@ -40,11 +40,11 @@ module.exports = (sequelize, DataType) => {
     Product.associate = function(models) {
         Product.belongsTo(models.Category, {
             as: "category",
-            foreingKey: "id_category"
+            foreignKey: "id_category"
         }),
         Product.belongsTo(models.OrderProduct, {
             as: "order_product",
-            foreingKey: "id_product"
+            foreignKey: "id_product"
         })
         
 
