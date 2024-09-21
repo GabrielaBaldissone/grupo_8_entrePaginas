@@ -8,7 +8,7 @@ const upload = require("../services/fileUpload.js");
 router.get('/cart', productsController.productCart);
 
 // RUTA DE PRODUCT DETAIL
-router.get('/detail/:id', productsController.productDetail);
+router.get('/detail/:id', adminMiddleware, productsController.productDetail);
 
 // RUTA DE ADMIN PARA CREAR O ACTUALIZAR PRODUCTOS
 router.get('/admin', productsController.getProductAdmin);
