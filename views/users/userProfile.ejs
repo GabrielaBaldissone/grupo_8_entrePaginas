@@ -7,13 +7,13 @@
 <body>
     <%- include('../partials/navbar.ejs') %>
     <main class="user-profile">
-        <p class="name-user">Hola, <%= user.firstName.toUpperCase() %> <%= user.lastName.toUpperCase() %></p>
+        <p class="name-user">Hola, <%= user.first_name.toUpperCase() %> <%= user.last_name.toUpperCase() %></p>
         <div class="conteiner-img-user">
             <img  src="/uploads/" alt="Imagen de Perfil" >
         </div>
         <div class="user-profile-box">
-            <p class="description-user"><strong>Nombre:</strong> <%= user.firstName %></p>
-            <p class="description-user"><strong>Apellido:</strong> <%= user.lastName %></p>
+            <p class="description-user"><strong>Nombre:</strong> <%= user.first_name %></p>
+            <p class="description-user"><strong>Apellido:</strong> <%= user.last_name %></p>
             <p class="description-user"><strong>Email:</strong> <%= user.email %></p>
             <p class="description-user"><strong>Telefono:</strong> <%= user.phone %></p>
         </div>
