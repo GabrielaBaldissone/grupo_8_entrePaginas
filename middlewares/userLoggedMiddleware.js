@@ -1,23 +1,34 @@
-// const User = require("../models/User");
+const db = require("../database/models");
 
-// Pasar la session a las vistas
-function userLoggedMiddleware(req, res, next){
+function userLoggedMiddleware(req, res, next) {
     res.locals.isLogged = false;
 
     const emailInCookie = req.cookies.userEmail;
-    const userFromCookie = User.findByField("email", emailInCookie);
+    if (emailInCookie) {
+        db.User.findOne({ where: { email: emailInCookie } })
+            .then(userFromCookie => {
+                if (userFromCookie) {
+                    req.session.userLogged = userFromCookie;
+                }
 
-    if(userFromCookie){
-        req.session.userLogged = userFromCookie;
+                if (req.session.userLogged) {
+                    res.locals.isLogged = true;
+                    res.locals.userLogged = req.session.userLogged;
+                }
+
+                next();
+            })
+            .catch(error => {
+                console.error(error);
+                next();
+            });
+    } else {
+        if (req.session.userLogged) {
+            res.locals.isLogged = true;
+            res.locals.userLogged = req.session.userLogged;
+        }
+        next();
     }
-
-
-    if(req.session.userLogged){
-        res.locals.isLogged = true;
-        res.locals.userLogged = req.session.userLogged;
-    }
-
-    next();
 }
 
 module.exports = userLoggedMiddleware;
