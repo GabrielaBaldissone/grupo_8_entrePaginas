@@ -74,10 +74,21 @@ const productsController = {
     },
     editProduct: (req, res) =>{
         const {id} = req.params;
-        const products = JSON.parse(fileProducts);
-        const product = products.find(prod => prod.id == id);
+        const product = db.Product.findByPk(id, {
+            include: [{association: "category"}]
+        })
+        const categories = db.Category.findAll();
+        // quede aca
+        Promise.all([product, categories])
+        .then(([product, categories])=>{
+            console.log(product);
+            console.log(categories);
+            
+            res.render("products/editProduct", {datos, product, categories});
+        })
+        // const products = JSON.parse(fileProducts);
+        // const product = products.find(prod => prod.id == id);
         
-        res.render("products/editProduct", {datos, product});
     },
     updateProduct: (req, res) =>{
         const {id} = req.params;
