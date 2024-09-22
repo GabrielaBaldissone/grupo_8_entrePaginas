@@ -86,26 +86,32 @@ const productsController = {
             
             res.render("products/editProduct", {datos, product, categories});
         })
-        // const products = JSON.parse(fileProducts);
-        // const product = products.find(prod => prod.id == id);
         
     },
     updateProduct: (req, res) =>{
         const {id} = req.params;
-        const {name, category, price, available, description} = req.body;
+        const {name, category, price, stock, description} = req.body;
         const newImage = req.file ? req.file.filename : null;
 
-        const product = {
-            name,
-            category,
-            price,
-            available: available === "true",
-            description,
-            image: newImage 
-        }
-
-        Product.editProduct(id, product);
-        res.redirect(`/products/detail/${id}`);
+        db.Product.update(
+            {
+                name,
+                price,
+                stock,
+                newImage,
+                description,
+                category
+            },
+            {
+                where:{
+                    id_product: id
+                }
+            }
+        )
+        .then(()=> res.redirect(`/products/detail/${id}`))
+        .catch(err =>{
+            console.error(err.message);
+        })
     },
     destroy: (req, res) =>{
         const {productDeleteId} = req.body;
