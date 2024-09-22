@@ -14,18 +14,15 @@
         <input type="text" id="nombreProducto" name="name" required>
         <label for="category">Categoria:<span class="register__required--red">*</span></label>
         <select name="category" id="categoriaProducto">
-            <option value="velas">Velas</option>
-            <option value="esencias">Esencias</option>
-            <option value="sábanas">Sabanas</option>
-            <option value="cortinas">Cortinas</option>
-            <option value="acolchados">Acolchados</option>
+            <option value="1">Sabanas</option>
+            <option value="2">Acolchados</option>
+            <option value="3">Cortinas</option>
+            <option value="4">Velas</option>
+            <option value="5">Esencias</option>
         </select>
         
-        <label for="available">Stock:<span class="register__required--red">*</span></label>
-        <select name="available" id="available">
-            <option value="true">Disponible</option>
-            <option value="false">Sin Stock</option>
-        </select>
+        <label for="stock">Stock:<span class="register__required--red">*</span></label>
+        <input type="number" id="stock" name="stock">
         <label for="imagenProducto">Imagen:<span class="register__required--red">*</span></label>
         <input type="file" id="imgProducto" name="image">
         <label for="precioProducto">Precio:<span class="register__required--red">*</span></label>
