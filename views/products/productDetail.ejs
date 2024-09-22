@@ -27,7 +27,9 @@
             </div>
             <% if (isAdmin) { %>
                 <a href="/products/edit/<%= product.id_product %>">Editar</a>
-                <button class="btn btn-delete">Eliminar</button>
+                <form action="/products/delete/<%= product.id_product %>?_method=DELETE" method="POST">
+                    <button>ELIMINAR</button>
+                </form>
             <% } %>
 
         </section>
