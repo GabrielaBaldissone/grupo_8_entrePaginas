@@ -53,8 +53,7 @@ const productsController = {
         res.redirect(`/products/detail/${productId}`);
     },
     getProductAdmin: (req, res) => {
-        const products = JSON.parse(fileProducts);
-        res.render("products/formAdminProduct", {datos, products});
+        res.render("products/formAdminProduct", {datos});
     },
     deleteProductById: (req, res) =>{
         const {id} = req.params;
@@ -98,9 +97,9 @@ const productsController = {
                 name,
                 price,
                 stock,
-                newImage,
+                image: newImage,
                 description,
-                category
+                id_category: category
             },
             {
                 where:{
@@ -114,42 +113,34 @@ const productsController = {
         })
     },
     destroy: (req, res) =>{
-        const {productDeleteId} = req.body;
-        let products = JSON.parse(fileProducts);
-        const {image} = products.find(prod => prod.id == productDeleteId);
-        const fileImage = path.join(__dirname, "../public/img/", image);
-
-        const filteredProducts = products.filter(prod => prod.id != productDeleteId);
-        const filteredProductsJSON = JSON.stringify(filteredProducts);
-        fs.writeFileSync(productsFilePath, filteredProductsJSON);
-        if(image != "default.png"){
-            fs.unlinkSync(fileImage);
-        }
-        products = filteredProducts;
-
-        res.render("products/formAdminProduct", {datos, products});
+        const {id} = req.params;
+        db.Product.destroy({
+            where:{
+                id_product: id
+            }
+        })
+        .then(()=> res.redirect("/"))
+        .catch(err => console.error(err));
     },
     getCreateForm: (req, res) =>{
         res.render("products/createProduct.ejs", {datos});
     },
     createProduct: (req, res) =>{
-        const {name, category, price, available, description} = req.body;
+        const {name, category, price, stock, description} = req.body;
         const image = req.file ? req.file.filename : "default.png";
-        let products = JSON.parse(fileProducts);
-        const newProduct = {
-            id: products.length ? products[products.length - 1].id + 1 : 1,
+
+        db.Product.create({
             name,
-            category,
             price,
-            available,
+            stock,
             image,
             description,
-        };
-        products.push(newProduct);
-        const productsJSON = JSON.stringify(products);
-        fs.writeFileSync(productsFilePath, productsJSON);
-
-        res.render("products/formAdminProduct", {datos, products});
+            id_category: category
+        })
+        .then(()=>res.redirect("/products/admin"))
+        .catch(err =>{
+            console.error(err.message);
+        })
     }
 };
 

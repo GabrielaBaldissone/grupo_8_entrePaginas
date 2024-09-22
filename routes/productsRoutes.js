@@ -23,7 +23,7 @@ router.delete("/cart/:id", productsController.deleteProductById);
 router.delete("/cart", productsController.deleteAllProducts);
 
 // ELIMINAR PRODUCTO
-router.delete("/delete", productsController.destroy);
+router.delete("/delete/:id", productsController.destroy);
 
 // MOSTRAR VISTA PARA EDITAR UN PRODUCTO
 router.get("/edit/:id", adminMiddleware, productsController.editProduct);
