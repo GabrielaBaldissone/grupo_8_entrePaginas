@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             autoIncrement: true
         },
-        quantify: {
+        quantity: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
@@ -19,13 +19,20 @@ module.exports = (sequelize, DataTypes) => {
         date: {
             type: DataTypes.DATE,
             allowNull: false
+        },
+        id_product: { // Foreign key
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'Product', // Nombre del modelo relacionado
+                key: 'id_product' // Columna en el modelo Product
+            }
         }
-
     }
 
     const config = {
         tableName: 'order_product',
-        timestamps: true
+        timestamps: false //probando en false por el momento
     }
 
     const OrderProduct = sequelize.define(alias, cols, config);

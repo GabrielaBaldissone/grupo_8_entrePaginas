@@ -35,22 +35,36 @@ const productsController = {
             res.status(500).json({ error: 'Error interno del servidor' });
         });
     },
-    productAddCart: (req, res) =>{
+    productAddCart: async (req, res) =>{
         const {productId, quantity} = req.body;
-        const products = JSON.parse(fileProducts);
-        let productAdd = products.find(prod => prod.id == productId);
-        productAdd = {...productAdd, quantity: parseInt(quantity)};
-        let productsCart;
-        if(fileProductsCart == ""){
-            productsCart = [];
-        }else{
-            productsCart = JSON.parse(fileProductsCart);
+
+        console.log(productId, quantity)
+
+        try {
+            const product = await db.Product.findByPk(productId);
+            if (!product) {
+                return res.status(404).send("Producto no encontrado");
+            }
+
+            const [order_product, created] = await db.OrderProduct.findOrCreate({
+                where: { id_product: product.id_product },
+                defaults: { quantity: parseInt(quantity),
+                    price: product.price,
+                    date: new Date()
+                }
+            });
+
+        if (!created) {
+            order_product.quantity += parseInt(quantity);
+            await order_product.save();
         }
-        productsCart.push(productAdd);
-        const productsCartJSON = JSON.stringify(productsCart);
-        fs.writeFileSync(productsCartFilePath, productsCartJSON);
 
         res.redirect(`/products/detail/${productId}`);
+
+    } catch (error) {
+        console.error("Error al agregar el producto al carrito:", error);
+        res.status(500).send("Error interno del servidor");
+    }
     },
     getProductAdmin: (req, res) => {
         res.render("products/formAdminProduct", {datos});

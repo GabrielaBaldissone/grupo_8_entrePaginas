@@ -18,7 +18,7 @@
                             <span class="product-price">$<%= prod.price %></span>
                             <div class="product-quantity">
                             <button class="quantity-btn">-</button>
-                            <span class="quantity-number"><%= prod.quantity %></span>
+                            <span class="quantity-number"><%= prod.stock %></span>
                             <button class="quantity-btn">+</button>
                         </div>
                         <form action="/products/cart/<%= prod.id %>?_method=DELETE" method="POST">
