@@ -20,12 +20,20 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             allowNull: false
         },
-        id_product: { // Foreign key
+        id_product: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Product', // Nombre del modelo relacionado
-                key: 'id_product' // Columna en el modelo Product
+                model: 'Product', 
+                key: 'id_product' 
+            }
+        },
+        id_order: { 
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'orders',
+                key: 'id_order' 
             }
         }
     }
@@ -38,11 +46,11 @@ module.exports = (sequelize, DataTypes) => {
     const OrderProduct = sequelize.define(alias, cols, config);
 
     OrderProduct.associate = function(models) {
-        OrderProduct.hasMany(models.OrderProduct, {
+        OrderProduct.belongsTo(models.Product, {
             as: "product",
             foreignKey: "id_product"
         }),
-        OrderProduct.hasMany(models.Order, {
+        OrderProduct.belongsTo(models.Order, {
             as: "orders",
             foreignKey: "id_order"
         })

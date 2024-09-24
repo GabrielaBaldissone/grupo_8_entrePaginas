@@ -8,11 +8,31 @@ const datos = {
 const productsController = {
     products: null,
     productCart: (req, res) => {
-        let productsCart = [];
-        if (fileProductsCart != "") {
-            productsCart = JSON.parse(fileProductsCart);
-        }
-        res.render("products/productCart", {datos, productsCart});
+
+        const userId = req.session.userLogged.id_user;
+
+        db.Order.findAll({
+            where: { id_user: userId }, 
+            order: [[ "id_order", "DESC" ]], 
+            limit: 1
+        })
+
+        .then(order => {
+            if (!order) {
+                return res.status(404).json({ error: 'Carrito vacio, ¿quieres comprar?' });
+            }
+
+            db.OrderProduct.findOne({
+                where: {id_order: order.id_order}
+            })
+
+            .then(productsCart => {
+                res.render("products/productCart", {productsCart});
+            })
+
+
+        })
+
     },
     productDetail: (req, res) => {
         const {id} = req.params;
@@ -37,24 +57,30 @@ const productsController = {
     },
     productAddCart: async (req, res) =>{
         const {productId, quantity} = req.body;
-
-        console.log(productId, quantity)
+        const userId = req.session.userLogged.id_user;
 
         try {
+
             const product = await db.Product.findByPk(productId);
             if (!product) {
                 return res.status(404).send("Producto no encontrado");
             }
 
-            const [order_product, created] = await db.OrderProduct.findOrCreate({
-                where: { id_product: product.id_product },
-                defaults: { quantity: parseInt(quantity),
+            const [order] = await db.Order.findOrCreate({
+                where: { id_user: userId },
+                defaults: {}
+            });
+
+            const [order_product, createdProduct] = await db.OrderProduct.findOrCreate({
+                where: { id_order: order.id_order, id_product: product.id_product },
+                defaults: { 
+                    quantity: parseInt(quantity),
                     price: product.price,
                     date: new Date()
                 }
             });
 
-        if (!created) {
+        if (!createdProduct) {
             order_product.quantity += parseInt(quantity);
             await order_product.save();
         }

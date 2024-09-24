@@ -39,7 +39,7 @@ const usersController = {
                         email,
                         phone,
                         password: bcryptjs.hashSync(password, 10),
-                        rol: "rol"
+                        rol: "cliente"
                     });
                 })
                 .then(() => {
