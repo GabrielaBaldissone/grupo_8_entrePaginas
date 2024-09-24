@@ -7,32 +7,33 @@ const datos = {
 
 const productsController = {
     products: null,
-    productCart: (req, res) => {
-
+    productCart: async (req, res) => {
         const userId = req.session.userLogged.id_user;
-
-        db.Order.findAll({
-            where: { id_user: userId }, 
-            order: [[ "id_order", "DESC" ]], 
-            limit: 1
-        })
-
-        .then(order => {
+    
+        try {
+            const order = await db.Order.findOne({
+                where: { id_user: userId },
+                order: [['id_order', 'DESC']]
+            });
+    
             if (!order) {
-                return res.status(404).json({ error: 'Carrito vacio, ¿quieres comprar?' });
+                return res.status(404).json({ error: 'Carrito vacío, ¿quieres comprar?' });
             }
-
-            db.OrderProduct.findOne({
-                where: {id_order: order.id_order}
-            })
-
-            .then(productsCart => {
-                res.render("products/productCart", {productsCart});
-            })
-
-
-        })
-
+    
+            const productsCart = await db.OrderProduct.findAll({
+                where: { id_order: order.id_order },
+                include: [{
+                    model: db.Product,
+                    as: 'product',
+                    attributes: ['id_product', 'name', 'price', 'stock', 'image', 'description'] 
+                }]
+            });
+    
+            res.render("products/productCart", { productsCart, datos });
+        } catch (error) {
+            console.error("Error al mostrar el carrito:", error);
+            res.status(500).send("Error interno del servidor");
+        }
     },
     productDetail: (req, res) => {
         const {id} = req.params;
@@ -84,6 +85,7 @@ const productsController = {
             order_product.quantity += parseInt(quantity);
             await order_product.save();
         }
+
 
         res.redirect(`/products/detail/${productId}`);
 
