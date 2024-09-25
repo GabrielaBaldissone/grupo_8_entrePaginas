@@ -22,6 +22,7 @@ const productsController = {
     
             const productsCart = await db.OrderProduct.findAll({
                 where: { id_order: order.id_order },
+                attributes: ['quantity'],
                 include: [{
                     model: db.Product,
                     as: 'product',
@@ -97,14 +98,43 @@ const productsController = {
     getProductAdmin: (req, res) => {
         res.render("products/formAdminProduct", {datos});
     },
-    deleteProductById: (req, res) =>{
+    deleteProductById: async  (req, res) =>{
         const {id} = req.params;
-        const oldProductsCart = JSON.parse(fileProductsCart);
-        const productsCart = oldProductsCart.filter(prod => prod.id != id);
-        const newProductsCartJSON = JSON.stringify(productsCart);
-        fs.writeFileSync(productsCartFilePath, newProductsCartJSON);
+        const userId = req.session.userLogged.id_user;
 
+        try {
+
+            const order = await db.Order.findOne({
+                where: { id_user: userId },
+                order: [['id_order', 'DESC']]
+            });
+
+            const orderId = order.id_order;
+
+            db.OrderProduct.destroy({
+                where: {
+                    id_order: orderId,
+                    id_product: id
+                }
+            })
+            
+            const productsCart = await db.OrderProduct.findAll({
+                where: {
+                    id_order: orderId
+                },
+                include: [{
+                    model: db.Product,
+                    as: 'product',
+                    attributes: ['id_product', 'name', 'price', 'stock', 'image', 'description']
+                }]
+            })
+        
+        
         res.render("products/productCart", {datos, productsCart});
+    } catch (error) {
+        console.error("Error al eliminar el producto del carrito:", error);
+        res.status(500).send("Error interno del servidor");
+    }
     },
     deleteAllProducts: (req, res) =>{
         const productsCart = [];
