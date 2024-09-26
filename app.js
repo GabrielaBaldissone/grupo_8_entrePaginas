@@ -3,6 +3,7 @@ const express = require('express');
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
+const adminMiddlewareApp = require("./middlewares/adminMiddlewareApp");
 const app = express();
 
 // SERVIDOR.
@@ -16,6 +17,7 @@ app.use(cookieParser());
 
 // // MiddleWare para pasar la session a las vistas
 app.use(userLoggedMiddleware);
+app.use(adminMiddlewareApp);
 
 // PUBLIC.
 app.use(express.static("public"));

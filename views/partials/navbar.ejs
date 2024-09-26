@@ -40,7 +40,9 @@
                 </ul>
             </li>
             <li><a href="/products/cart"><i class="fa-solid fa-cart-shopping icons-style"></i><span>Carrito</span></a></li>
+            <% if (isAdmin) { %>
             <li><a href="/products/admin"><i class="fa-solid fa-gear icons-style"></i><span>Admin</span></a></li>
+            <% } %>
         </ul>
     </div>
 <% } %>

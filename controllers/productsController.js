@@ -137,19 +137,19 @@ const productsController = {
     }
     },
     deleteAllProducts: (req, res) =>{
-        const productsCart = [];
-        const newProductsCartJSON = JSON.stringify(productsCart);
-        fs.writeFileSync(productsCartFilePath, newProductsCartJSON);
+        
 
         res.render("products/productCart", {datos, productsCart});
     },
+
+
+    // ESTO ES PRODUCTOS
     editProduct: (req, res) =>{
         const {id} = req.params;
         const product = db.Product.findByPk(id, {
             include: [{association: "category"}]
         })
         const categories = db.Category.findAll();
-        // quede aca
         Promise.all([product, categories])
         .then(([product, categories])=>{
             console.log(product);
