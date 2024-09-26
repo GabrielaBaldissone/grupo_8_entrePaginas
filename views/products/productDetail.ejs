@@ -10,7 +10,7 @@
         <section class="product-details">
         
             <div class="product-description">
-                <img src="/img/<%= product.image %>" class="product-details-img"  alt="<%= product.name %>">
+                <img src="data:image/png;base64,/<%= product.image %>" class="product-details-img"  alt="<%= product.name %>">
                 <h1><%= product.name %></h1>
                 <p ><%= product.description %> </p>
                 <p class="price-total">Precio: $<%= product.price %></p>
@@ -39,7 +39,7 @@
                 <article class="producto">
                     <a href="/products/detail/<%= prod.id_product %>">
                     <div class="producto-imagen">
-                        <img src="/img/<%= prod.image %>"  class="product-details-img" alt="<%= prod.name%>">
+                        <img src="data:img/png;base64,<%= prod.image %>"  class="product-details-img" alt="<%= prod.name%>">
                         </div>
                     <div class="producto-descripcion">
                         <p><%= prod.name %></p>
