@@ -11,7 +11,7 @@
                 <% productsCart.forEach(prod =>{ %>
 
                     <section class="product-item">
-                        <div><img class="product-image" src="/img/<%= prod.product.image %>" alt="<%= prod.product.name %>"></div>
+                        <div><img class="product-image" src="data:image/png;base64,<%= prod.product.image %>" alt="<%= prod.product.name %>"></div>
                         <div class="product-cart-details">
                             <span class="product-name"><%= prod.product.name %></span>
                             <span class="product-code">Cod. <%= prod.product.id_product %></span>
