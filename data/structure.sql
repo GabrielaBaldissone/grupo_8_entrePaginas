@@ -36,6 +36,7 @@ CREATE TABLE products (
 CREATE TABLE orders (
     id_order INT AUTO_INCREMENT PRIMARY KEY,
     id_user INT,
+    available BOOLEAN,
     FOREIGN KEY (id_user) REFERENCES users(id_user)
 );
 
