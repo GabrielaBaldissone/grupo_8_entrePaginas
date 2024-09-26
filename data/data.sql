@@ -36,17 +36,17 @@ INSERT INTO `categories` (`id_category`, `category`) VALUES
 -- Volcado de datos para la tabla `orders`
 --
 
-INSERT INTO `orders` (`id_order`, `id_user`) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10);
+INSERT INTO `orders` (`id_order`, `id_user`, `available`) VALUES
+(1, 1, 0),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 0),
+(6, 6, 1),
+(7, 7, 0),
+(8, 8, 1),
+(9, 9, 1),
+(10, 10, 1);
 
 --
 -- Volcado de datos para la tabla `order_product`
