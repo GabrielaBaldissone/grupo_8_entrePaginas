@@ -19,9 +19,6 @@ router.post("/", productsController.productAddCart);
 // ELIMINAR UN PRODUCTO DEL CARRITO DE COMPRAS
 router.delete("/cart/:id", productsController.deleteProductById);
 
-// ELIMINAR TODOS LOS PRODUCTOS DEL CARRITO DE COMPRAS
-router.delete("/cart", productsController.deleteAllProducts);
-
 // ELIMINAR PRODUCTO
 router.delete("/delete/:id", productsController.destroy);
 

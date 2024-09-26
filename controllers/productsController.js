@@ -136,11 +136,6 @@ const productsController = {
         res.status(500).send("Error interno del servidor");
     }
     },
-    deleteAllProducts: (req, res) =>{
-        
-
-        res.render("products/productCart", {datos, productsCart});
-    },
 
 
     // ESTO ES PRODUCTOS
