@@ -19,7 +19,8 @@
             <article class="article-style">
                 <a href="/products/detail/<%= prod.id_product %>">
                 <div class="conteiner-img">
-                <img src="data:image/png;base64,<%= prod.image %>" alt="<%= prod.name %>" />
+                    <% console.log(prod.image) %>
+                <img src="img/<%=prod.image%>" alt="<%= prod.name %>" />
                 </div>
                 <div class="info">
                     <p class="descripcion"><%= prod.name %></p>                    
