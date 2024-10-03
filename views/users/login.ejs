@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head.ejs', {'datos':datos.activar}) %>
+    <title>Ingresá </title>
+</head>
+<body class="login-body">
+    <%- include('../partials/navbar.ejs') %>
+    <main>
+        <p class="iniciar-sesion-login">Iniciar sesión</p>
+
+        <div class="user-icon">
+            <i class="fa-solid fa-user userline"></i>
+        </div>
+
+        <section class="login-box">
+        <form class="form-login" action="/users/login" method="POST">
+
+            <label class="description-login" for="name-user">Correo electronico <span class="span-login-red">*</span></label>
+            <input class="input-login" type="text" name="email" id="name-user" placeholder="Usuario"
+            value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+            <% if (locals.errors && errors.email) { %>
+                <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.email.msg %></p>
+            <% } %>
+    
+            <label class="description-login" for="password-login">Contraseña<span class="span-login-red">*</span></label> 
+            <input class="input-login" type="password" name="password" id="password-login" placeholder="Contraseña" >
+            <% if (locals.errors && errors.password) { %>
+                <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.password.msg %></p>
+            <% } %>
+            <a class="ancla-login" href="">¿Olvidaste tu contraseña?</a>
+
+            <input class="checkbox-login" type="checkbox" name="rememberMe" id="checkbox-login">
+            <label class="recuerdame-top" for="checkbox-login">Recuérdame</label>
+
+            <div class="center-login">
+            <button class="submit-login" type="submit" value="Inicia sesión">Inicia sesión</button>
+            <label class="connect-login" for="">O</label>
+            <a href="./register" class="submit-login" type="submit" value="Crear Cuenta">Crear cuenta</a>
+            <label class="connect-login" for="">conéctate con</label>
+            <i class="fa-brands fa-square-facebook icons-login"></i>              
+            </div>
+        </form>
+    </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="https://kit.fontawesome.com/6868278fd3.js" crossorigin="anonymous"></script>
+</body>
+</html>

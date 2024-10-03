@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs',{'datos':datos.activar}) %>
+    <title>Essenciana</title>
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+
+    <div class="banner">
+    <img class="img-banner" src="/img/banner-e.png" alt="Essenciana" />
+    </div>
+    <main>
+        <a href=""><p class="title">SÁBANAS</p></a>
+
+
+    <section class="box-flex">
+        <% sabanas.forEach(prod => { %>
+            <article class="article-style">
+                <a href="/products/detail/<%= prod.id_product %>">
+                <div class="conteiner-img">
+                    <% console.log(prod.image) %>
+                <img src="img/<%=prod.image%>" alt="<%= prod.name %>" />
+                </div>
+                <div class="info">
+                    <p class="descripcion"><%= prod.name %></p>                    
+                    <div class="box-linea">
+                        <p class="precios">$<%= prod.price %></p>
+                        <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
+                    </div>
+
+                </div>
+            </a>
+            </article>
+        <%}) %>
+    </section>
+    <p class="title">ACOLCHADOS</p>
+    <section class="box-flex">
+        <% acolchados.forEach(prod => { %>
+
+            <article class="article-style">
+                <a href="/products/detail/<%= prod.id_product %>">
+                    <div class="conteiner-img">
+                    <img
+                    src="data:img/png;base64,<%= prod.image %>"
+                    alt="<%= prod.name %>"
+                    />
+                    </div>
+                    <div class="info">
+                        <p class="descripcion"><%= prod.name %></p>                        
+                        <div class="box-linea">
+                            <p class="precios">$<%= prod.price %></p>
+                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        <%}) %>
+    </section>
+    <p class="title">CORTINAS</p>
+    <section class="box-flex">
+        <% cortinas.forEach(prod => { %>
+
+            <article class="article-style">
+                <a href="/products/detail/<%= prod.id_product %>">
+                    <div class="conteiner-img">
+                    <img
+                    src="data:img/png;base64,<%= prod.image %>"
+                    alt="<%= prod.name %>"
+                    />
+                    </div>
+                    <div class="info">
+                        <p class="descripcion"><%= prod.name %></p>                        
+                        <div class="box-linea">
+                            <p class="precios">$<%= prod.price %></p>
+                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        <%}) %>
+    </section>
+    <p class="title">VELAS</p>
+    <section class="box-flex">
+        <% velas.forEach(prod => { %>
+
+            <article class="article-style">
+                <a href="/products/detail/<%= prod.id_product %>">
+                    <div class="conteiner-img">
+                    <img
+                    src="data:img/png;base64,<%= prod.image %>"
+                    alt="<%= prod.name %>"
+                    />
+                    </div>
+                    <div class="info">
+                        <p class="descripcion"><%= prod.name %></p>        
+                        <div class="box-linea">
+                            <p class="precios">$<%= prod.price %></p>
+                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        <%}) %>
+    </section>
+    <p class="title">ESENCIAS</p>
+    <section class="box-flex">
+        <% esencias.forEach(prod => { %>
+
+            <article class="article-style">
+                <a href="/products/detail/<%= prod.id_product %>">
+                    <div class="conteiner-img">
+                    <img
+                    src="data:image/png;base64,<%= prod.image %>"
+                    alt="<%= prod.name %>"
+                    />
+                    </div>
+                    <div class="info">
+                        <p class="descripcion"><%= prod.name %></p>                        
+                        <div class="box-linea">
+                            <p class="precios">$<%= prod.price %></p>
+                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        <%}) %>
+    </section>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
+
+    <script
+    src="https://kit.fontawesome.com/1165876da6.js"
+    crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
+

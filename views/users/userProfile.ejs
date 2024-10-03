@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head.ejs',{'datos':datos.activar}) %>
+    <title>Perfil de Usuario</title>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <main class="user-profile">
+        <p class="name-user">Hola, <%= user.first_name.toUpperCase() %> <%= user.last_name.toUpperCase() %></p>
+        <div class="conteiner-img-user">
+            <img  src="/uploads/" alt="Imagen de Perfil" >
+        </div>
+        <div class="user-profile-box">
+            <p class="description-user"><strong>Nombre:</strong> <%= user.first_name %></p>
+            <p class="description-user"><strong>Apellido:</strong> <%= user.last_name %></p>
+            <p class="description-user"><strong>Email:</strong> <%= user.email %></p>
+            <p class="description-user"><strong>Telefono:</strong> <%= user.phone %></p>
+        </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="https://kit.fontawesome.com/6868278fd3.js" crossorigin="anonymous"></script>
+</body>
+</html>

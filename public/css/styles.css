@@ -1,0 +1,1343 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    text-decoration: none; 
+    list-style: none;
+}
+/*Estilos del body/cuerpo general*/
+body {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(66,63,62,0.954115752746411) 77%);
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+}
+
+/* NAVBAR */
+
+/* Estilos del navbar - Flexbox, color de fondo, etc.*/
+.nav {
+    padding-bottom: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #362222;
+}
+
+/*Se le ajusta el ancho al CONTENEDOR del Logo*/
+.header__navbar-logo{
+    width: 30%;
+}
+
+/*Un ancho de 100% al LOGO para que ocupe el tamaño de su contenedor*/
+.logo{
+    width: 100%;
+    transition: transform 0.3s ease;  
+}
+
+.logo:hover {
+    transform: scale(1.10);
+}
+
+/*Es el ID del input search - Estilos del mismo*/
+#search{
+    font-size: 14px;
+    padding: 13px;
+    border-radius: 4px;
+    width: 90%;
+    height: 20px;
+    margin-top: 9px;
+    border: white;
+    outline: 0;
+}
+
+/*Estilos cuando focalizamos el input search*/
+#search:focus{
+    border-style: solid;
+    border-color: #3483fa;
+    border-width: 1.7px;
+}
+
+/*Estilos del contenedor del fomulario que tiene el input search*/
+.box-input{    
+    width: 50%;
+    margin-bottom: 11px;
+    display: flex;
+    position: relative;
+}
+
+/*Que el formulario tenga el ancho total de su contenedor*/
+.search-bar{
+    width: 100%;
+}
+
+/*Estilos de la lupa*/
+.button-search{
+    font-size: 16px;
+    margin-right: 21px;
+    padding: 2px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    border: none;
+    top: 10.5px;
+    right: 0.5px;
+    border-radius: 4px;
+    color: #2b2b2b;
+}
+
+/*Estilos de los iconos*/
+.icons-style{
+    color: rgb(255, 255, 255);
+    padding: 1px;
+    transition: transform 0.3s ease;
+    display: none;   
+}
+
+.icons-style:hover {  
+    transform: scale(1.10);
+}
+
+.button-logout{
+    border: none;
+    background: none; 
+    color: white;
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+.button-logout:hover{
+    color: #3483fa;
+}
+
+.user-ingreso{
+    color: white;
+    padding: 3px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    transition: transform 0.3s ease;  
+}
+
+.user-ingreso:hover {
+    transform: scale(1.10);
+}
+
+
+.user-perfil{
+    color: white;
+    padding: 3px;
+    font-size: 18px;
+}
+
+.user-perfil:hover{
+    color: #3483fa;
+}
+
+/*Burger menu*/
+#brg-menu{
+    display: none;
+}
+
+.abrir-menu{
+    display:block;
+    font-size: 20px;
+    color: #ffffff;
+    float: right;
+    line-height: 55px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.header__navbar-items{
+    display: none;
+}
+
+.header__navbar-items.active {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-menu li a span{
+    color: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-menu li a span:hover {
+    transform: scale(1.2);
+}
+
+.items-nav{
+    padding: 5px;
+    font-size: 18px;
+    background-color: #2b2b2b;
+    color: white;
+    display: block;
+}
+
+.items-nav:hover{
+    background-color: white;
+    color: black; 
+
+}
+.nav-menu {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu > li {
+    float: none;
+}
+
+.nav-menu li ul{
+    display: none;
+    position: absolute;
+    min-width: 70px;
+}
+
+.nav-menu li:hover > ul{
+    display: block;
+} 
+
+
+/* ESTILOS MAIN */
+
+/*Img del banner*/
+.img-banner {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/*Estilos del titulo de cada section*/
+.title {
+    background-image: linear-gradient(90deg, rgba(255,255,255,1) 15%, rgba(66, 63, 62, 0.283) 75%);
+    font-size: 20px;
+    color: #362222;
+    width: 80%; 
+    margin: 0 auto;   
+    text-align: center; 
+}
+
+.title:hover{
+    color:rgb(255, 255, 255);
+}
+
+/*Estilos del contenedor de la etiqueta section - ancho y centrado*/
+.box-flex{
+    width: 95%;
+    margin: 0 auto;
+}
+
+/*Que la imagen ocupe un 100% de su contenedor (box-flex)*/
+.box-flex img {
+    width: 100%;
+}
+
+/*Margen del article*/
+.article-style{
+    margin: 10px;
+}
+
+/*Estilos de la informacion total del articulo*/
+.info {    
+    text-align: center;
+    display: block;
+    border-top: solid 2px #362222;
+    background-color: #2b2b2b;
+    padding: 10px;
+    position: relative;
+}
+
+/*Estilos del nombre del producto*/
+.descripcion {
+    font-size: 18px;
+    font-weight: 50%;
+    color: #ffffff;
+}
+
+/*Estilos del contenedor de precios y desc*/
+.box-linea {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: baseline;
+}
+
+/*Estilos de los precios*/
+.precios {
+    font-size: 18px;
+    padding-top: 5px;
+    width: 40%;
+    color: #a7a3a2;
+    font-weight: 600;
+}
+
+/*Estilos de los descuentos*/
+.desc {
+    font-size: 20px;
+    color: #8ab4a8;
+    padding-top: 5px;
+    padding-left: 10px;
+    width: 60%;
+}
+
+/* ESTILOS FOOTER */
+
+/*Estilos para el footer general*/
+footer {
+    background-color: #362222;
+    margin-top: 30px;
+}
+
+/*Estilos del input de "enviar mail" */
+.form-email {
+    background: linear-gradient(180deg, rgba(75,72,71,1) 12%, rgba(54,34,34,1) 97%);
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+/*Estilos del input email*/
+#email-novedades{
+    height: 25px;
+    width: 50%;
+}
+#email-novedades::placeholder{
+    text-align: center;
+    font-size: 12px; 
+}
+
+/*Estilos del boton enviar*/
+.send {
+    padding: 5px 5px;
+    background-color: #2b2b2b;
+    color: white;
+    font-size: 11px;
+    border: none;
+    margin-left: 5px;
+}
+.send:hover {
+    background-color: white;
+    color: black; 
+}
+
+/*Estilos de los div*/
+.footerSection {
+    text-align: center;
+    padding: 5px; 
+}
+
+/*Estilos del las etiquetas a*/
+.footerSection a {
+    text-decoration: none; 
+    color: rgb(255, 255, 255); 
+}
+
+.fa-instagram, .fa-facebook, .fa-pinterest, .fa-envelope, .fa-map, .fa-phone  {
+    transition: transform 0.3s ease;  
+}
+.fa-instagram:hover, .fa-facebook:hover, .fa-pinterest:hover, .fa-envelope:hover, .fa-map:hover, .fa-phone:hover  {
+    transform: scale(1.10);
+}
+
+
+/*Estilos de los iconos de contacto y redes*/
+.fa-instagram, .fa-facebook, .fa-pinterest, .fa-envelope, .fa-map, .fa-phone  {
+    font-size: 15px;
+    color: rgb(255, 255, 255); 
+    padding: 5px;
+}
+
+/*Estilos de los nombres de las secciones */
+.footer-name {
+    color: #ffffff;
+    font-size: 18px;
+    margin-top: 2px; 
+    text-align: center;
+}
+
+
+/*Estilo del logo que está en el footer*/
+.div-logo-footer{
+    width: 50%;
+    text-align: center;
+}
+
+/*Estilo del logo */
+.logo-footer{
+    width: 70%;
+    transition: transform 0.3s ease;  
+}
+.logo-footer:hover {
+    transform: scale(1.10);
+}
+
+
+
+/*ESTILOS CARRITO DE COMPRAS */
+
+.productcart-main {
+    margin: 0 auto;
+    background-color: #ffffff;
+    width: 90%;
+    border-radius: 10px;    
+    margin-top: 10px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    padding: 10px;
+    margin-bottom: 10px; 
+}
+
+.product-image {
+    width: 100px;
+    height: 120px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.product-cart-details{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #362222;
+    margin-bottom: 5px;
+}
+
+.product-code {
+    font-size: 0.9em;
+    color: #2b2b2b;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 1.1em;
+    color: #dc3545;
+}
+
+.quantity-btn,
+.remove-btn {
+    float: inline-end;
+    padding: 5px 10px;
+    margin: 5px 0;
+    font-size: 1em;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor:pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-btn:hover,
+.remove-btn:hover {
+    background-color: rgba(199, 199, 199, 0.66);
+    color: black;
+}
+
+.quantity-number {
+    float: inline-end;
+    font-size: 1.2em;
+    margin: 0 10px;
+    margin-top: 7px;
+}
+
+.remove-btn {
+    float: right;
+    background-color: #2b2b2bca;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+    align-self: flex-end;
+}
+
+.remove-btn:hover {
+    float: right;
+    background-color: rgba(199, 199, 199, 0.66);
+    color: black;
+}
+
+/* ESTILOS DE LA SECTION DE PAGOS */
+
+section.productcart-section {
+    background-color: #2b2b2b;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+
+    margin: 5px;
+}
+
+.section-content {
+    width: 100%;
+    display: flex;    
+    justify-content: center; 
+    align-items: center;
+}
+
+.section-left {
+    width: 35%;
+}
+
+.price-total{
+    display: block;
+    color: #dc3545;
+    font-weight: 100;
+}
+
+.total-amount {
+    font-size: 1.2em;
+    color:  rgba(199, 199, 199, 0.66);
+    font-weight: bold;
+    margin-bottom: 0px 10px;
+}
+
+.shipping-info {
+    color: #ffffff;
+}
+
+.shipping-info:hover {
+    color: #5f5feee0;;
+}
+
+.section-right {
+    width: 35%; 
+    margin-top: 2px;
+}
+
+.section-btn {
+    width: 90px;
+    height: 30px;
+    margin: 2px;
+    padding: 1px;
+    font-size: 10PX;
+    background-color: #ffffff;
+    border: 2px solid #8e8e8e;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.section-btn:hover {
+    background-color: rgba(199, 199, 199, 0.66);
+    color: black;
+    transition: background-color 0.3s ease;
+
+}
+
+.pay-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #dc3546d9;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pay-btn:hover {
+    background-color: rgba(91, 132, 87, 0.66);
+    color: black;
+}
+
+.payment-section {
+    width: 30%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/*ESTILOS DETALLES PRODUCTOS*/
+
+.product-details {
+    
+    text-align: center;
+    max-width: 90%;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.product-details-img {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+}
+
+.product-description{
+    color: #362222;
+    margin: 2px;
+}
+
+.cantidad-box{
+    text-align: center;
+}
+
+.cantidad-box label {
+    display: block;
+    margin: 12px;
+
+}
+
+.cantidad-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3px; 
+}
+
+#cantidad {
+    text-align: center;
+    width: 20%;
+}
+
+.agregar-carrito-btn {
+    margin-top: 3px;
+    margin-bottom: 7px;
+    background-color: #2b2b2bca;
+    color: white;
+    border: none;
+    padding: 3px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.agregar-carrito-btn:hover  {
+    background-color: rgba(199, 199, 199, 0.66);
+    color: black;
+}
+
+.update-btn{
+    margin-top: 10px;
+    background-color: #ffffffca;
+    color: #ffbb00;
+    border: 1px solid #2b2b2bca;
+    padding: 3px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.update-btn:hover  {
+    background-color: #f1b510f1;
+    color: black;
+}
+
+.delete-btn{
+    margin-top: 7px;
+    background-color: #ffffffca;
+    color: #ff0019;
+    border: 1px solid #2b2b2bca; 
+    padding: 3px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-btn:hover  {
+    background-color: #dc3545;
+    color: black;
+}
+
+.product-relacionado{
+    font-size: 22px;
+    text-align: center;
+    color: white;
+}
+
+.productos-relacionados  {
+    display: flex;
+    justify-content:center; 
+    align-items:center; 
+    flex-wrap:nowrap;
+    overflow: auto;
+    margin: 5px;
+    }
+
+.producto {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: inline-block; 
+    width: 250px; 
+    margin-right: 10px;
+    text-align: center; 
+    border: 1px solid #ccc; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.producto:last-child {
+    margin-right: 0; 
+}
+
+.producto-imagen  {
+    margin: 0 auto;
+    width: 100%; 
+    width: 100%;
+    max-width: 100px;
+    height: 100px;  
+}
+.producto-imagen img {
+    margin: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto-descripcion{
+    font-weight: 600;
+    margin: 5px;
+    color: black;
+    font-size: 12px;
+}
+
+
+
+/*ESTILOS LOGIN - REGISTER*/
+
+.iniciar-sesion-login {
+    font-size: 20px;
+    color: #362222;
+    text-align: center;
+    margin: 15px;
+}
+
+.user-icon{
+    margin: 0 auto;
+    background-color: #2b2b2bca;
+    text-align: center;
+    border-radius: 150px 150px 0 0;
+    width: 70px;
+    color: white;
+}
+
+.userline{
+    margin-top: 15px;
+    font-size: 38px;
+}
+
+.login-box{
+    background-color: white;
+    width: 70%;
+    height: 50%;
+    border-radius: 20px;
+    margin: 0 auto;
+    box-shadow: 1px 5px 5px 5px #2f2f2f; 
+}
+
+.form-login{
+    padding: 20px;
+    margin-bottom: 120px;
+    text-align: center;    
+}
+
+.description-login{
+    display: block;
+    color: #2f2f2f;
+    font-weight: 600;
+    font-size: 16px; 
+    margin: 7px;
+}
+
+.style-terminos{
+    display: block;
+}
+
+.span-login-red{
+    color: red;
+}
+
+.input-login {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+    height: 30px;
+    border-radius: 8px;
+    color:#2f2f2f;
+}
+
+.input-login::placeholder{
+    text-align: center;
+}
+
+/* Estilo para el mensaje de error */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Estilo para el borde rojo en los campos con error */
+.input-error {
+    border: 2px solid red;
+    outline: none;
+}
+
+.checkbox-login{
+    width: 17px;
+    height: 14px;
+    margin-left: 25px;
+    margin-top: 15px;
+}
+
+.icons-login {
+    font-size: 20px;
+}
+
+.center-login {
+    text-align: center;
+    
+}
+
+.fa-brands {
+    font-size: 25px;
+    margin: 7px;
+    color: #3b5998;
+}
+
+.submit-login{
+    background-color: #2b2b2bca;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    margin: 10px;
+    padding: 3px;
+    width: 80%;
+    height: 30px;
+} 
+
+.submit-login:hover{
+    background-color: rgba(199, 199, 199, 0.66);
+    color: #2f2f2f;
+}
+
+.ancla-login {
+    font-size: 15px;
+    margin: 7px;
+    color: #3f3f3f;
+    text-align: center;
+    display: block;
+}
+
+.connect-login{
+    display: block;
+    margin: 5px;
+}
+
+/*FORMULARIOS ADMIN*/
+
+
+.register__form{
+    border: 1px solid #2f2f2f;
+    min-width: 50%;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 500px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 1px 5px 5px 5px #2f2f2f; 
+
+}
+
+.register__form a {
+    color: white;
+}
+
+.register__form a:hover {
+    color: #2f2f2f;
+}
+
+.register__form p{
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+
+.register__form-a{
+    color: #2f2f2f;
+    font-size: 16px;
+    text-decoration: underline;
+    color: #0000EE;
+}
+
+.register__form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2f2f2f;
+}
+
+.register__form input[type="file"]{
+    margin-bottom: 15px;
+}
+
+.register__form textarea{
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+}
+
+.register__form input[type="text"],
+.register__form input[type="number"],
+.register__form input[type="email"],
+.register__form input[type="tel"],
+.register__form input[type="date"],
+.register__form input[type="password"],
+.register__form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #2f2f2f;
+    border-radius: 4px;
+    color: #2f2f2f;
+}
+
+.register__form input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.register__form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2b2b2bca;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register__form button:hover {
+    background-color: rgba(199, 199, 199, 0.66);
+    color: black;
+}
+
+.register__required--red{
+    color: red;
+}
+
+.user-profile{
+    background-color: #36222231;
+    border-radius: 10px;
+    width: 80%;
+    padding: 25px;
+    margin: 0 auto;
+    margin-bottom: 20%;
+    margin-top: 10px;
+}
+
+.name-user{
+    font-size: 18px;
+    color: #362222;
+    text-align: center;
+    margin: 25px;
+}
+
+.description-user{
+    color: #2f2f2f;
+    font-size: 16px; 
+    margin: 10px;
+}
+
+/*MEDIAS QUERIES*/
+
+@media screen and (min-width: 481px) {
+
+/* NAVBAR */
+
+/*Burger menu*/
+.header__navbar-items{
+    display:none;
+}
+.header__navbar-items.active{
+    display:flex;
+    flex-direction: row;
+    justify-content: center; 
+}
+
+/*Estilos de la lupa*/
+.button-search{
+    margin-right: 40px;
+}
+
+/* ESTILOS MAIN */
+
+
+/*Img del banner*/
+.img-banner {
+    margin-bottom: 15px;
+}
+
+/*Estilos del contenedor de la etiqueta section - ancho y centrado*/
+.box-flex{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+
+}
+
+.conteiner-img{
+    width: 100%;
+    max-width: 350px;
+    height: 350px;  
+}
+
+/*Que la imagen ocupe un 100% de su contenedor (box-flex)*/
+.box-flex img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*Margen del article*/
+.article-style{
+    margin: 8px;    
+}
+
+/*El hover sobre la descripción para que pase el mouse sobre el art y aparezca la descripción*/
+article {
+    transition: transform 0.3s ease;
+}
+article:hover {
+    transform: scale(1.03);
+}
+
+/* ESTILOS FOOTER */
+
+/*Estilos del input email*/
+#email-novedades{
+    height: 30px;
+    width: 50%;
+}
+#email-novedades::placeholder{
+    font-size: 14px; 
+}
+
+/*Estilos del boton enviar*/
+.send {
+    font-size: 13px;
+}
+
+/*Estilos de los iconos de contacto*/
+.fa-instagram, .fa-facebook, .fa-pinterest, .fa-envelope, .fa-map, .fa-phone  {
+    font-size: 20px;
+}
+
+/*Estilos de los nombres de las secciones */
+.footer-name {
+    font-size: 20px;
+}
+
+
+/*Estilo del logo */
+.logo-footer{
+    width: 50%;
+}
+
+
+/*ESTILOS CARRITO DE COMPRAS */
+
+.productcart-main {
+    width: 75%;
+}
+
+/* ESTILOS DE LA SECTION DE PAGOS */
+
+section.productcart-section {
+    margin: 0 auto;
+    width: 80%;
+    justify-content: center; 
+    align-items: center;
+}
+
+.section-content {
+    width: 90%;
+}
+
+    .icons-style{
+        padding: 3px;
+        font-size: 20px;
+    }
+    .submit-login{
+        width: 60%;
+    }
+    .login-box{
+        background-color: white;
+        width: 60%;
+        height: 60%;
+        border-radius: 20px;
+        margin: 0 auto;
+    }
+    .user-profile{
+        width: 40%;
+    }
+    
+    .name-user{
+        font-size: 22px;
+    }
+    
+    .description-user{
+        font-size: 18px; 
+    }
+
+}
+
+
+
+@media screen and (min-width: 769px) {
+
+/* NAVBAR */
+
+/*Se le ajusta el ancho al CONTENEDOR del Logo*/
+.header__navbar-logo{
+    width: 20%;
+}
+
+/*Es el ID del input search - Estilos del mismo*/
+#search{
+    font-size: 15px;
+    height: 30px;
+}
+
+/*Ocultar burger menu de desktop*/
+.nav-menu li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-menu li a span {
+    display: none;
+}
+    
+#brg-menu{
+    display: none;
+}
+#brg-menu:checked ~ .header__navbar-items {
+    display: block;
+}
+
+.abrir-menu{
+    display: none;
+}
+
+.header__navbar-items{
+    display: block;
+}
+.header__navbar-items.active{
+    display:none;
+}
+
+/*Estilos de la lupa*/
+.button-search{
+    font-size: 18px;
+    margin-right: 74px;
+}
+
+
+/*Estilos de los iconos*/
+.icons-style{
+    padding: 5px;
+}
+
+/* ESTILOS MAIN */
+
+/*Img del banner*/
+.img-banner {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/*Estilos del titulo de cada section*/
+.title { 
+    font-size: 30px;
+}
+
+/*Estilos del contenedor de la etiqueta section - ancho y centrado*/
+.box-flex{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+/*Estilos del nombre del producto*/
+.descripcion {
+    font-size: 20px;
+}
+
+/*Estilos de los precios*/
+.precios {
+    font-size: 20px;
+}
+
+/*Estilos de los descuentos*/
+.desc {
+    font-size: 18px;
+    width: 50%;
+}
+
+/* ESTILOS FOOTER */
+
+footer {
+    margin-top: 100px;
+}
+
+/*Estilos del input email*/
+#email-novedades{
+    height: 35px;
+    width: 50%;
+}
+#email-novedades::placeholder{
+    text-align: center;
+    font-size: 16px; 
+}
+
+/*Estilos del boton enviar*/
+.send {
+    font-size: 13px;
+}
+.send:hover {
+    background-color: white;
+    color: black; 
+}
+
+/*Estilos de los iconos de contacto*/
+.fa-instagram, .fa-facebook, .fa-pinterest, .fa-envelope, .fa-map, .fa-phone  {
+    font-size: 18px;
+}
+
+/*Estilos de los nombres de las secciones */
+.footer-name {
+    margin-bottom: 2px;
+}
+
+/*Estilo del logo */
+.logo-footer{
+    width: 60%;
+}
+
+.footer-style {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+}
+
+
+
+/*ESTILOS DETALLES PRODUCTOS*/
+
+.product-details {
+    max-width: 50%;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.product-relacionado{
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 26px;
+    text-align: center;
+    color: white;
+}
+
+.productos-relacionados  {
+    width: 100%;
+    }
+
+.producto {
+    width: 25%; 
+}
+
+#cantidad {
+    text-align: center;
+    width: 50px;
+}
+
+.producto-imagen  {
+    margin: 0 auto;
+    width: 100%; 
+    width: 100%;
+    max-width: 200px;
+    height: 200px;  
+}
+.producto-imagen img {
+    margin: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto-descripcion{
+    font-weight: 600;
+    margin: 15px;
+    color: black;
+    font-size: 16px;
+}
+
+
+/*LOGIN - REGISTER*/
+
+    .iniciar-sesion-login{
+        font-size: 26px;
+    }
+
+    .description-login{
+        font-size: 18px;
+    }
+
+    .login-box{
+        width: 30%;
+        height: 60%;
+    } 
+    .input-login::placeholder{
+        font-size: 16px;
+    }
+
+    .user-profile{
+        width: 40%;
+    }
+    
+    .name-user{
+        font-size: 24px;
+    }
+    
+    .description-user{
+        font-size: 22px; 
+    }
+}

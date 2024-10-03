@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head.ejs',{'datos':datos.activar}) %>
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+        <main class="productcart-main">
+            <section class="product-list">
+                <% productsCart.forEach(prod =>{ %>
+
+                    <section class="product-item">
+                        <div><img class="product-image" src="data:image/png;base64,<%= prod.product.image %>" alt="<%= prod.product.name %>"></div>
+                        <div class="product-cart-details">
+                            <span class="product-name"><%= prod.product.name %></span>
+                            <span class="product-code">Cod. <%= prod.product.id_product %></span>
+                            <span class="product-price">$<%= prod.product.price %></span>
+                            <div class="product-quantity">
+                            <button class="quantity-btn">-</button>
+                            <span class="quantity-number"><%= prod.quantity %></span>
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        <form action="/products/cart/<%= prod.product.id_product %>?_method=DELETE" method="POST">
+                            <button class="remove-btn">Remove</button>
+                        </form>
+                    </section>
+                <% }) %>
+            </section>
+        </main>
+        <section class="productcart-section">
+            <div class="section-content">
+                <div class="section-left">
+                    <div class="total-amount">
+                        <span>TOTAL: </span> 
+                        <span class="price-total">$ 35.102</span>
+                    </div>
+                    <div >
+                        <a class="shipping-info" href="#">Calcular envío</a>
+                    </div>
+                </div>
+            <div class="section-right">
+                <button class="section-btn">SEGUIR COMPRANDO</button>
+            </div>
+            <div class="payment-section">
+                <button class="pay-btn">PAGAR</button>
+            </div>
+        </section>
+    
+        <%- include('../partials/footer.ejs') %>
+</body>
+</html>
