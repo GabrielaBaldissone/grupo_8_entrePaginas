@@ -20,14 +20,14 @@
     <form action="/users/register" method="POST" class="form-login">
         <label class="description-login" for="nombre">Nombre:<span class="span-login-red">*</span></label>
         <input class="input-login" type="text" id="nombre" name="firstName" placeholder="Ingrese su nombre"
-        value="<%= locals.oldData ? oldData.firstName : null %>">
+        value="<%= locals.oldData ? oldData.firstName : null %>" autocomplete="name" autofocus>
         <% if (locals.errors && errors.firstName) { %>
             <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.firstName.msg %></p>
         <% } %>
 
         <label class="description-login" for="apellido">Apellido:<span class="span-login-red">*</span></label>
         <input class="input-login" type="text" id="apellido" name="lastName" placeholder="Ingrese su apellido"
-        value="<%= locals.oldData ? oldData.lastName : null %>">
+        value="<%= locals.oldData ? oldData.lastName : null %>" >
         <% if (locals.errors && errors.lastName) { %>
             <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.lastName.msg %></p>
         <% } %>
