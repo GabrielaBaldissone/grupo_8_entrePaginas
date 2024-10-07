@@ -2,13 +2,12 @@
 <html lang="es">
 <head>
     <%- include('../partials/head.ejs',{'datos':datos.activar}) %>
+
     <title>Formulario de Registro</title>
 </head>
 <body >
 
     <%- include('../partials/navbar.ejs') %>
-
-
 
     <main>
         <p class="iniciar-sesion-login">Registrate</p>
@@ -17,13 +16,15 @@
     </div>
 
     <section class="login-box">
-    <form action="/users/register" method="POST" class="form-login">
+    <form action="/users/register" method="POST" class="form-login" id="form-register">
         <label class="description-login" for="nombre">Nombre:<span class="span-login-red">*</span></label>
-        <input class="input-login" type="text" id="nombre" name="firstName" placeholder="Ingrese su nombre"
+        <input class="input-login" type="text" id="firstName" name="firstName" placeholder="Ingrese su nombre"
         value="<%= locals.oldData ? oldData.firstName : null %>" autocomplete="name" autofocus>
+
         <% if (locals.errors && errors.firstName) { %>
             <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.firstName.msg %></p>
         <% } %>
+        <div class="just-validate-error-label" id="errNombre"></div>
 
         <label class="description-login" for="apellido">Apellido:<span class="span-login-red">*</span></label>
         <input class="input-login" type="text" id="apellido" name="lastName" placeholder="Ingrese su apellido"
@@ -31,6 +32,7 @@
         <% if (locals.errors && errors.lastName) { %>
             <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.lastName.msg %></p>
         <% } %>
+        <div class="just-validate-error-label" id="errApellido"></div>
 
         <label class="description-login" for="email">Email:<span class="span-login-red">*</span></label>
         <input class="input-login" type="email" id="email" name="email" placeholder="user@example.com"
@@ -38,6 +40,7 @@
         <% if (locals.errors && errors.email) { %>
             <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.email.msg %></p>
         <% } %>
+        <div class="just-validate-error-label" id="errEmail"></div>
 
         <label class="description-login" for="telefono">Teléfono:<span class="span-login-red">*</span></label>
         <input class="input-login" type="tel" id="telefono" name="phone" placeholder="Ingrese su telefono"
@@ -63,5 +66,6 @@
     </section>
 </main>
 <%- include('../partials/footer.ejs') %>
+<script defer src="/js/validationFront.js"></script>
 </body>
 </html>

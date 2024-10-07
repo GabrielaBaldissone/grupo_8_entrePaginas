@@ -9,9 +9,9 @@
     <%- include('../partials/navbar.ejs') %>
 
     <div class="login-box">
-    <form class="register__form" action="/products/edit/<%= product.id_product %>?_method=PUT"  method="POST" enctype="multipart/form-data">
+    <form class="register__form" action="/products/edit/<%= product.id_product %>?_method=PUT"  method="POST" enctype="multipart/form-data" id="form-edit">
         <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
-        <input type="text" id="nombreProducto" name="name" value="<%= product.name %>" required>
+        <input type="text" id="nombreProducto" name="name" value="<%= product.name %>" required autofocus>
         <label for="category">Categoria:<span class="register__required--red">*</span></label>
         <select name="category" id="categoriaProducto">
             <% categories.forEach(category => { %>

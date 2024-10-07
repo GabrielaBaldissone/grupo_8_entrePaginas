@@ -14,11 +14,11 @@
         </div>
 
         <section class="login-box">
-        <form class="form-login" action="/users/login" method="POST">
+        <form class="form-login" action="/users/login" method="POST" id="form-login">
 
             <label class="description-login" for="name-user">Correo electronico <span class="span-login-red">*</span></label>
             <input class="input-login" type="text" name="email" id="name-user" placeholder="Usuario"
-            value="<%= locals.oldData && oldData.email ? oldData.email : null %>">
+            value="<%= locals.oldData && oldData.email ? oldData.email : null %>" autofocus>
             <% if (locals.errors && errors.email) { %>
                 <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.email.msg %></p>
             <% } %>
