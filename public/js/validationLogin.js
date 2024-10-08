@@ -15,16 +15,20 @@ document.addEventListener("DOMContentLoaded", function() {
             errorMessage: "Email no válido",
         }
     ])
-    // .addField("#apellido", [
-    //     {
-    //         rule: "required",
-    //         errorMessage: "Apellido requerido",
-    //         errorMessageContainer: "#errApellido", 
-    //     }
-    // ])
+    .addField("#password-login", [
+        {
+            rule: "required",
+            errorMessage: "Contraseña requerida", 
+        },
+        {
+            rule: "password",
+            errorMessage: "La contraseña debe contener un mínimo de ocho caracteres, al menos una letra mayúscula y un número", 
+        }
+    ])
     .onSuccess((event) => {
         alert("Hola, se envió");
         event.preventDefault();
     });
+    
 });
 

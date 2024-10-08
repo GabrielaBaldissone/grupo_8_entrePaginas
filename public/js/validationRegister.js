@@ -20,19 +20,42 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             rule: "required",
             errorMessage: "Apellido requerido",
-            errorMessageContainer: "#errApellido", 
+        },
+        {
+            rule: "minLength",
+            value: 4,
+            errorMessage: "Como mínimo el apellido debe tener 4 caracteres",
         }
     ])
     .addField("#email", [
         {
             rule: "required",
             errorMessage: "Email requerido",
-            errorMessageContainer: "#errEmail", 
         },
         {
             rule: "email",
             errorMessage: "Email no válido",
-            errorMessageContainer: "#errEmail", 
+        }
+    ])
+    .addField("#telefono", [
+        {
+            rule: "required",
+            errorMessage: "Teléfono requerido",
+        },
+        {
+            rule: "customRegexp",
+            value: /^\+?\d{10,15}$/,
+            errorMessage: "Teléfono no válido",
+        }
+    ])
+    .addField("#contrasenia", [
+        {
+            rule: "required",
+            errorMessage: "Contraseña requerida", 
+        },
+        {
+            rule: "password",
+            errorMessage: "La contraseña debe contener un mínimo de ocho caracteres, al menos una letra mayúscula y un número", 
         }
     ])
     .onSuccess((event) => {

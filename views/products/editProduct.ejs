@@ -19,7 +19,7 @@
 
         <div>
             <label for="category">Categoria:<span class="register__required--red">*</span></label>
-            <select name="category" id="categoriaProducto">
+            <select name="category" id="categoriaProducto" required>
                 <% categories.forEach(category => { %>
                     <option value="<%= category.id_category %>" <%= (product.category.id_category == category.id_category) ? 'selected' : '' %>><%= category.category %></option>
                 <% }); %>
@@ -30,13 +30,13 @@
 
         <div>
             <label for="stock">Stock:<span class="register__required--red">*</span></label>
-            <input type="number" id="stock" name="stock" value="<%= product.stock %>">
+            <input type="number" id="stock" name="stock" value="<%= product.stock %>" required>
                 <div class="error-message" id="errStock">
                 </div>
         </div>
 
         <div>
-            <label for="imagenProducto">Imagen:<span class="register__required--red">*</span></label>
+            <label for="imagenProducto">Imagen:</label>
             <input type="file" id="imgProducto" name="image" multiple>
                 <div class="error-message" id="errImage">
                 </div>
@@ -61,5 +61,6 @@
         </div>
     </form>
     </div>
+    <script src="/js/validationEditProduct.js"></script>
 </body>
 </html>

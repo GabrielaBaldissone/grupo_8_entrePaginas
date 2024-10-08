@@ -12,14 +12,14 @@
     <form class="register__form" action="/products/create"  method="POST" enctype="multipart/form-data" id="form-create">
         <div>
             <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
-            <input type="text" id="nombreProducto" name="name" required autofocus>
+            <input type="text" id="nombreProducto" name="name" required autofocus minlength="6">
                 <div class="error-message" id="errName">
                 </div>
         </div>
 
         <div>
             <label for="category">Categoria:<span class="register__required--red">*</span></label>
-            <select name="category" id="categoriaProducto">
+            <select name="category" id="categoriaProducto" required>
                 <option value="1">Sabanas</option>
                 <option value="2">Acolchados</option>
                 <option value="3">Cortinas</option>
@@ -32,13 +32,13 @@
 
         <div>
             <label for="stock">Stock:<span class="register__required--red">*</span></label>
-            <input type="number" id="stock" name="stock">
+            <input type="number" id="stock" name="stock" required>
                 <div class="error-message" id="errStock">
                 </div>
         </div>
 
         <div>
-            <label for="imagenProducto">Imagen:<span class="register__required--red">*</span></label>
+            <label for="imagenProducto">Imagen:</label>
             <input type="file" id="imgProducto" name="image">
                 <div class="error-message" id="errImage">
                 </div>
@@ -52,8 +52,8 @@
         </div>
 
         <div>
-            <label for="descripcionProducto">Descripcion:<span class="register__required--red">*</span></label>
-            <textarea name="description" id="descripcionProducto" required></textarea>
+            <label for="descripcionProducto">Descripción:<span class="register__required--red">*</span></label>
+            <textarea name="description" id="descripcionProducto" minlength="10" required></textarea>
                 <div class="error-message" id="errDescription">
                 </div>
         </div>
@@ -63,5 +63,6 @@
         </div>
     </form>
     </div>
+    <script src="/js/validationCreateProduct.js"></script>
 </body>
 </html>

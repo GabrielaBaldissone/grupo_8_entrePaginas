@@ -17,8 +17,8 @@
         <form class="form-login" action="/users/login" method="POST" id="form-login">
             <div>
                 <label class="description-login" for="name-user">Correo electronico <span class="span-login-red">*</span></label>
-                <input class="input-login" type="text" name="email" id="name-user" placeholder="Usuario"
-                value="<%= locals.oldData && oldData.email ? oldData.email : null %>" autofocus>
+                <input class="input-login" type="email" name="email" id="name-user" placeholder="Usuario"
+                value="<%= locals.oldData && oldData.email ? oldData.email : null %>" autofocus required>
                     <div class="error-message" id="errMail">
                     <% if (locals.errors && errors.email) { %>
                         <%= errors.email.msg %>
@@ -28,7 +28,7 @@
 
             <div>
                 <label class="description-login" for="password-login">Contraseña<span class="span-login-red">*</span></label> 
-                <input class="input-login" type="password" name="password" id="password-login" placeholder="Contraseña" >
+                <input class="input-login" type="password" name="password" id="password-login" placeholder="Contraseña" minlength="8" required>
                     <div class="error-message" id="errPassword"></div>
                     <% if (locals.errors && errors.password) { %>
                         <%= errors.password.msg %>
