@@ -8,14 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
     .addField("#firstName", [
         {
             rule: "required",
-            errorMessage: "Nombre requerido",
-            errorMessageContainer: '#errNombre', 
+            errorMessage: 'Nombre requerido',
         },
         {
             rule: "minLength",
             value: 4,
             errorMessage: "Como mínimo el nombre debe tener 4 caracteres",
-            errorMessageContainer: "#errNombre",
         }
     ])
     .addField("#apellido", [

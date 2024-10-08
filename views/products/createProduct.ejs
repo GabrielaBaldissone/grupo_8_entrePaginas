@@ -10,25 +10,54 @@
 
     <div class="login-box">
     <form class="register__form" action="/products/create"  method="POST" enctype="multipart/form-data" id="form-create">
-        <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
-        <input type="text" id="nombreProducto" name="name" required autofocus>
-        <label for="category">Categoria:<span class="register__required--red">*</span></label>
-        <select name="category" id="categoriaProducto">
-            <option value="1">Sabanas</option>
-            <option value="2">Acolchados</option>
-            <option value="3">Cortinas</option>
-            <option value="4">Velas</option>
-            <option value="5">Esencias</option>
-        </select>
-        
-        <label for="stock">Stock:<span class="register__required--red">*</span></label>
-        <input type="number" id="stock" name="stock">
-        <label for="imagenProducto">Imagen:<span class="register__required--red">*</span></label>
-        <input type="file" id="imgProducto" name="image">
-        <label for="precioProducto">Precio:<span class="register__required--red">*</span></label>
-        <input type="number" name="price" id="precioProducto" required>
-        <label for="descripcionProducto">Descripcion:<span class="register__required--red">*</span></label>
-        <textarea name="description" id="descripcionProducto" required></textarea>
+        <div>
+            <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
+            <input type="text" id="nombreProducto" name="name" required autofocus>
+                <div class="error-message" id="errName">
+                </div>
+        </div>
+
+        <div>
+            <label for="category">Categoria:<span class="register__required--red">*</span></label>
+            <select name="category" id="categoriaProducto">
+                <option value="1">Sabanas</option>
+                <option value="2">Acolchados</option>
+                <option value="3">Cortinas</option>
+                <option value="4">Velas</option>
+                <option value="5">Esencias</option>
+            </select>
+                <div class="error-message" id="errCategory">
+                </div>
+        </div>
+
+        <div>
+            <label for="stock">Stock:<span class="register__required--red">*</span></label>
+            <input type="number" id="stock" name="stock">
+                <div class="error-message" id="errStock">
+                </div>
+        </div>
+
+        <div>
+            <label for="imagenProducto">Imagen:<span class="register__required--red">*</span></label>
+            <input type="file" id="imgProducto" name="image">
+                <div class="error-message" id="errImage">
+                </div>
+        </div>
+
+        <div>
+            <label for="precioProducto">Precio:<span class="register__required--red">*</span></label>
+            <input type="number" name="price" id="precioProducto" required>
+                <div class="error-message" id="errPrice">
+                </div>
+        </div>
+
+        <div>
+            <label for="descripcionProducto">Descripcion:<span class="register__required--red">*</span></label>
+            <textarea name="description" id="descripcionProducto" required></textarea>
+                <div class="error-message" id="errDescription">
+                </div>
+        </div>
+
         <div class="button-container">
             <button type="submit">Agregar</button>
         </div>

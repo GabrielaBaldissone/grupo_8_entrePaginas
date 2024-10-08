@@ -15,21 +15,29 @@
 
         <section class="login-box">
         <form class="form-login" action="/users/login" method="POST" id="form-login">
+            <div>
+                <label class="description-login" for="name-user">Correo electronico <span class="span-login-red">*</span></label>
+                <input class="input-login" type="text" name="email" id="name-user" placeholder="Usuario"
+                value="<%= locals.oldData && oldData.email ? oldData.email : null %>" autofocus>
+                    <div class="error-message" id="errMail">
+                    <% if (locals.errors && errors.email) { %>
+                        <%= errors.email.msg %>
+                    <% } %>
+                    </div>
+            </div>
 
-            <label class="description-login" for="name-user">Correo electronico <span class="span-login-red">*</span></label>
-            <input class="input-login" type="text" name="email" id="name-user" placeholder="Usuario"
-            value="<%= locals.oldData && oldData.email ? oldData.email : null %>" autofocus>
-            <% if (locals.errors && errors.email) { %>
-                <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.email.msg %></p>
-            <% } %>
-    
-            <label class="description-login" for="password-login">Contraseña<span class="span-login-red">*</span></label> 
-            <input class="input-login" type="password" name="password" id="password-login" placeholder="Contraseña" >
-            <% if (locals.errors && errors.password) { %>
-                <p class="error-message"><i class="fa-solid fa-circle-exclamation"></i> <%= errors.password.msg %></p>
-            <% } %>
+            <div>
+                <label class="description-login" for="password-login">Contraseña<span class="span-login-red">*</span></label> 
+                <input class="input-login" type="password" name="password" id="password-login" placeholder="Contraseña" >
+                    <div class="error-message" id="errPassword"></div>
+                    <% if (locals.errors && errors.password) { %>
+                        <%= errors.password.msg %>
+                    <% } %>
+                    </div>
+            </div>
+
+
             <a class="ancla-login" href="">¿Olvidaste tu contraseña?</a>
-
             <input class="checkbox-login" type="checkbox" name="rememberMe" id="checkbox-login">
             <label class="recuerdame-top" for="checkbox-login">Recuérdame</label>
 
@@ -45,5 +53,6 @@
     </main>
     <%- include('../partials/footer.ejs') %>
     <script src="https://kit.fontawesome.com/6868278fd3.js" crossorigin="anonymous"></script>
+    <script src="/js/validationLogin.js"></script>
 </body>
 </html>

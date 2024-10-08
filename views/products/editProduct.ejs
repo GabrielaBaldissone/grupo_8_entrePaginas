@@ -10,24 +10,52 @@
 
     <div class="login-box">
     <form class="register__form" action="/products/edit/<%= product.id_product %>?_method=PUT"  method="POST" enctype="multipart/form-data" id="form-edit">
-        <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
-        <input type="text" id="nombreProducto" name="name" value="<%= product.name %>" required autofocus>
-        <label for="category">Categoria:<span class="register__required--red">*</span></label>
-        <select name="category" id="categoriaProducto">
-            <% categories.forEach(category => { %>
-                <option value="<%= category.id_category %>" <%= (product.category.id_category == category.id_category) ? 'selected' : '' %>><%= category.category %></option>
-            <% }); %>
-        </select>
-        
-        <label for="stock">Stock:<span class="register__required--red">*</span></label>
-        <input type="number" id="stock" name="stock" value="<%= product.stock %>">
+        <div>
+            <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
+            <input type="text" id="nombreProducto" name="name" value="<%= product.name %>" required autofocus>
+                <div class="error-message" id="errName">
+                </div>
+        </div>
 
-        <label for="imagenProducto">Imagen:<span class="register__required--red">*</span></label>
-        <input type="file" id="imgProducto" name="image" multiple>
-        <label for="precioProducto">Precio:<span class="register__required--red">*</span></label>
-        <input type="number" name="price" id="precioProducto" value="<%= product.price %>" required>
-        <label for="descripcionProducto">Descripcion:<span class="register__required--red">*</span></label>
-        <textarea name="description" id="descripcionProducto" required><%= product.description %></textarea>
+        <div>
+            <label for="category">Categoria:<span class="register__required--red">*</span></label>
+            <select name="category" id="categoriaProducto">
+                <% categories.forEach(category => { %>
+                    <option value="<%= category.id_category %>" <%= (product.category.id_category == category.id_category) ? 'selected' : '' %>><%= category.category %></option>
+                <% }); %>
+            </select>
+                <div class="error-message" id="errCategory">
+                </div>
+        </div>
+
+        <div>
+            <label for="stock">Stock:<span class="register__required--red">*</span></label>
+            <input type="number" id="stock" name="stock" value="<%= product.stock %>">
+                <div class="error-message" id="errStock">
+                </div>
+        </div>
+
+        <div>
+            <label for="imagenProducto">Imagen:<span class="register__required--red">*</span></label>
+            <input type="file" id="imgProducto" name="image" multiple>
+                <div class="error-message" id="errImage">
+                </div>
+        </div>
+
+        <div>
+            <label for="precioProducto">Precio:<span class="register__required--red">*</span></label>
+            <input type="number" name="price" id="precioProducto" value="<%= product.price %>" required>
+                <div class="error-message" id="errPrice">
+                </div>
+        </div>
+
+        <div>
+            <label for="descripcionProducto">Descripcion:<span class="register__required--red">*</span></label>
+            <textarea name="description" id="descripcionProducto" required><%= product.description %></textarea>
+                <div class="error-message" id="errDescription">
+                </div>
+        </div>
+
         <div class="button-container">
             <button type="submit">Editar</button>
         </div>

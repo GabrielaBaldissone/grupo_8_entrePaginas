@@ -93,6 +93,7 @@ body {
     color: rgb(255, 255, 255);
     padding: 1px;
     transition: transform 0.3s ease;
+    /* display: none; */
 }
 
 .icons-style:hover {  
@@ -781,7 +782,6 @@ section.productcart-section {
     height: 30px;
     border-radius: 8px;
     color:#2f2f2f;
-    margin-bottom: 10px;
 }
 
 .input-login::placeholder{
