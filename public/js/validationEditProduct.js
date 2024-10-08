@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     ])
     .onSuccess((event) => {
-        alert("Hola, se envió");
-        event.preventDefault();
-    });
+        event.target.submit();
+    })
 });

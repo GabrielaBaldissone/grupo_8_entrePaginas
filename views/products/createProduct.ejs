@@ -32,7 +32,7 @@
 
         <div>
             <label for="stock">Stock:<span class="register__required--red">*</span></label>
-            <input type="number" id="stock" name="stock" required>
+            <input type="number" id="stock" name="stock" required min="0">
                 <div class="error-message" id="errStock">
                 </div>
         </div>
@@ -46,7 +46,7 @@
 
         <div>
             <label for="precioProducto">Precio:<span class="register__required--red">*</span></label>
-            <input type="number" name="price" id="precioProducto" required>
+            <input type="number" name="price" id="precioProducto" required min="0">
                 <div class="error-message" id="errPrice">
                 </div>
         </div>
