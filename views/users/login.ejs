@@ -29,11 +29,11 @@
             <div>
                 <label class="description-login" for="password-login">Contraseña<span class="span-login-red">*</span></label> 
                 <input class="input-login" type="password" name="password" id="password-login" placeholder="Contraseña" minlength="8" required>
-                    <div class="error-message" id="errPassword"></div>
+                <div class="error-message" id="errPassword">
                     <% if (locals.errors && errors.password) { %>
                         <%= errors.password.msg %>
                     <% } %>
-                    </div>
+                </div>
             </div>
 
 
