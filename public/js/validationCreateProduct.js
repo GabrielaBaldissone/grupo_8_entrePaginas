@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
     const validation = new JustValidate('#form-create', {
-        errorFieldStyle: {
-            borderColor: 'red'
-        },
-        errorFieldCssClass: 'error',
         errorLabelStyle: {
             color: 'red',
             fontSize: '16px',
