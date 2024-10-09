@@ -778,10 +778,24 @@ section.productcart-section {
 .input-login {
     margin: 0 auto;
     display: block;
-    width: 80%;
-    height: 30px;
-    border-radius: 8px;
+    width: 70%;
+    height: 35px;
+    padding: 5px;
+    border: 1px solid #bdb9b9;
     color:#2f2f2f;
+    transition: border-color 0.3s; 
+}
+
+.input-login:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 .100em #3483faaf; 
+    outline: none; 
+}
+
+.input-login.error:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 .100em rgba(255, 0, 0, 0.527); 
+    outline: none; 
 }
 
 .input-login::placeholder{
@@ -795,11 +809,11 @@ section.productcart-section {
     margin-top: 5px;
 }
 
-/* Estilo para el borde rojo en los campos con error */
+/* Estilo para el borde rojo en los campos con error*/
 .input-error {
     border: 2px solid red;
     outline: none;
-}
+} 
 
 .checkbox-login{
     width: 17px;
@@ -824,7 +838,7 @@ section.productcart-section {
 }
 
 .submit-login{
-    background-color: #2b2b2bca;
+    background-color: #2b2b2bb5;
     color: white;
     font-size: 16px;
     border-radius: 4px;
@@ -895,6 +909,7 @@ section.productcart-section {
     margin-bottom: 5px;
     font-weight: bold;
     color: #2f2f2f;
+    margin-top: 10px;
 }
 
 .register__form input[type="file"]{
@@ -916,7 +931,6 @@ section.productcart-section {
 .register__form select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
     border: 1px solid #2f2f2f;
     border-radius: 4px;
     color: #2f2f2f;

@@ -1,7 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     const validation = new JustValidate('#form-create', {
-        focusInvalidField: true, 
-        lockForm: true, 
+        errorFieldStyle: {
+            borderColor: 'red'
+        },
+        errorFieldCssClass: 'error',
+        errorLabelStyle: {
+            color: 'red',
+            fontSize: '16px',
+        },
+        lockForm: true,
+        focusInvalidField: true,
     });
 
     validation
@@ -43,6 +51,16 @@ document.addEventListener("DOMContentLoaded", function() {
             },
         },
         },
+    ])
+    .addField("#precioProducto", [
+        {
+            rule: "required",
+            errorMessage: "Precio requerido",
+        },
+        {
+            rule: 'number',
+        }
+        
     ])
     .addField("#descripcionProducto", [
         {

@@ -1,7 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     const validation = new JustValidate('#form-edit', {
-        focusInvalidField: true, 
-        lockForm: true, 
+        errorFieldStyle: {
+            borderColor: 'red'
+        },
+        errorFieldCssClass: 'error',
+        errorLabelStyle: {
+            color: 'red',
+            fontSize: '16px',
+        },
+        lockForm: true,
+        focusInvalidField: true,
     });
 
     validation
