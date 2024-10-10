@@ -13,50 +13,52 @@ const usersController = {
     register: (req, res) => {
         res.render("users/register", {'datos': datos});
     },
-    createUser: (req, res) => {
-        const errors = validationResult(req);
-    
-        if (errors.isEmpty()) {
-            const { firstName, lastName, email, phone, password } = req.body;
-    
-            db.User.findOne({ where: { email } })
-                .then(userInDB => {
-                    if (userInDB) {
-                        return res.render("users/register", {
-                            errors: {
-                                email: {
-                                    msg: "Este email ya está registrado"
-                                }
-                            },
-                            oldData: req.body,
-                            datos
-                        });
-                    }
-    
-                    return db.User.create({
-                        first_name: firstName,
-                        last_name: lastName,
-                        email,
-                        phone,
-                        password: bcryptjs.hashSync(password, 10),
-                        rol: "cliente"
-                    });
-                })
-                .then(() => {
-                    return res.redirect("/users/login");
-                })
-                .catch(error => {
-                    console.error(error);
+createUser: (req, res) => {
+    const errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+        const { firstName, lastName, email, phone, password } = req.body;
+        const image = req.file ? req.file.filename : "default.png";
+        db.User.findOne({ where: { email } })
+            .then(userInDB => {
+                if (userInDB) {
                     return res.render("users/register", {
-                        errors: { general: { msg: "Ocurrió un error al crear el usuario" } },
+                        errors: {
+                            email: {
+                                msg: "Este email ya está registrado"
+                            }
+                        },
                         oldData: req.body,
                         datos
                     });
+                }
+
+                return db.User.create({
+                    first_name: firstName,
+                    last_name: lastName,
+                    email,
+                    phone,
+                    password: bcryptjs.hashSync(password, 10),
+                    rol: "cliente",
+                    image
                 });
-        } else {
-            return res.render("users/register", { errors: errors.mapped(), oldData: req.body, datos });
-        }
-    },
+            })
+            .then(() => {
+                return res.redirect("/users/login");
+            })
+            .catch(error => {
+                console.error(error);
+                return res.render("users/register", {
+                    errors: { general: { msg: "Ocurrió un error al crear el usuario" } },
+                    oldData: req.body,
+                    datos
+                });
+            });
+    } else {
+        return res.render("users/register", { errors: errors.mapped(), oldData: req.body, datos });
+    }
+},
+
     loginProcess(req, res){
         const { email, password, rememberMe } = req.body;
         
