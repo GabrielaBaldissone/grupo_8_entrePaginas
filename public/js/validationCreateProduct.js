@@ -12,64 +12,66 @@ document.addEventListener("DOMContentLoaded", function() {
     .addField('#nombreProducto', [
         {
             rule: "required",
-            errorMessage: "Nombre del producto requerido",
+            errorMessage: "El nombre del producto es obligatorio",
         },
         {
             rule: "minLength",
-            value: 6,
-            errorMessage: "Como mínimo el nombre debe tener 6 caracteres",
+            value: 5, 
+            errorMessage: "El nombre debe tener al menos 5 caracteres",
         }
     ])
     .addField("#categoriaProducto", [
         {
             rule: "required",
-            errorMessage: "Categoria requerida",
+            errorMessage: "La categoría es obligatoria",
         }
     ])
     .addField("#stock", [
         {
             rule: "required",
-            errorMessage: "Stock requerido",
+            errorMessage: "El stock es obligatorio",
         },
         {
             rule: 'number',
+            errorMessage: "El stock debe ser un número válido",
         }
     ])
     .addField("#imgProducto", [
         {
-        rule: 'files',
-        value: {
-            files: {
-            extensions: ['jpeg', 'jpg', 'png'],
-            maxSize: 20000,
-            minSize: 10000,
-            types: ['image/jpeg', 'image/jpg', 'image/png'],
+            rule: 'files',
+            value: {
+                files: {
+                    extensions: ['jpeg', 'jpg', 'png'],
+                    maxSize: 5000000,
+                    minSize: 10000,
+                    types: ['image/jpeg', 'image/jpg', 'image/png'],
+                },
             },
-        },
+            errorMessage: "El formato de la imagen debe ser JPEG o PNG y el tamaño adecuado",
         },
     ])
     .addField("#precioProducto", [
         {
             rule: "required",
-            errorMessage: "Precio requerido",
+            errorMessage: "El precio es obligatorio",
         },
         {
             rule: 'number',
+            errorMessage: "El precio debe ser un número válido",
         }
-        
     ])
     .addField("#descripcionProducto", [
         {
             rule: "required",
-            errorMessage: "Descripción requerida",
+            errorMessage: "La descripción es obligatoria",
         },
         {
             rule: "minLength",
-            value: 10,
-            errorMessage: "Como mínimo la descripción debe tener 10 caracteres",
+            value: 20, 
+            errorMessage: "La descripción debe tener al menos 20 caracteres",
         }
     ])
     .onSuccess((event) => {
         event.target.submit();
-    })
+    });
 });
