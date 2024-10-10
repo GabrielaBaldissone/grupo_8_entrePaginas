@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             rule: "minLength",
-            value: 6,
-            errorMessage: "Como mínimo el nombre debe tener 6 caracteres",
+            value: 5,
+            errorMessage: "Como mínimo el nombre debe tener 5 caracteres",
         }
     ])
     .addField("#categoriaProducto", [
         {
             rule: "required",
-            errorMessage: "Categoria requerida",
+            errorMessage: "Categoría requerida",
         }
     ])
     .addField("#stock", [
@@ -37,15 +37,16 @@ document.addEventListener("DOMContentLoaded", function() {
     ])
     .addField("#imgProducto", [
         {
-        rule: 'files',
-        value: {
-            files: {
-            extensions: ['jpeg', 'jpg', 'png'],
-            maxSize: 20000,
-            minSize: 10000,
-            types: ['image/jpeg', 'image/jpg', 'image/png'],
+            rule: 'files',
+            value: {
+                files: {
+                    extensions: ['jpeg', 'jpg', 'png'],
+                    maxSize: 5000000,  
+                    minSize: 10000,
+                    types: ['image/jpeg', 'image/jpg', 'image/png'],
+                },
             },
-        },
+            errorMessage: 'La imagen debe ser jpeg, jpg o png y tener un tamaño entre 10 KB y 2 MB',
         },
     ])
     .addField("#precioProducto", [
@@ -55,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             rule: 'number',
+            errorMessage: "El precio debe ser un número válido",
         }
-        
     ])
     .addField("#descripcionProducto", [
         {
@@ -65,11 +66,11 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             rule: "minLength",
-            value: 10,
-            errorMessage: "Como mínimo la descripción debe tener 10 caracteres",
+            value: 20,
+            errorMessage: "Como mínimo la descripción debe tener 20 caracteres",
         }
     ])
     .onSuccess((event) => {
         event.target.submit();
-    })
+    });
 });
