@@ -14,6 +14,17 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({storage});
+const fileFilter = (req, file, cb) => {
+    const acceptedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+    const fileExtension = path.extname(file.originalname).toLowerCase();
+
+    if (acceptedExtensions.includes(fileExtension)) {
+        cb(null, true);
+    } else {
+        cb(new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(", ")}`), false);
+    }
+};
+
+const upload = multer({storage, fileFilter});
 
 module.exports = upload;
