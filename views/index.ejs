@@ -11,16 +11,19 @@
     <img class="img-banner" src="/img/banner-e.png" alt="Essenciana" />
     </div>
     <main>
-        <a href=""><p class="title">SÁBANAS</p></a>
-
-
+    
+    
+    <p class="title">SÁBANAS</p>
     <section class="box-flex">
         <% sabanas.forEach(prod => { %>
             <article class="article-style">
                 <a href="/products/detail/<%= prod.id_product %>">
                 <div class="conteiner-img">
                     <% console.log(prod.image) %>
-                <img src="img/<%=prod.image%>" alt="<%= prod.name %>" />
+                    <img
+                    src="data:img/png;base64,<%= prod.image %>"
+                    alt="<%= prod.name %>"
+                    />
                 </div>
                 <div class="info">
                     <p class="descripcion"><%= prod.name %></p>                    
@@ -34,6 +37,7 @@
             </article>
         <%}) %>
     </section>
+
     <p class="title">ACOLCHADOS</p>
     <section class="box-flex">
         <% acolchados.forEach(prod => { %>
