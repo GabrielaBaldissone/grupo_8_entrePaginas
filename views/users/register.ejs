@@ -40,7 +40,7 @@
 
                 <div>
                     <label class="description-login" for="email">Email:<span class="span-login-red">*</span></label>
-                    <input class="input-login" type="email" id="email" name="email" placeholder="user@example.com"
+                    <input class="input-login" type="text" id="email" name="email" placeholder="user@example.com"
                            value="<%= locals.oldData ? oldData.email : null %>">
                     <div class="error-message" id="errEmail">
                         <% if (locals.errors && errors.email) { %>
