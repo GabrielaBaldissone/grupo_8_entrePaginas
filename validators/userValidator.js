@@ -6,13 +6,15 @@ const userValidationRules = [
         .trim()
         .notEmpty()
         .withMessage("Debe completar el campo nombres")
+        .bail()
         .isLength({ min: 2 })
         .withMessage("El nombre debe tener al menos 2 caracteres"),
     
-    body("apellido")
+    body("lastName")
         .trim()
         .notEmpty()
         .withMessage("Debe completar el campo apellidos")
+        .bail()
         .isLength({ min: 2 })
         .withMessage("El apellido debe tener al menos 2 caracteres"),
 
@@ -53,6 +55,14 @@ const userValidationRules = [
             }
             return true;
         }),
+
+    body("avatar").custom((value, { req })=>{
+        let file = req.file;
+        // let acceptedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+        if(!file){
+            throw new Error("Tienes que subir una imagen");
+        }
+    })
 
 ];
 

@@ -9,7 +9,7 @@
     <main class="user-profile">
         <p class="name-user">Hola, <%= user.first_name.toUpperCase() %> <%= user.last_name.toUpperCase() %></p>
         <div class="conteiner-img-user">
-            <img  src="/uploads/" alt="Imagen de Perfil" >
+            <img  src="/img/<%= user.image %>" alt="Imagen de Perfil" >
         </div>
         <div class="user-profile-box">
             <p class="description-user"><strong>Nombre:</strong> <%= user.first_name %></p>

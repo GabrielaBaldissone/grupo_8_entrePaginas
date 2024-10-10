@@ -19,7 +19,7 @@
                 <div>
                     <label class="description-login" for="nombre">Nombre:<span class="span-login-red">*</span></label>
                     <input class="input-login" type="text" id="firstName" name="firstName" placeholder="Ingrese su nombre"
-                           value="<%= locals.oldData ? oldData.firstName : null %>" autofocus required minlength="4">
+                           value="<%= locals.oldData ? oldData.firstName : null %>" autofocus minlength="4">
                     <div class="error-message" id="errNombre">
                         <% if (locals.errors && errors.firstName) { %>
                             <%= errors.firstName.msg %>
@@ -30,7 +30,7 @@
                 <div>
                     <label class="description-login" for="apellido">Apellido:<span class="span-login-red">*</span></label>
                     <input class="input-login" type="text" id="apellido" name="lastName" placeholder="Ingrese su apellido"
-                           value="<%= locals.oldData ? oldData.lastName : null %>" required minlength="4">
+                           value="<%= locals.oldData ? oldData.lastName : null %>" minlength="4">
                     <div class="error-message" id="errApellido">
                         <% if (locals.errors && errors.lastName) { %>
                             <%= errors.lastName.msg %>
@@ -41,7 +41,7 @@
                 <div>
                     <label class="description-login" for="email">Email:<span class="span-login-red">*</span></label>
                     <input class="input-login" type="email" id="email" name="email" placeholder="user@example.com"
-                           value="<%= locals.oldData ? oldData.email : null %>" required>
+                           value="<%= locals.oldData ? oldData.email : null %>">
                     <div class="error-message" id="errEmail">
                         <% if (locals.errors && errors.email) { %>
                             <%= errors.email.msg %>
@@ -52,7 +52,7 @@
                 <div>
                     <label class="description-login" for="telefono">Teléfono:<span class="span-login-red">*</span></label>
                     <input class="input-login" type="tel" id="telefono" name="phone" placeholder="Ingrese su telefono"
-                           value="<%= locals.oldData ? oldData.phone : null %>" required>
+                           value="<%= locals.oldData ? oldData.phone : null %>">
                     <div class="error-message" id="errPhone">
                         <% if (locals.errors && errors.phone) { %>
                             <%= errors.phone.msg %>
@@ -62,7 +62,7 @@
 
                 <div>
                     <label class="description-login" for="contrasenia">Contraseña:<span class="span-login-red">*</span></label>
-                    <input class="input-login" type="password" id="contrasenia" name="password" placeholder="Ingrese su contraseña" required minlength="8">
+                    <input class="input-login" type="password" id="contrasenia" name="password" placeholder="Ingrese su contraseña" minlength="8">
                     <div class="error-message" id="errPassword">
                         <% if (locals.errors && errors.password) { %>
                             <%= errors.password.msg %>
@@ -73,7 +73,12 @@
                 <!-- Nuevo campo para subir la imagen -->
                 <div>
                     <label class="description-login" for="imagen">Imagen de perfil (JPG, JPEG, PNG, GIF):</label>
-                    <input class="input-login" type="file" id="imagen" name="avatar" accept="image/*">
+                    <input class="input-login" type="file" id="imagen" name="avatar">
+                    <div class="error-message" id="errPassword">
+                        <% if (locals.errors && errors.avatar) { %>
+                            <%= errors.avatar.msg %>
+                        <% } %>
+                    </div>
                 </div>
 
                 <input class="checkbox-login" type="checkbox" id="terminos" name="terminos" value="true" required>
@@ -87,6 +92,6 @@
     </main>
 
     <%- include('../partials/footer.ejs') %>
-    <script src="/js/validationRegister.js"></script>
+    <!-- <script src="/js/validationRegister.js"></script> -->
 </body>
 </html>

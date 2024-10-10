@@ -12,7 +12,7 @@ router.post('/login', usersController.loginProcess);
 
 // RUTA DE REGISTER
 router.get('/register', guestMiddleware, usersController.register);
-router.post('/register', userValidationRules, upload.single("avatar"), usersController.createUser);
+router.post('/register', upload.single("avatar"), userValidationRules, usersController.createUser);
 
 router.get("/profile", authMiddleware, usersController.getUserProfile);
 router.post("/logout", usersController.logout);
