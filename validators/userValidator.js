@@ -31,13 +31,7 @@ const userValidationRules = [
         .withMessage("Debe completar el campo email")
         .bail()
         .isEmail()
-        .withMessage("Debe completar con un mail válido")
-        .custom(async (value) => {
-            const userInDB = await db.User.findOne({ where: { email: value } });
-            if (userInDB) {
-                throw new Error('Este email ya está registrado');
-            }
-        }),
+        .withMessage("Debe completar con un mail válido"),
 
     body("password")
         .notEmpty()
@@ -58,10 +52,19 @@ const userValidationRules = [
 
     body("avatar").custom((value, { req })=>{
         let file = req.file;
-        // let acceptedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+        let acceptedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+        
         if(!file){
             throw new Error("Tienes que subir una imagen");
+        }else{
+            let fileExtension = path.extname(file.originalname);
+            if(!acceptedExtensions.includes(fileExtension)){
+                throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(", ")}`);
+            }
         }
+
+        return true;
+        
     })
 
 ];
