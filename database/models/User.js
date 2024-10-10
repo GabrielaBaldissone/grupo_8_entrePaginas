@@ -31,6 +31,9 @@ module.exports = (sequelize, DataTypes) => {
         rol: {
             type: DataTypes.ENUM('admin', 'cliente'),
             allowNull: false
+        },
+        image: {
+            type: DataTypes.STRING(255)
         }
 
     }
