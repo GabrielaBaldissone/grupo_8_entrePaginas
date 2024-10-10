@@ -3,6 +3,7 @@ const router = express.Router();
 const adminMiddleware = require("../middlewares/adminMiddleware");
 const productsController = require("../controllers/productsController.js");
 const upload = require("../services/fileUpload.js");
+const productValidators = require('../validators/productValidators');
 
 // RUTA DE PRODUCT CART
 router.get('/cart', productsController.productCart);
@@ -13,7 +14,7 @@ router.get('/detail/:id', adminMiddleware, productsController.productDetail);
 // RUTA DE ADMIN PARA CREAR O ACTUALIZAR PRODUCTOS
 router.get('/admin', productsController.getProductAdmin);
 
-//AGREGAR PRODUCTO AL CARRITO DE COMPRAS
+// AGREGAR PRODUCTO AL CARRITO DE COMPRAS
 router.post("/", productsController.productAddCart);
 
 // ELIMINAR UN PRODUCTO DEL CARRITO DE COMPRAS
@@ -26,10 +27,10 @@ router.delete("/delete/:id", productsController.destroy);
 router.get("/edit/:id", adminMiddleware, productsController.editProduct);
 
 // ACTUALIZAR PRODUCTO
-router.put("/edit/:id", upload.single("image"),productsController.updateProduct);
+router.put("/edit/:id", upload.single("image"), productValidators, productsController.updateProduct); // Incluí las validaciones
 
 // CREAR NUEVO PRODUCTO
 router.get("/create", productsController.getCreateForm);
-router.post("/create", upload.single("image"),productsController.createProduct);
+router.post("/create", upload.single("image"), productValidators, productsController.createProduct); // También aquí
 
 module.exports = router;
