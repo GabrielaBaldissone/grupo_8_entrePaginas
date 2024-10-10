@@ -43,3 +43,6 @@ Durante el sprint N° 4, nuestro equipo enfrentó varios desafíos que, a pesar 
 
 **Retrospectiva del Sprint N° 5 – Grupo N° 8:**
 Durante el sprint N° 5, nuestro equipo volvió a enfrentar desafíos relacionados con la comunicación y la comprensión. Hubo momentos de desacuerdo entre los miembros, lo que generó frustraciones. Sin embargo, a pesar de estos problemas, logramos resolver las diferencias y avanzar hacia el final del sprint. La colaboración fue clave para superar los malentendidos, el equipo mostró resiliencia y disposición para mejorar. De ahora en adelante, debemos enfocarnos en fortalecer aún más la claridad en la comunicación y fomentar un entendimiento común desde el inicio para evitar estos contratiempos.
+
+**Retrospectiva del Sprint N° 6 – Grupo N° 8:**
+Durante el sprint N° 6, logramos mejorar la comunicación en comparación con sprints anteriores, lo que facilitó la organización y separación de las tareas a tiempo. A pesar de enfrentar algunas dificultades, fuimos capaces de completar el sprint con éxito. Sin embargo, quedaron algunos detalles por ajustar que serán nuestro enfoque para el próximo sprint, con el objetivo de optimizar el trabajo en equipo y el rendimiento del proyecto.
