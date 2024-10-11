@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
             color: 'red',
             fontSize: '16px',
         },
+        validateBeforeSubmitting: true,
         lockForm: true,
         focusInvalidField: true,
     });
@@ -35,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
     ])
     .onSuccess((event) => {
         event.target.submit();
-    })
+    });
     
-});
-
+}); 
