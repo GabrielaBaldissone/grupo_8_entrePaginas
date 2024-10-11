@@ -1,10 +1,10 @@
 const upload = require("../services/fileUpload");
 
-const fileValidator = (req, res, next) => {
-    upload.single('avatar')(req, res, function (err) {
+const fileValidator = (fieldName, renderPath) => (req, res, next) => {
+    upload.single(fieldName)(req, res, function (err) {
         if (err) {
-            return res.render("users/register", {
-                errors: { avatar: { msg: err.message } },
+            return res.render(renderPath, {
+                errors: { [fieldName]: { msg: err.message } },
                 oldData: req.body,
                 datos: {}
             });
