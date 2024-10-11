@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const adminMiddleware = require("../middlewares/adminMiddleware");
 const productsController = require("../controllers/productsController.js");
+const fileValidator = require('../middlewares/fileValidatorMiddleware.js');
 const upload = require("../services/fileUpload.js");
 const productValidators = require('../validators/productValidators');
 
@@ -27,10 +28,10 @@ router.delete("/delete/:id", productsController.destroy);
 router.get("/edit/:id", adminMiddleware, productsController.editProduct);
 
 // ACTUALIZAR PRODUCTO
-router.put("/edit/:id", upload.single("image"), productValidators, productsController.updateProduct); // Incluí las validaciones
+router.put("/edit/:id", upload.single("image"), productValidators, productsController.updateProduct); 
 
 // CREAR NUEVO PRODUCTO
 router.get("/create", productsController.getCreateForm);
-router.post("/create", upload.single("image"), productValidators, productsController.createProduct); // También aquí
+router.post("/create", fileValidator("image", "products/create"), productValidators, productsController.createProduct);
 
 module.exports = router;
