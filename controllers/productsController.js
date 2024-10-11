@@ -1,4 +1,5 @@
 const { Association } = require('sequelize');
+const { validationResult } = require("express-validator");
 const db = require('../database/models')
 
 const datos = {
@@ -192,22 +193,38 @@ const productsController = {
     getCreateForm: (req, res) =>{
         res.render("products/createProduct.ejs", {datos});
     },
-    createProduct: (req, res) =>{
-        const {name, category, price, stock, description} = req.body;
-        const image = req.file ? req.file.filename : "default.png";
-
-        db.Product.create({
-            name,
-            price,
-            stock,
-            image,
-            description,
-            id_category: category
-        })
-        .then(()=>res.redirect("/products/admin"))
-        .catch(err =>{
-            console.error(err.message);
-        })
+    createProduct: async (req, res) => {
+        const errors = validationResult(req);
+    
+        if (!errors.isEmpty()) {
+            return res.render("products/createProduct", {
+                errors: errors.mapped(),
+                oldData: req.body,
+                datos
+            });
+        }
+    
+        const { name, category, price, stock, description } = req.body;
+        const image = req.file ? req.file.filename : "default-product.png";
+    
+        try {
+            await db.Product.create({
+                name,
+                price,
+                stock,
+                description,
+                image,
+                id_category: category
+            });
+    
+            return res.redirect("/products/admin");
+        } catch (error) {
+            console.error(error);
+            return res.render("products/create", {
+                errors: { general: { msg: "Ocurrió un error al crear el producto" } },
+                oldData: req.body
+            });
+        }
     }
 };
 
