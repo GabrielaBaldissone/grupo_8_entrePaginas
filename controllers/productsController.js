@@ -151,34 +151,60 @@ const productsController = {
             console.log(product);
             console.log(categories);
             
-            res.render("products/editProduct", {datos, product, categories});
+            res.render("products/editProduct", {datos, product, categories, oldData: null});
         })
         
     },
-    updateProduct: (req, res) =>{
-        const {id} = req.params;
-        const {name, category, price, stock, description} = req.body;
-        const newImage = req.file ? req.file.filename : null;
+    updateProduct: async (req, res) => {
+        const errors = validationResult(req);
+        const { id } = req.params;
+    
+        if (!errors.isEmpty()) {
+            const product = await db.Product.findByPk(id, {
+                include: [{ association: "category" }]
+            });
+            const categories = await db.Category.findAll();
+            return res.render("products/editProduct", {
+                errors: errors.mapped(),
+                oldData: req.body,
+                datos,
+                product,
+                categories
+            });
+        }
 
-        db.Product.update(
-            {
-                name,
-                price,
-                stock,
-                image: newImage,
-                description,
-                id_category: category
-            },
-            {
-                where:{
-                    id_product: id
-                }
+        const { name, category, price, stock, description } = req.body;
+        let newImage = req.file ? req.file.filename : null;
+    
+        try {
+            const product = await db.Product.findByPk(id);
+        
+            if (req.file.filename == "default.png") {
+                newImage = product.image;
             }
-        )
-        .then(()=> res.redirect(`/products/detail/${id}`))
-        .catch(err =>{
+            await db.Product.update(
+                {
+                    name,
+                    price,
+                    stock,
+                    image: newImage,
+                    description,
+                    id_category: category
+                },
+                {
+                    where: { id_product: id }
+                }
+            );
+    
+            res.redirect(`/products/detail/${id}`);
+        } catch (err) {
             console.error(err.message);
-        })
+            res.render("products/editProduct", {
+                errors: { general: { msg: "Ocurrió un error al actualizar el producto" } },
+                oldData: req.body,
+                datos: {}
+            });
+        }
     },
     destroy: (req, res) =>{
         const {id} = req.params;
