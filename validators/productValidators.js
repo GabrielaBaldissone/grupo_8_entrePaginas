@@ -1,4 +1,5 @@
 const { body } = require('express-validator');
+const path = require("path");
 
 const productValidators = [
     body('name')
@@ -28,7 +29,7 @@ const productValidators = [
 
     body('price')
         .notEmpty().withMessage("El precio es obligatorio").bail()
-        .isInt({min: 0}).withMessage("El precio debe ser un número entero positivo"),
+        .isFloat({min: 0}).withMessage("El precio debe ser un número entero positivo"),
         
     body('description')
         .trim().notEmpty().withMessage('La descripción es obligatoria').bail()
