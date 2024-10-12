@@ -3,7 +3,6 @@ const router = express.Router();
 const adminMiddleware = require("../middlewares/adminMiddleware");
 const productsController = require("../controllers/productsController.js");
 const fileValidator = require('../middlewares/fileValidatorMiddleware.js');
-const upload = require("../services/fileUpload.js");
 const productValidators = require('../validators/productValidators');
 
 // RUTA DE PRODUCT CART
@@ -28,7 +27,7 @@ router.delete("/delete/:id", productsController.destroy);
 router.get("/edit/:id", adminMiddleware, productsController.editProduct);
 
 // ACTUALIZAR PRODUCTO
-router.put("/edit/:id", upload.single("image"), productValidators, productsController.updateProduct); 
+router.put("/edit/:id", fileValidator("image", "products/edit"), productValidators, productsController.updateProduct); 
 
 // CREAR NUEVO PRODUCTO
 router.get("/create", productsController.getCreateForm);
