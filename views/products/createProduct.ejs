@@ -14,10 +14,10 @@
             <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
             <input type="text" id="nombreProducto" name="name" value="<%= locals.oldData ? oldData.name : null %>" autofocus minlength="6">
                 <div class="error-message" id="errName">
+                    <% if (locals.errors && errors.name) { %>
+                        <%= errors.name.msg %>
+                    <% } %>
                 </div>
-                <% if (locals.errors && errors.name) { %>
-                    <%= errors.name.msg %>
-                <% } %>
         </div>
 
         <div>
