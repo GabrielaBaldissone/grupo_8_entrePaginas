@@ -1,6 +1,8 @@
 const { Association } = require('sequelize');
 const { validationResult } = require("express-validator");
 const db = require('../database/models')
+const fs = require("fs");
+const path = require("path");
 
 const datos = {
     activar: false
@@ -206,15 +208,36 @@ const productsController = {
             });
         }
     },
-    destroy: (req, res) =>{
-        const {id} = req.params;
-        db.Product.destroy({
-            where:{
-                id_product: id
+    destroy: async (req, res) => {
+        const { id } = req.params;
+    
+        try {
+            // Buscar el producto antes de eliminarlo
+            const product = await db.Product.findByPk(id);
+    
+            // Verificar si la imagen no es 'default.png'
+            if (product.image && product.image !== 'default.png') {
+                const imagePath = path.join(__dirname, '../public/img', product.image);
+    
+                // Eliminar el archivo de imagen del servidor
+                fs.unlink(imagePath, (err) => {
+                    if (err) {
+                        console.error('Error al eliminar la imagen del producto:', err);
+                    }
+                });
             }
-        })
-        .then(()=> res.redirect("/"))
-        .catch(err => console.error(err));
+    
+            // Eliminar el producto de la base de datos
+            await db.Product.destroy({
+                where: { id_product: id }
+            });
+    
+            res.redirect("/");
+    
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).send("Error interno del servidor");
+        }
     },
     getCreateForm: (req, res) =>{
         res.render("products/createProduct.ejs", {datos});
