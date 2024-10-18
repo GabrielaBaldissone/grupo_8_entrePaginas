@@ -16,6 +16,7 @@ router.get('/admin', productsController.getProductAdmin);
 
 // AGREGAR PRODUCTO AL CARRITO DE COMPRAS
 router.post("/", productsController.productAddCart);
+router.post("/checkout", productsController.checkout);
 
 // ELIMINAR UN PRODUCTO DEL CARRITO DE COMPRAS
 router.delete("/cart/:id", productsController.deleteProductById);
