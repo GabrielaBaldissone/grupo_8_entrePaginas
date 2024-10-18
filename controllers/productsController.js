@@ -11,33 +11,35 @@ const datos = {
 const productsController = {
     products: null,
     productCart: async (req, res) => {
-        const userId = req.session.userLogged.id_user;
+        const cart = req.session.cart || [];
+        res.render('products/productCart', { cart, datos });
+        // const userId = req.session.userLogged.id_user;
     
-        try {
-            const order = await db.Order.findOne({
-                where: { id_user: userId },
-                order: [['id_order', 'DESC']]
-            });
+        // try {
+        //     const order = await db.Order.findOne({
+        //         where: { id_user: userId },
+        //         order: [['id_order', 'DESC']]
+        //     });
     
-            if (!order) {
-                return res.status(404).json({ error: 'Carrito vacío, ¿quieres comprar?' });
-            }
+        //     if (!order) {
+        //         return res.status(404).json({ error: 'Carrito vacío, ¿quieres comprar?' });
+        //     }
     
-            const productsCart = await db.OrderProduct.findAll({
-                where: { id_order: order.id_order },
-                attributes: ['quantity'],
-                include: [{
-                    model: db.Product,
-                    as: 'product',
-                    attributes: ['id_product', 'name', 'price', 'stock', 'image', 'description'] 
-                }]
-            });
+        //     const productsCart = await db.OrderProduct.findAll({
+        //         where: { id_order: order.id_order },
+        //         attributes: ['quantity'],
+        //         include: [{
+        //             model: db.Product,
+        //             as: 'product',
+        //             attributes: ['id_product', 'name', 'price', 'stock', 'image', 'description'] 
+        //         }]
+        //     });
     
-            res.render("products/productCart", { productsCart, datos });
-        } catch (error) {
-            console.error("Error al mostrar el carrito:", error);
-            res.status(500).send("Error interno del servidor");
-        }
+        //     res.render("products/productCart", { productsCart, datos });
+        // } catch (error) {
+        //     console.error("Error al mostrar el carrito:", error);
+        //     res.status(500).send("Error interno del servidor");
+        // }
     },
     productDetail: (req, res) => {
         const {id} = req.params;
@@ -64,40 +66,69 @@ const productsController = {
         const {productId, quantity} = req.body;
         const userId = req.session.userLogged.id_user;
 
-        try {
+        let order = await db.Order.findOne({
+            where:{id_user: userId, status: "pending"}
+        })
 
-            const product = await db.Product.findByPk(productId);
-            if (!product) {
-                return res.status(404).send("Producto no encontrado");
-            }
-
-            const [order] = await db.Order.findOrCreate({
-                where: { id_user: userId },
-                defaults: {}
+        if(!order){
+            order = await db.Order.create({
+                id_user: userId,
+                status: "pending"
             });
+        }
+        req.session.order = order.id_order;
 
-            const [order_product, createdProduct] = await db.OrderProduct.findOrCreate({
-                where: { id_order: order.id_order, id_product: product.id_product },
-                defaults: { 
-                    quantity: parseInt(quantity),
-                    price: product.price,
-                    date: new Date()
-                }
-            });
+        req.session.cart = req.session.cart || [];
+        const cart = req.session.cart;
 
-        if (!createdProduct) {
-            order_product.quantity += parseInt(quantity);
-            await order_product.save();
+        const productIndex = cart.findIndex(item => item.id_product == productId);
+        if (productIndex >= 0) {
+            cart[productIndex].quantity += parseInt(quantity, 10);
+        } else {
+            const newProduct = await db.Product.findByPk(productId);
+
+            cart.push({prod:newProduct, quantity});
         }
 
+        req.session.cart = cart;
 
-        res.redirect(`/products/detail/${productId}`);
-
-    } catch (error) {
-        console.error("Error al agregar el producto al carrito:", error);
-        res.status(500).send("Error interno del servidor");
-    }
+        res.redirect('/products/cart');
     },
+    checkout : async (req, res) => {
+        const orderId = req.session.order;
+        const cart = req.session.cart || [];
+        const date = new Date(); // Obten la fecha actual
+        console.log("### Cart:", JSON.stringify(cart, null, 2));
+    
+        try {
+            // Crear registros en la tabla order_product
+            for (let item of cart) {
+                await db.OrderProduct.create({
+                    id_order: orderId,
+                    id_product: item.prod.id_product,
+                    quantity: item.quantity,
+                    price: item.prod.price, // Incluye el precio
+                    date: date // Incluye la fecha actual
+                });
+            }
+    
+            // Cambiar el estado de la orden a 'Completed'
+            await db.Order.update(
+                { status: 'paid' },
+                { where: { id_order: orderId } }
+            );
+    
+            // Limpiar la sesión
+            req.session.cart = [];
+            req.session.order = null;
+    
+            res.redirect('/');
+        } catch (error) {
+            console.error("Error al completar la compra:", error);
+            res.status(500).send("Error interno del servidor");
+        }
+    },
+    
     getProductAdmin: (req, res) => {
         res.render("products/formAdminProduct", {datos});
     },
