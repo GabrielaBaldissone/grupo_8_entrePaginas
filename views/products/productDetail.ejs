@@ -14,14 +14,16 @@
                 <h1><%= product.name %></h1>
                 <p ><%= product.description %> </p>
                 <p class="price-total">Precio: $<%= product.price %></p>
-                <p >Disponibilidad: <span id="disponibilidad"><%= product.stock ? "Disponible" : "Sin Stock" %></span></p>
+                <p >Disponibilidad: <span id="disponibilidad"><%= product.stock > 0? product.stock : "Sin Stock" %></span></p>
                 <form class="cantidad-box" action="/products" method="POST">
-                        <label for="cantidad">Cantidad:</label>
-                        <div class="cantidad-controls">
-                            <input type="number" id="cantidad" name="quantity" min="1" value="1">
-                            <input type="hidden" name="productId" value="<%= product.id_product %>">
-                        </div>               
-                    <button type="submit" class="agregar-carrito-btn">Agregar al carrito</button>
+                    <!-- <div class="cantidad-controls">
+                            <label for="cantidad" id="lblCantidad">Cantidad:</label>
+                            <button id="btnMas">+</button>
+                            <input type="number" id="cantidad" name="quantity" min="1" value="1" readonly>
+                            <button id="btnMenos">-</button>
+                        </div>                -->
+                        <input type="hidden" name="productId" value="<%= product.id_product %>">
+                    <button id="btnAddCart" type="submit" class="agregar-carrito-btn">Agregar al carrito</button>
                 </form>
                 </div>
             </div>
@@ -51,6 +53,7 @@
             <% }) %>
         </section>
     </main>
+    <script src="/js/productDetail.js"></script>
 
     <%- include('../partials/footer.ejs') %>
 </body>
