@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 19-10-2024 a las 21:39:52
+-- Tiempo de generación: 25-10-2024 a las 18:01:24
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bookit`
+-- Base de datos: `entre_paginas`
 --
-CREATE DATABASE IF NOT EXISTS `bookit` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `bookit`;
+CREATE DATABASE IF NOT EXISTS `entre_paginas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `entre_paginas`;
 
 -- --------------------------------------------------------
 
@@ -32,13 +32,13 @@ USE `bookit`;
 DROP TABLE IF EXISTS `books`;
 CREATE TABLE IF NOT EXISTS `books` (
   `id_book` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,
-  `description` text,
-  `image` varchar(255) DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
-  `stock` int DEFAULT NULL,
-  `id_category` int DEFAULT NULL,
+  `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `stock` int NOT NULL,
+  `id_category` int NOT NULL,
   PRIMARY KEY (`id_book`),
   KEY `id_category` (`id_category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id_category` int NOT NULL AUTO_INCREMENT,
-  `category` varchar(255) NOT NULL,
+  `category` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `order_book` (
   `id_book` int DEFAULT NULL,
   `quantity` int DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
+  `date` date DEFAULT NULL,
   PRIMARY KEY (`id_order_book`),
   KEY `id_order` (`id_order`),
   KEY `id_book` (`id_book`)
@@ -99,9 +99,9 @@ CREATE TABLE IF NOT EXISTS `order_book` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id_user` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `rol` enum('admin','cliente') DEFAULT NULL,
