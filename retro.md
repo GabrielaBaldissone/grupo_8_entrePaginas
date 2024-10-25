@@ -46,3 +46,6 @@ Durante el sprint N° 5, nuestro equipo volvió a enfrentar desafíos relacionad
 
 **Retrospectiva del Sprint N° 6 – Grupo N° 8:**
 Durante el sprint N° 6, logramos mejorar la comunicación en comparación con sprints anteriores, lo que facilitó la organización y separación de las tareas a tiempo. A pesar de enfrentar algunas dificultades, fuimos capaces de completar el sprint con éxito. Sin embargo, quedaron algunos detalles por ajustar que serán nuestro enfoque para el próximo sprint, con el objetivo de optimizar el trabajo en equipo y el rendimiento del proyecto.
+
+**Retrospectiva del Sprint N° 7 – Grupo N° 8:**
+Durante el sprint Nº 7 la distribución de tareas fue más equilibrada y hubo buena resolución de conflictos y resolución de problemas en cuanto al desarrollo del proyecto, quedaron detalles pendientes por terminar que se resolveran en el próximo sprint de manera prioritaria.
