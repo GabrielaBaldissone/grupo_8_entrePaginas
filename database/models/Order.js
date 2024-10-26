@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     const Order = sequelize.define(alias, cols, config);
 
     Order.associate = function(models) {
-        Order.belongsTo(models.OrderProduct, {
-            as: "order_product",
+        Order.belongsTo(models.OrderBook, {
+            as: "order_book",
             foreignKey: "id_order"
         }),
         Order.belongsTo(models.User, {
