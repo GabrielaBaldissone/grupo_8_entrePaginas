@@ -31,6 +31,7 @@ const usersRoutes = require('./routes/usersRoutes.js');
 const productsRoutes = require('./routes/productsRoutes.js');
 // REQUIRIENDO RUTAS DE APIs
 const productsApiRoutes = require("./routes/api/productsApiRoutes.js");
+const usersApiController = require("./routes/api/usersApiRoutes.js");
 
 // CAPTURAR DATOS DE UN FORMULARIO EN FORMATO JSON
 app.use(express.urlencoded({extended: false}));
@@ -50,7 +51,9 @@ app.use("/users", usersRoutes);
 // RUTA PRODUCT.
 app.use("/products", productsRoutes);
 
+// RUTAS APIs
 app.use("/api/products", productsApiRoutes);
+app.use("/api/users", usersApiController);
 
 
 app.listen(PORT, (err)=>{
