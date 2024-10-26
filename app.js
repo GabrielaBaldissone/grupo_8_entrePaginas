@@ -29,6 +29,8 @@ app.set("view engine", "ejs");
 const indexRoutes = require('./routes/indexRoutes.js');
 const usersRoutes = require('./routes/usersRoutes.js');
 const productsRoutes = require('./routes/productsRoutes.js');
+// REQUIRIENDO RUTAS DE APIs
+const productsApiRoutes = require("./routes/api/productsApiRoutes.js");
 
 // CAPTURAR DATOS DE UN FORMULARIO EN FORMATO JSON
 app.use(express.urlencoded({extended: false}));
@@ -47,6 +49,8 @@ app.use("/users", usersRoutes);
 
 // RUTA PRODUCT.
 app.use("/products", productsRoutes);
+
+app.use("/api/products", productsApiRoutes);
 
 
 app.listen(PORT, (err)=>{
