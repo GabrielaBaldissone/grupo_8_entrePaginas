@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <%- include('../partials/head.ejs',{'datos':datos.activar}) %>
-    <title>Detalles del Producto</title>
+    <title>Detalles del Libro</title>
 </head>
 <body>
     <%- include('../partials/navbar.ejs') %>
@@ -10,11 +10,11 @@
         <section class="product-details">
         
             <div class="product-description">
-                <img src="/img/<%= product.image %>" class="product-details-img"  alt="<%= product.name %>">
-                <h1><%= product.name %></h1>
-                <p ><%= product.description %> </p>
-                <p class="price-total">Precio: $<%= product.price %></p>
-                <p >Disponibilidad: <span id="disponibilidad"><%= product.stock > 0? product.stock : "Sin Stock" %></span></p>
+                <img src="/img/<%= book.image %>" class="product-details-img"  alt="<%= book.name %>">
+                <h1><%= book.name %></h1>
+                <p ><%= book.description %> </p>
+                <p class="price-total">Precio: $<%= book.price %></p>
+                <p >Disponibilidad: <span id="disponibilidad"><%= book.stock > 0? book.stock : "Sin Stock" %></span></p>
                 <form class="cantidad-box" action="/products" method="POST">
                     <!-- <div class="cantidad-controls">
                             <label for="cantidad" id="lblCantidad">Cantidad:</label>
@@ -22,31 +22,31 @@
                             <input type="number" id="cantidad" name="quantity" min="1" value="1" readonly>
                             <button id="btnMenos">-</button>
                         </div>                -->
-                        <input type="hidden" name="productId" value="<%= product.id_product %>">
+                        <input type="hidden" name="productId" value="<%= book.id_book %>">
                     <button id="btnAddCart" type="submit" class="agregar-carrito-btn">Agregar al carrito</button>
                 </form>
                 </div>
             </div>
             <% if (isAdmin) { %>
-                <a class="update-btn" href="/products/edit/<%= product.id_product %>">Editar</a>
-                <form action="/products/delete/<%= product.id_product %>?_method=DELETE" method="POST">
+                <a class="update-btn" href="/products/edit/<%= book.id_book %>">Editar</a>
+                <form action="/products/delete/<%= book.id_book %>?_method=DELETE" method="POST">
                     <button class="delete-btn">ELIMINAR</button>
                 </form>
             <% } %>
 
         </section>
-        <p class="product-relacionado">Productos Relacionados</p>
+        <p class="product-relacionado">Libros Relacionados</p>
         <section class="productos-relacionados">
-            <% relatedProducts.forEach(prod =>{ %>
+            <% relatedBooks.forEach(book =>{ %>
                 <article class="producto">
-                    <a href="/products/detail/<%= prod.id_product %>">
+                    <a href="/products/detail/<%= book.id_book %>">
                     <div class="producto-imagen">
-                        <img src="data:img/png;base64,<%= prod.image %>"  class="product-details-img" alt="<%= prod.name%>">
+                        <img src="/img/<%= book.image %>"  class="product-details-img" alt="<%= book.name%>">
                         </div>
                     <div class="producto-descripcion">
-                        <p><%= prod.name %></p>
-                        <p>Precio: $<%= prod.price %></p>
-                        <p><span><%= product.stock  %></span></p>
+                        <p><%= book.name %></p>
+                        <p>Precio: $<%= book.price %></p>
+                        <p><span><%= book.stock  %></span></p>
                     </div>
                     </a>
                 </article>

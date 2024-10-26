@@ -43,18 +43,18 @@ const productsController = {
     },
     productDetail: (req, res) => {
         const {id} = req.params;
-        db.Product.findByPk(id, { include: [{ association: 'category' }] })
-        .then(product => {
-            if (!product) {
-                return res.status(404).json({ error: 'Producto no encontrado' });
+        db.Book.findByPk(id, { include: [{ association: 'category' }] })
+        .then(book => {
+            if (!book) {
+                return res.status(404).json({ error: 'Libro no encontrado' });
             }
 
-            return db.Product.findAll({
+            return db.Book.findAll({
                 where: {
-                    id_category: product.id_category
+                    id_category: book.id_category
                 }
-            }).then(relatedProducts => {
-                res.render("products/productDetail", {datos, product, relatedProducts });
+            }).then(relatedBooks => {
+                res.render("products/productDetail", {datos, book, relatedBooks });
             });
         })
         .catch(error => {

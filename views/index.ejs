@@ -13,23 +13,22 @@
     <main>
     
     
-    <p class="title">SÁBANAS</p>
+    <p class="title">PROGRAMACION</p>
     <section class="box-flex">
-        <% sabanas.forEach(prod => { %>
+        <% programacion.forEach(book => { %>
             <article class="article-style">
-                <a href="/products/detail/<%= prod.id_product %>">
+                <a href="/products/detail/<%= book.id_book %>">
                 <div class="conteiner-img">
-                    <% console.log(prod.image) %>
                     <img
-                    src="/img/<%= prod.image %>"
-                    alt="<%= prod.name %>"
+                    src="/img/<%= book.image %>"
+                    alt="<%= book.name %>"
                     />
                 </div>
                 <div class="info">
-                    <p class="descripcion"><%= prod.name %></p>                    
+                    <p class="descripcion"><%= book.name %></p>                    
                     <div class="box-linea">
-                        <p class="precios">$<%= prod.price %></p>
-                        <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
+                        <p class="precios">$<%= book.price %></p>
+                        <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
                     </div>
 
                 </div>
@@ -38,92 +37,92 @@
         <%}) %>
     </section>
 
-    <p class="title">ACOLCHADOS</p>
+    <p class="title">ECONOMIA</p>
     <section class="box-flex">
-        <% acolchados.forEach(prod => { %>
+        <% economia.forEach(book => { %>
 
             <article class="article-style">
-                <a href="/products/detail/<%= prod.id_product %>">
+                <a href="/products/detail/<%= book.id_book %>">
                     <div class="conteiner-img">
                     <img
-                    src="/img/<%= prod.image %>"
-                    alt="<%= prod.name %>"
+                    src="/img/<%= book.image %>"
+                    alt="<%= book.name %>"
                     />
                     </div>
                     <div class="info">
-                        <p class="descripcion"><%= prod.name %></p>                        
+                        <p class="descripcion"><%= book.name %></p>                        
                         <div class="box-linea">
-                            <p class="precios">$<%= prod.price %></p>
-                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
+                            <p class="precios">$<%= book.price %></p>
+                            <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>
             </article>
         <%}) %>
     </section>
-    <p class="title">CORTINAS</p>
+    <p class="title">PSICOLOGIA</p>
     <section class="box-flex">
-        <% cortinas.forEach(prod => { %>
+        <% psicologia.forEach(book => { %>
 
             <article class="article-style">
-                <a href="/products/detail/<%= prod.id_product %>">
+                <a href="/products/detail/<%= book.id_book %>">
                     <div class="conteiner-img">
                     <img
-                    src="/img/<%= prod.image %>"
-                    alt="<%= prod.name %>"
+                    src="/img/<%= book.image %>"
+                    alt="<%= book.name %>"
                     />
                     </div>
                     <div class="info">
-                        <p class="descripcion"><%= prod.name %></p>                        
+                        <p class="descripcion"><%= book.name %></p>                        
                         <div class="box-linea">
-                            <p class="precios">$<%= prod.price %></p>
-                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
+                            <p class="precios">$<%= book.price %></p>
+                            <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>
             </article>
         <%}) %>
     </section>
-    <p class="title">VELAS</p>
+    <p class="title">FICCION</p>
     <section class="box-flex">
-        <% velas.forEach(prod => { %>
+        <% ficcion.forEach(book => { %>
 
             <article class="article-style">
-                <a href="/products/detail/<%= prod.id_product %>">
+                <a href="/products/detail/<%= book.id_book %>">
                     <div class="conteiner-img">
                     <img
-                    src="/img/<%= prod.image %>"
-                    alt="<%= prod.name %>"
+                    src="/img/<%= book.image %>"
+                    alt="<%= book.name %>"
                     />
                     </div>
                     <div class="info">
-                        <p class="descripcion"><%= prod.name %></p>        
+                        <p class="descripcion"><%= book.name %></p>        
                         <div class="box-linea">
-                            <p class="precios">$<%= prod.price %></p>
-                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
+                            <p class="precios">$<%= book.price %></p>
+                            <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>
             </article>
         <%}) %>
     </section>
-    <p class="title">ESENCIAS</p>
+    <p class="title">EDUCACION</p>
     <section class="box-flex">
-        <% esencias.forEach(prod => { %>
+        <% educacion.forEach(book => { %>
 
             <article class="article-style">
-                <a href="/products/detail/<%= prod.id_product %>">
+                <a href="/products/detail/<%= book.id_book %>">
                     <div class="conteiner-img">
                     <img
-                    src="/img/<%= prod.image %>"
-                    alt="<%= prod.name %>"
+                    src="/img/<%= book.image %>"
+                    alt="<%= book.name %>"
                     />
                     </div>
                     <div class="info">
-                        <p class="descripcion"><%= prod.name %></p>                        
+                        <p class="descripcion"><%= book.name %></p>                        
                         <div class="box-linea">
-                            <p class="precios">$<%= prod.price %></p>
-                            <p class="desc"><%= prod.stock ? "Disponible" : "Sin Stock" %></p>
+                            <p class="precios">$<%= book.price %></p>
+                            <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>

@@ -6,16 +6,16 @@ const datos = {
 
 const indexController = {
     index: (req, res) => {
-        db.Product.findAll()
-        .then((productData) => {
+        db.Book.findAll()
+        .then((bookData) => {
 
-        const sabanas = productData.filter(prod => prod.id_category === 1);
-        const acolchados = productData.filter(prod =>prod.id_category === 2);
-        const cortinas = productData.filter(prod => prod.id_category=== 3);
-        const velas = productData.filter(prod => prod.id_category === 4);
-        const esencias = productData.filter(prod => prod.id_category === 5);
+        const programacion = bookData.filter(book => book.id_category === 1);
+        const economia = bookData.filter(book =>book.id_category === 2);
+        const psicologia = bookData.filter(book => book.id_category=== 3);
+        const ficcion = bookData.filter(book => book.id_category === 4);
+        const educacion = bookData.filter(book => book.id_category === 5);
 
-        res.render("index", {datos, sabanas, acolchados, cortinas, velas, esencias});
+        res.render("index", {datos, programacion, economia, psicologia, ficcion, educacion});
 
 
         })
