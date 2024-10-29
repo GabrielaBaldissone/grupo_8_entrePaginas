@@ -16,7 +16,8 @@ const productsApiController = {
             }
             // Arreglo de productos con id, name, description y url
             const products = await db.Book.findAll({
-                attributes: ['id_book', 'name', 'description']
+                attributes: ['id_book', 'name', 'description', 'author'],
+                include: [{ association: 'category' }]
             });
 
             const productsArray = products.map(book => {
@@ -24,12 +25,19 @@ const productsApiController = {
                 return {
                     id: book.id_book,
                     name: book.name,
+                    author: book.author,
                     description: book.description,
+                    category: book.category.category,
                     detail: detailUrl
                 };
             });
 
-            return res.status(200).json({count, countByCategory, productsArray});
+            const lastBook = await db.Book.findOne({
+                order: [['id_book', 'DESC']],
+                include: [{association: 'category'}]
+            });
+                
+            return res.status(200).json({count, countByCategory, lastBook, productsArray});
         } catch(error){
             console.log("Error al obtener los libros: ", error);
         }
