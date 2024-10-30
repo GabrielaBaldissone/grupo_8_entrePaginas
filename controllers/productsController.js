@@ -63,7 +63,7 @@ const productsController = {
         });
     },
     productAddCart: async (req, res) =>{
-        const {productId, quantity} = req.body;
+        const {bookId, quantity} = req.body;
         const userId = req.session.userLogged.id_user;
 
         let order = await db.Order.findOne({
@@ -81,13 +81,13 @@ const productsController = {
         req.session.cart = req.session.cart || [];
         const cart = req.session.cart;
 
-        const productIndex = cart.findIndex(item => item.id_product == productId);
-        if (productIndex >= 0) {
-            cart[productIndex].quantity += parseInt(quantity, 10);
+        const bookIndex = cart.findIndex(book => book.id_book == bookId);
+        if (bookIndex >= 0) {
+            cart[bookIndex].quantity += parseInt(quantity, 10);
         } else {
-            const newProduct = await db.Product.findByPk(productId);
+            const newBook = await db.Book.findByPk(bookId);
 
-            cart.push({prod:newProduct, quantity});
+            cart.push({prod:newBook, quantity});
         }
 
         req.session.cart = cart;
@@ -103,9 +103,9 @@ const productsController = {
         try {
             // Crear registros en la tabla order_product
             for (let item of cart) {
-                await db.OrderProduct.create({
-                    id_order: orderId,
-                    id_product: item.prod.id_product,
+                await db.OrderBook.create({
+                    id_order_book: orderId,
+                    id_book: item.prod.id_product,
                     quantity: item.quantity,
                     price: item.prod.price, // Incluye el precio
                     date: date // Incluye la fecha actual
@@ -145,21 +145,21 @@ const productsController = {
 
             const orderId = order.id_order;
 
-            db.OrderProduct.destroy({
+            db.OrderBook.destroy({
                 where: {
                     id_order: orderId,
-                    id_product: id
+                    id_book: id
                 }
             })
             
-            const productsCart = await db.OrderProduct.findAll({
+            const productsCart = await db.OrderBook.findAll({
                 where: {
                     id_order: orderId
                 },
                 include: [{
                     model: db.Product,
                     as: 'product',
-                    attributes: ['id_product', 'name', 'price', 'stock', 'image', 'description']
+                    attributes: ['id_book', 'name', 'price', 'stock', 'image', 'description']
                 }]
             })
         
@@ -175,14 +175,12 @@ const productsController = {
     // ESTO ES PRODUCTOS
     editProduct: (req, res) =>{
         const {id} = req.params;
-        const product = db.Product.findByPk(id, {
+        const product = db.Book.findByPk(id, {
             include: [{association: "category"}]
         })
         const categories = db.Category.findAll();
         Promise.all([product, categories])
         .then(([product, categories])=>{
-            console.log(product);
-            console.log(categories);
             
             res.render("products/editProduct", {datos, product, categories, oldData: null});
         })
@@ -193,7 +191,7 @@ const productsController = {
         const { id } = req.params;
     
         if (!errors.isEmpty()) {
-            const product = await db.Product.findByPk(id, {
+            const product = await db.Book.findByPk(id, {
                 include: [{ association: "category" }]
             });
             const categories = await db.Category.findAll();
@@ -210,7 +208,7 @@ const productsController = {
         let newImage = req.file ? req.file.filename : null;
     
         try {
-            const product = await db.Product.findByPk(id);
+            const product = await db.Book.findByPk(id);
         
             if (req.file.filename == "default.png") {
                 newImage = product.image;
@@ -225,7 +223,7 @@ const productsController = {
                     id_category: category
                 },
                 {
-                    where: { id_product: id }
+                    where: { id_book: id }
                 }
             );
     
@@ -259,8 +257,8 @@ const productsController = {
             }
     
             // Eliminar el producto de la base de datos
-            await db.Product.destroy({
-                where: { id_product: id }
+            await db.Book.destroy({
+                where: { id_book: id }
             });
     
             res.redirect("/");
@@ -288,7 +286,7 @@ const productsController = {
         const image = req.file ? req.file.filename : "default-product.png";
     
         try {
-            await db.Product.create({
+            await db.Book.create({
                 name,
                 price,
                 stock,
