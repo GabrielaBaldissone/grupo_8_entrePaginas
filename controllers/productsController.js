@@ -42,25 +42,26 @@ const productsController = {
         // }
     },
     productDetail: (req, res) => {
-        const {id} = req.params;
+        const { id } = req.params;
         db.Book.findByPk(id, { include: [{ association: 'category' }] })
-        .then(book => {
-            if (!book) {
-                return res.status(404).json({ error: 'Libro no encontrado' });
-            }
-
-            return db.Book.findAll({
-                where: {
-                    id_category: book.id_category
+            .then(book => {
+                if (!book) {
+                    return res.status(404).json({ error: 'Libro no encontrado' });
                 }
-            }).then(relatedBooks => {
-                res.render("products/productDetail", {datos, book, relatedBooks });
+                return db.Book.findAll({
+                    where: {
+                        id_category: book.id_category,
+                        // Excluir el libro actual
+                        id_book: { [db.Sequelize.Op.ne]: book.id_book }
+                    }
+                }).then(relatedBooks => {
+                    res.render("products/productDetail", { datos, book, relatedBooks });
+                });
+            })
+            .catch(error => {
+                console.error(error);
+                res.status(500).json({ error: 'Error interno del servidor' });
             });
-        })
-        .catch(error => {
-            console.error(error);
-            res.status(500).json({ error: 'Error interno del servidor' });
-        });
     },
     productAddCart: async (req, res) =>{
         const {bookId, quantity} = req.body;
@@ -189,9 +190,9 @@ const productsController = {
     updateProduct: async (req, res) => {
         const errors = validationResult(req);
         const { id } = req.params;
-    
+        
         if (!errors.isEmpty()) {
-            const product = await db.Book.findByPk(id, {
+            const book = await db.Book.findByPk(id, {
                 include: [{ association: "category" }]
             });
             const categories = await db.Category.findAll();
@@ -199,7 +200,7 @@ const productsController = {
                 errors: errors.mapped(),
                 oldData: req.body,
                 datos,
-                product,
+                book,
                 categories
             });
         }
@@ -208,14 +209,15 @@ const productsController = {
         let newImage = req.file ? req.file.filename : null;
     
         try {
-            const product = await db.Book.findByPk(id);
+            const book = await db.Book.findByPk(id);
         
             if (req.file.filename == "default.png") {
-                newImage = product.image;
+                newImage = book.image;
             }
-            await db.Product.update(
+            await db.Book.update(
                 {
                     name,
+                    author: "autor editado",
                     price,
                     stock,
                     image: newImage,
@@ -231,7 +233,7 @@ const productsController = {
         } catch (err) {
             console.error(err.message);
             res.render("products/editProduct", {
-                errors: { general: { msg: "Ocurrió un error al actualizar el producto" } },
+                errors: { general: { msg: "Ocurrió un error al actualizar el libro" } },
                 oldData: req.body,
                 datos: {}
             });
@@ -242,11 +244,11 @@ const productsController = {
     
         try {
             // Buscar el producto antes de eliminarlo
-            const product = await db.Product.findByPk(id);
+            const book = await db.Book.findByPk(id);
     
             // Verificar si la imagen no es 'default.png'
-            if (product.image && product.image !== 'default.png') {
-                const imagePath = path.join(__dirname, '../public/img', product.image);
+            if (book.image && book.image !== 'default.png') {
+                const imagePath = path.join(__dirname, '../public/img', book.image);
     
                 // Eliminar el archivo de imagen del servidor
                 fs.unlink(imagePath, (err) => {
@@ -288,6 +290,7 @@ const productsController = {
         try {
             await db.Book.create({
                 name,
+                author: "prueba",
                 price,
                 stock,
                 description,

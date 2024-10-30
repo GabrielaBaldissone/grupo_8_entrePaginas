@@ -9,7 +9,7 @@
     <%- include('../partials/navbar.ejs') %>
 
     <div class="login-box">
-    <form class="register__form" action="/products/edit/<%= product.id_product %>?_method=PUT"  method="POST" enctype="multipart/form-data" id="form-edit">
+    <form class="register__form" action="/products/edit/<%= product.id_book %>?_method=PUT"  method="POST" enctype="multipart/form-data" id="form-edit">
         <div>
             <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
             <input type="text" id="nombreProducto" name="name" value="<%= oldData ? oldData.name : product.name %>" required autofocus minlength="6">
