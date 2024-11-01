@@ -10,11 +10,18 @@
         <section class="product-details">
         
             <div class="product-description">
+                <div class="product-description-container">
                 <img src="/img/<%= book.image %>" class="product-details-img"  alt="<%= book.name %>">
-                <h1><%= book.name %></h1>
-                <p ><%= book.description %> </p>
-                <p class="price-total">Precio: $<%= book.price %></p>
-                <p >Disponibilidad: <span id="disponibilidad"><%= book.stock > 0? book.stock : "Sin Stock" %></span></p>
+
+                <div class="product-details-info"> 
+                    <h1 class="title-description"><%= book.name %></h1>
+                    <p class="style-author"> <%= book.author %> </p>
+                    <p class="price-total">Precio: $ <span><%= book.price %></span></p>
+                    <p class="disponibilidad-description">
+                        Disponibilidad: <span id="disponibilidad"><%= book.stock > 0 ? book.stock : "Sin Stock" %></span>
+                    </p>
+                    <a href="/products/<%=book.id_category%>>"><p class="category"><%= book.category.category %></p></a>
+                    <img class="img-pagos" src="/img/pagos.png" alt="pagos">
                 <form class="cantidad-box" action="/products" method="POST">
                     <!-- <div class="cantidad-controls">
                             <label for="cantidad" id="lblCantidad">Cantidad:</label>
@@ -27,6 +34,11 @@
                 </form>
                 </div>
             </div>
+        </div>
+        <div class="style-desccription">
+            <span >Descripción:</span>
+            <p style="text-align: justify; margin-top: 10px"><%= book.description %> </p>
+        </div>
             <% if (isAdmin) { %>
                 <a class="update-btn" href="/products/edit/<%= book.id_book %>">Editar</a>
                 <form action="/products/delete/<%= book.id_book %>?_method=DELETE" method="POST">
@@ -35,7 +47,7 @@
             <% } %>
 
         </section>
-        <p class="product-relacionado">Libros Relacionados</p>
+        <p class="parrafo-relacionado">Te pueden interesar...</p>
         <section class="productos-relacionados">
             <% relatedBooks.forEach(book =>{ %>
                 <article class="producto">
@@ -43,11 +55,6 @@
                     <div class="producto-imagen">
                         <img src="/img/<%= book.image %>"  class="product-details-img" alt="<%= book.name%>">
                         </div>
-                    <div class="producto-descripcion">
-                        <p><%= book.name %></p>
-                        <p>Precio: $<%= book.price %></p>
-                        <p><span><%= book.stock  %></span></p>
-                    </div>
                     </a>
                 </article>
             <% }) %>

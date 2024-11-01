@@ -13,8 +13,6 @@
             <button class="button-search"><i class="fa-solid fa-magnifying-glass"></i></button> 
         </form>
     </div>
-    <input type="checkbox" id="brg-menu">
-    <label for="brg-menu" class="abrir-menu"><i class="fa-solid fa-bars"></i></label>
     <div class="header__navbar-items">
         <ul class="nav-menu">
             <li>
@@ -22,7 +20,7 @@
                     <% if (locals.isLogged) { %>
                         Hola, <%= locals.userLogged.first_name %>
                     <% } else { %>
-                        <i class="fas fa-user icons-style"></i> <span>Usuario</span>
+                        <i class="fas fa-user icons-style"></i> <span class="span-nav">Usuario</span>
                     <% } %>
                 </a>
                 <ul>
@@ -39,9 +37,9 @@
                     <% } %>
                 </ul>
             </li>
-            <li><a href="/products/cart"><i class="fa-solid fa-cart-shopping icons-style"></i><span>Carrito</span></a></li>
+            <li><a href="/products/cart"><i class="fa-solid fa-cart-shopping icons-style"></i><span class="span-nav">Carrito</span></a></li>
             <% if (isAdmin) { %>
-            <li><a href="/products/admin"><i class="fa-solid fa-gear icons-style"></i><span>Admin</span></a></li>
+            <li><a href="/products/admin"><i class="fa-solid fa-gear icons-style"></i><span class="span-nav">Admin</span></a></li>
             <% } %>
         </ul>
     </div>

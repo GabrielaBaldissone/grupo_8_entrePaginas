@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head.ejs', {'datos':datos.activar}) %>
+    <title> <%= categoryName %> | EntrePáginas </title>
+</head>
+<body class="login-body">
+    <%- include('../partials/navbar.ejs') %>
+    <main>
+
+        <section class="box-flex">
+            <% allProduct.forEach(book => { %>
+    
+                <article class="article-style">
+                    <a href="/products/detail/<%= book.id_book %>">
+                        <div class="conteiner-img">
+                        <img
+                        src="/img/<%= book.image %>"
+                        alt="<%= book.name %>"
+                        />
+                        </div>
+                        <div class="info">
+                            <p class="descripcion"><%= book.name %></p>
+                            <p class="author"><%= book.author %></p>                          
+                            <div class="box-linea">
+                                <p class="precios">$<%= book.price %></p>
+                                <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            <%}) %>
+        </section>
+
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="https://kit.fontawesome.com/6868278fd3.js" crossorigin="anonymous"></script>
+</body>
+</html>

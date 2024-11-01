@@ -9,6 +9,7 @@
 
     <main class="productcart-main">
         <section class="product-list">
+            <% let totalAmount = 0; %>
             <% if (cart && cart.length > 0) { %>
                 <% cart.forEach(item => { %>
                     <section class="product-item">
@@ -25,32 +26,41 @@
                             </form>
                         </div>
                     </section>
+                    <% totalAmount += item.prod.price * item.quantity; %> 
                 <% }) %>
             <% } else { %>
-                <p>Tu carrito está vacío</p>
+                <div class="carritovacio">
+                <img class="img-carrito" src="/img/carritovacio.png" alt="carrito vacio">
+                <p class="vacio-title">Tu carrito está vacío.</p>
+                </div>
             <% } %>
-        </section>
-    </main>
+        </section>     
+    </main>  
     <section class="productcart-section">
         <div class="section-content">
             <div class="section-left">
                 <div class="total-amount">
-                    <span>TOTAL: </span>
-                    <span class="price-total">$ 35.102</span>
+                    <span>TOTAL: $<%= totalAmount.toFixed(2) %> </span>
                 </div>
                 <div>
                     <a class="shipping-info" href="#">Calcular envío</a>
                 </div>
             </div>
             <div class="section-right">
-                <button class="section-btn">SEGUIR COMPRANDO</button>
+                <a href="/">
+                    <button class="section-btn">SEGUIR COMPRANDO</button>
+                </a>
             </div>
+            
             <div class="payment-section">
+                <img class="img-pagos" src="/img/pagos.png" alt="pagos">
                 <form action="/products/checkout" method="POST">
                     <button class="pay-btn">PAGAR</button>
                 </form>
             </div>
         </section>
+
+
     <%- include('../partials/footer.ejs') %>
 </body>
 </html>
