@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 * {
     margin: 0;
@@ -9,8 +9,7 @@
 }
 /*Estilos del body/cuerpo general*/
 body {
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(66,63,62,0.954115752746411) 77%);
+    background: #fff6f0;
     font-family: "Playfair Display", serif;
     font-weight: 400;
 }
@@ -24,12 +23,13 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    background-color: #362222;
+    background-color: #A5B68D;
 }
 
 /*Se le ajusta el ancho al CONTENEDOR del Logo*/
 .header__navbar-logo{
-    width: 30%;
+    margin-top: 3px;
+    width: 15%;
 }
 
 /*Un ancho de 100% al LOGO para que ocupe el tamaño de su contenedor*/
@@ -44,6 +44,7 @@ body {
 
 /*Es el ID del input search - Estilos del mismo*/
 #search{
+    display: none;
     font-size: 14px;
     padding: 13px;
     border-radius: 4px;
@@ -57,13 +58,17 @@ body {
 /*Estilos cuando focalizamos el input search*/
 #search:focus{
     border-style: solid;
-    border-color: #3483fa;
+    border-color: #DA8359;
     border-width: 1.7px;
+}
+
+.span-nav{
+    display: none;
 }
 
 /*Estilos del contenedor del fomulario que tiene el input search*/
 .box-input{    
-    width: 50%;
+    width: 40%;
     margin-bottom: 11px;
     display: flex;
     position: relative;
@@ -76,6 +81,7 @@ body {
 
 /*Estilos de la lupa*/
 .button-search{
+    display: none;
     font-size: 16px;
     margin-right: 21px;
     padding: 2px;
@@ -135,21 +141,6 @@ body {
 
 .user-perfil:hover{
     color: #3483fa;
-}
-
-Burger menu
-#brg-menu{
-    display: none;
-}
-
-.abrir-menu{
-    display:block;
-    font-size: 20px;
-    color: #ffffff;
-    float: right;
-    line-height: 55px;
-    margin-right: 10px;
-    cursor: pointer;
 }
 
 .header__navbar-items{
@@ -215,23 +206,76 @@ Burger menu
     margin-bottom: 15px;
 }
 
-/*Estilos del titulo de cada section*/
-.title {
-    background-image: linear-gradient(90deg, rgba(255,255,255,1) 15%, rgba(66, 63, 62, 0.283) 75%);
+/*Géneros*/
+
+.generos {
+    color: #2c293b;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 auto;
+    padding: 24px 16px;
+    max-width: 800px;
     font-size: 20px;
-    color: #362222;
-    width: 80%; 
-    margin: 0 auto;   
-    text-align: center; 
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
-.title:hover{
-    color:rgb(255, 255, 255);
+.icon-genre{
+    color: #aeaebd;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 250px;
+    padding: 0 18px;
+    text-align: center;
+    transition: transform 0.2s ease;  
+}
+
+.title-genre{
+    color: #2c293bc3;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 5px;
+    display: none;
+}
+
+.icon-genre:hover{
+    color: #573ba3db;
+    transform: scale(1.60);
+}
+
+
+.conteiner-title{
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.vertodo {
+    font-size: 12px;
+    padding-left: 3px;
+    color: black;
+}
+
+.author{
+    color: #573ba3;
+}
+
+
+/*Estilos del titulo de cada section*/
+.title {
+    font-size: 24px;
+    color: #7c8a68;
+    width: 40%; 
+    margin-bottom: 5px;
+    font-weight: 700;
 }
 
 /*Estilos del contenedor de la etiqueta section - ancho y centrado*/
 .box-flex{
-    width: 95%;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -242,15 +286,21 @@ Burger menu
 
 /*Margen del article*/
 .article-style{
-    margin: 10px;
+    display: flex;
+    align-items: center; 
+    gap: 20px; 
+    border: 1px solid #ddd; 
+    padding: 10px;
+    margin-top: 20px;
 }
 
 /*Estilos de la informacion total del articulo*/
-.info {    
+.info {
     text-align: center;
     display: block;
-    border-top: solid 2px #362222;
-    background-color: #2b2b2b;
+    border-top: solid 2px #b0a6a6;
+    margin-top: 10px;
+    /* background-color: #ffffff; */
     padding: 10px;
     position: relative;
 }
@@ -259,46 +309,43 @@ Burger menu
 .descripcion {
     font-size: 18px;
     font-weight: 50%;
-    color: #ffffff;
+    color: #DA8359;
 }
 
 /*Estilos del contenedor de precios y desc*/
 .box-linea {
-    display: flex;
-    flex-wrap: wrap;
     width: 100%;
-    align-items: baseline;
+    text-align: center;
 }
 
 /*Estilos de los precios*/
 .precios {
     font-size: 18px;
     padding-top: 5px;
-    width: 40%;
-    color: #a7a3a2;
+    color: #000000;
     font-weight: 600;
 }
 
 /*Estilos de los descuentos*/
 .desc {
-    font-size: 20px;
-    color: #8ab4a8;
+    font-size: 14px;
+    color: #7c8a68;
     padding-top: 5px;
     padding-left: 10px;
-    width: 60%;
+    text-align: center;
 }
 
 /* ESTILOS FOOTER */
 
 /*Estilos para el footer general*/
 footer {
-    background-color: #362222;
+    background-color: #A5B68D;
     margin-top: 30px;
 }
 
 /*Estilos del input de "enviar mail" */
 .form-email {
-    background: linear-gradient(180deg, rgba(75,72,71,1) 12%, rgba(54,34,34,1) 97%);
+    background-color: #DA8359;
     padding: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -384,10 +431,26 @@ footer {
 
 
 /*ESTILOS CARRITO DE COMPRAS */
+.carritovacio{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.vacio-title{
+    font-size: 24px;
+}
+
+.img-carrito{
+    width: 100%;
+    background-color: transparent;
+}
 
 .productcart-main {
     margin: 0 auto;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     width: 90%;
     border-radius: 10px;    
     margin-top: 10px;
@@ -481,11 +544,10 @@ footer {
 /* ESTILOS DE LA SECTION DE PAGOS */
 
 section.productcart-section {
-    background-color: #2b2b2b;
+    background-color: #a4acac;
     padding: 5px;
     display: flex;
     flex-direction: row;
-
     margin: 5px;
 }
 
@@ -500,15 +562,10 @@ section.productcart-section {
     width: 35%;
 }
 
-.price-total{
-    display: block;
-    color: #dc3545;
-    font-weight: 100;
-}
 
 .total-amount {
     font-size: 1.2em;
-    color:  rgba(199, 199, 199, 0.66);
+    color: black;
     font-weight: bold;
     margin-bottom: 0px 10px;
 }
@@ -521,8 +578,7 @@ section.productcart-section {
     color: #5f5feee0;;
 }
 
-.section-right {
-    width: 35%; 
+.section-right { 
     margin-top: 2px;
 }
 
@@ -573,26 +629,69 @@ section.productcart-section {
 
 /*ESTILOS DETALLES PRODUCTOS*/
 
-.product-details {
-    
-    text-align: center;
+.product-details{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+}   
+
+.product-description{
+    margin: 0 auto;
     max-width: 90%;
-    margin: 20px auto;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 10px;
+    padding: 10px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-description{
+    font-size: 22px;    
+    font-weight: 300;
+    color: #b9623a;
+    padding: 5px;
+}
+
+.style-author{
+    color: #A5B68D;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.style-desccription{
+    font-size: 18px;
+    color: #6f6e6e;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.price-total{
+    color: black;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.disponibilidad-description{
+    padding: 5px;
+    color: black;
+    font-weight: 600;
 }
 
 .product-details-img {
-    max-width: 100%;
-    max-height: 300px;
-    height: auto;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
-.product-description{
-    color: #362222;
-    margin: 2px;
+.category {
+    color: hsla(0, 0%, 53%, 0.7);
+    padding: 5px;
+    font-size: 20px;
+}
+
+.img-pagos{
+    padding: 5px;
+    width: 50%;
 }
 
 .cantidad-box{
@@ -620,7 +719,7 @@ section.productcart-section {
 .agregar-carrito-btn {
     margin-top: 3px;
     margin-bottom: 7px;
-    background-color: #2b2b2bca;
+    background-color: #A5B68D;
     color: white;
     border: none;
     padding: 3px 10px;
@@ -666,45 +765,45 @@ section.productcart-section {
     color: black;
 }
 
-.product-relacionado{
+.parrafo-relacionado{
     font-size: 22px;
-    text-align: center;
-    color: white;
+    margin-left: 15px;
+    color:  #A5B68D;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .productos-relacionados  {
-    display: flex;
-    justify-content:center; 
-    align-items:center; 
-    flex-wrap:nowrap;
-    overflow: auto;
-    margin: 5px;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 700px; 
+    margin: 0 auto;
+    justify-items: center;
+}
 
 .producto {
-    margin-top: 25px;
-    margin-bottom: 25px;
-    display: inline-block; 
-    width: 250px; 
-    margin-right: 10px;
-    text-align: center; 
     border: 1px solid #ccc; 
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
+    width: 90%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
-
+/* 
 .producto:last-child {
     margin-right: 0; 
-}
+} */
 
 .producto-imagen  {
     margin: 0 auto;
-    width: 100%; 
-    width: 100%;
-    max-width: 100px;
-    height: 100px;  
+    width: 80%;  
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
+
 .producto-imagen img {
     margin: 5px;
     width: 100%;
@@ -990,6 +1089,14 @@ section.productcart-section {
 
 /* NAVBAR */
 
+.button-search{
+    display: flex;
+}
+
+#search{
+    display: flex;
+}
+
 /*Burger menu*/
 .header__navbar-items{
     display:none;
@@ -1007,6 +1114,9 @@ section.productcart-section {
 
 /* ESTILOS MAIN */
 
+.title-genre{
+    display: block;
+}
 
 /*Img del banner*/
 .img-banner {
@@ -1017,33 +1127,38 @@ section.productcart-section {
 .box-flex{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 40px;    
     place-items: center;
-
 }
+
 
 .conteiner-img{
     width: 100%;
-    max-width: 350px;
-    height: 350px;  
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
 
 /*Que la imagen ocupe un 100% de su contenedor (box-flex)*/
 .box-flex img {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: auto;
     object-fit: cover;
 }
 
 /*Margen del article*/
-.article-style{
-    margin: 8px;    
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido dentro de `.info` */
 }
 
 /*El hover sobre la descripción para que pase el mouse sobre el art y aparezca la descripción*/
-article {
+article img{
     transition: transform 0.3s ease;
 }
-article:hover {
+article img:hover {
     transform: scale(1.03);
 }
 
@@ -1079,6 +1194,12 @@ article:hover {
     width: 50%;
 }
 
+/* DETALLES DE PRODUCTO */
+
+.product-details {
+    width: 80%;
+}
+
 
 /*ESTILOS CARRITO DE COMPRAS */
 
@@ -1090,7 +1211,7 @@ article:hover {
 
 section.productcart-section {
     margin: 0 auto;
-    width: 80%;
+    width: 60%;
     justify-content: center; 
     align-items: center;
 }
@@ -1135,7 +1256,7 @@ section.productcart-section {
 
 /*Se le ajusta el ancho al CONTENEDOR del Logo*/
 .header__navbar-logo{
-    width: 20%;
+    width: 10%;
 }
 
 /*Es el ID del input search - Estilos del mismo*/
@@ -1152,17 +1273,6 @@ section.productcart-section {
 }
 
 .nav-menu li a span {
-    display: none;
-}
-    
-#brg-menu{
-    display: none;
-}
-#brg-menu:checked ~ .header__navbar-items {
-    display: block;
-}
-
-.abrir-menu{
     display: none;
 }
 
@@ -1201,7 +1311,7 @@ section.productcart-section {
 /*Estilos del contenedor de la etiqueta section - ancho y centrado*/
 .box-flex{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 
@@ -1217,8 +1327,7 @@ section.productcart-section {
 
 /*Estilos de los descuentos*/
 .desc {
-    font-size: 18px;
-    width: 50%;
+    font-size: 16px;
 }
 
 /* ESTILOS FOOTER */
@@ -1271,32 +1380,57 @@ footer {
 
 /*ESTILOS DETALLES PRODUCTOS*/
 
-.product-details {
-    max-width: 50%;
-    margin-top: 20px;
-    text-align: center;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 10px;
+.product-description-container {
+    display: flex; 
+    align-items: flex-start; 
+    gap: 20px; 
 }
 
+.product-details-img {
+    width: 300px; 
+    height: auto;
+}
 
-.product-relacionado{
-    margin-top: 30px;
+.product-details-info {
+    max-width: 500px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.title-description {
+    font-size: 24px;
+}
+
+.style-author, .price-total, .disponibilidad-description {
+    font-size: 18px;
+}
+
+.agregar-carrito-btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.parrafo-relacionado{
+    margin-top: 50px;
     margin-bottom: 15px;
-    font-size: 26px;
+    font-size: 22px;
     text-align: center;
-    color: white;
 }
 
 .productos-relacionados  {
-    width: 100%;
-    }
-
-.producto {
-    width: 25%; 
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 90%; 
 }
+
+.style-desccription{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
 
 #cantidad {
     text-align: center;
@@ -1305,10 +1439,7 @@ footer {
 
 .producto-imagen  {
     margin: 0 auto;
-    width: 100%; 
-    width: 100%;
     max-width: 200px;
-    height: 200px;  
 }
 .producto-imagen img {
     margin: 5px;
@@ -1318,10 +1449,7 @@ footer {
 }
 
 .producto-descripcion{
-    font-weight: 600;
-    margin: 15px;
-    color: black;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 
@@ -1354,4 +1482,10 @@ footer {
     .description-user{
         font-size: 22px; 
     }
+
+    .category {
+        font-size: 18px;
+        padding-bottom: 15px;
+    }
+
 }
