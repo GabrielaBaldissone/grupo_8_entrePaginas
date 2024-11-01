@@ -92,38 +92,51 @@ const productsController = {
             res.status(500).json({ error: 'Error interno del servidor' });
         });
     },
-    productAddCart: async (req, res) =>{
-        const {productId, quantity} = req.body;
+    productAddCart: async (req, res) => {
+        const { productId, quantity } = req.body;
         const userId = req.session.userLogged.id_user;
-
-        let order = await db.Order.findOne({
-            where:{id_user: userId, status: "pending"}
-        })
-
-        if(!order){
-            order = await db.Order.create({
-                id_user: userId,
-                status: "pending"
+    
+        try {
+            // Buscar la orden del usuario con estado "pending"
+            let order = await db.Order.findOne({
+                where: { id_user: userId, status: "pending" }
             });
+    
+            if (!order) {
+                // Crear una nueva orden si no existe una pendiente
+                order = await db.Order.create({
+                    id_user: userId,
+                    status: "pending"
+                });
+            }
+            req.session.order = order.id_order;
+    
+            // Inicializar el carrito en la sesión si no existe
+            req.session.cart = req.session.cart || [];
+            const cart = req.session.cart;
+    
+            // Buscar si el libro ya está en el carrito
+            const bookIndex = cart.findIndex(item => item.prod.id_book == productId);
+    
+            if (bookIndex >= 0) {
+                // Incrementar la cantidad si el libro ya está en el carrito
+                cart[bookIndex].quantity += parseInt(quantity, 10);
+            } else {
+                // Añadir un nuevo libro al carrito
+                const newBook = await db.Book.findByPk(productId);
+                cart.push({ prod: newBook, quantity: parseInt(quantity, 10) });
+            }
+    
+            req.session.cart = cart;
+    
+            // Redireccionar al carrito
+            res.redirect('/products/cart');
+        } catch (error) {
+            console.error("Error al agregar el producto al carrito: ", error);
+            res.status(500).send("Error al agregar el producto al carrito");
         }
-        req.session.order = order.id_order;
-
-        req.session.cart = req.session.cart || [];
-        const cart = req.session.cart;
-
-        const bookIndex = cart.findIndex(book => book.id_book == productId);
-        if (bookIndex >= 0) {
-            cart[bookIndex].quantity += parseInt(quantity, 10);
-        } else {
-            const newBook = await db.Book.findByPk(productId);
-
-            cart.push({prod:newBook, quantity});
-        }
-
-        req.session.cart = cart;
-
-        res.redirect('/products/cart');
-    },
+    }
+    ,
     checkout : async (req, res) => {
         const orderId = req.session.order;
         const cart = req.session.cart || [];
@@ -136,7 +149,7 @@ const productsController = {
                 await db.OrderBook.create({
                     id_order: orderId,
                     id_book: item.prod.id_book,
-                    quantity: 2,
+                    quantity: item.quantity,
                     price: item.prod.price, // Incluye el precio
                     date: date // Incluye la fecha actual
                 });
