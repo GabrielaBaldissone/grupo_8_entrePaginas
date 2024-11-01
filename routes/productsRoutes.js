@@ -11,6 +11,9 @@ router.get('/cart', productsController.productCart);
 // RUTA DE PRODUCT DETAIL
 router.get('/detail/:id', adminMiddleware, productsController.productDetail);
 
+// RUTA DE ALL PRODUCT 
+router.get('/:id_category', adminMiddleware, productsController.productAll);
+
 // RUTA DE ADMIN PARA CREAR O ACTUALIZAR PRODUCTOS
 router.get('/admin', productsController.getProductAdmin);
 
