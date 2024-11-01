@@ -53,7 +53,8 @@ const productsController = {
                         id_category: book.id_category,
                         // Excluir el libro actual
                         id_book: { [db.Sequelize.Op.ne]: book.id_book }
-                    }
+                    },
+                    limit: 4
                 }).then(relatedBooks => {
                     res.render("products/productDetail", { datos, book, relatedBooks });
                 });
@@ -62,6 +63,34 @@ const productsController = {
                 console.error(error);
                 res.status(500).json({ error: 'Error interno del servidor' });
             });
+    },
+    productAll: (req, res) => {
+        const { id_category } = req.params; 
+        db.Book.findAll({
+            where: {
+                id_category: id_category
+            },
+            include: [{ association: 'category' }]
+        })
+        .then(allProduct => {
+            if (allProduct.length === 0) {
+                return res.status(404).json({ error: 'No se encontraron libros para esta categoría' });
+            }
+    
+            const book = allProduct; 
+            const categoryName = allProduct[0].category.category; 
+
+            res.render("products/allProduct", {
+                datos,
+                book,
+                allProduct,
+                categoryName
+            });
+        })
+        .catch(error => {
+            console.error(error);
+            res.status(500).json({ error: 'Error interno del servidor' });
+        });
     },
     productAddCart: async (req, res) =>{
         const {bookId, quantity} = req.body;
