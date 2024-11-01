@@ -1,6 +1,7 @@
 const { Association } = require('sequelize');
 const { validationResult } = require("express-validator");
 const db = require('../database/models')
+const sequelize = require('../database/models')
 const fs = require("fs");
 const path = require("path");
 
@@ -141,7 +142,6 @@ const productsController = {
         const orderId = req.session.order;
         const cart = req.session.cart || [];
         const date = new Date(); // Obten la fecha actual
-        console.log("### Cart:", JSON.stringify(cart, null, 2));
     
         try {
             // Crear registros en la tabla order_product
@@ -153,6 +153,9 @@ const productsController = {
                     price: item.prod.price, // Incluye el precio
                     date: date // Incluye la fecha actual
                 });
+                const book = await db.Book.findByPk(item.prod.id_book);
+                book.stock -= item.quantity;
+                await book.save();
             }
     
             // Cambiar el estado de la orden a 'Completed'
@@ -175,44 +178,28 @@ const productsController = {
     getProductAdmin: (req, res) => {
         res.render("products/formAdminProduct", {datos});
     },
-    deleteProductById: async  (req, res) =>{
-        const {id} = req.params;
-        const userId = req.session.userLogged.id_user;
-
-        try {
-
-            const order = await db.Order.findOne({
-                where: { id_user: userId },
-                order: [['id_order', 'DESC']]
-            });
-
-            const orderId = order.id_order;
-
-            db.OrderBook.destroy({
-                where: {
-                    id_order: orderId,
-                    id_book: id
-                }
-            })
-            
-            const productsCart = await db.OrderBook.findAll({
-                where: {
-                    id_order: orderId
-                },
-                include: [{
-                    model: db.Product,
-                    as: 'product',
-                    attributes: ['id_book', 'name', 'price', 'stock', 'image', 'description']
-                }]
-            })
-        
-        
-        res.render("products/productCart", {datos, productsCart});
-    } catch (error) {
-        console.error("Error al eliminar el producto del carrito:", error);
-        res.status(500).send("Error interno del servidor");
+    deleteProductById: (req, res) => {
+        const { id } = req.params;
+        const cart = req.session.cart || [];
+    
+        // Encontrar el índice del producto en el carrito
+        const productIndex = cart.findIndex(item => item.prod.id_book == id);
+    
+        if (productIndex >= 0) {
+            // Disminuir la cantidad si es mayor a 1
+            if (cart[productIndex].quantity > 1) {
+                cart[productIndex].quantity -= 1;
+            } else {
+                // Eliminar el producto del carrito si la cantidad es 1
+                cart.splice(productIndex, 1);
+            }
+        }
+    
+        req.session.cart = cart;
+    
+        res.redirect('/products/cart');
     }
-    },
+    ,
 
 
     // ESTO ES PRODUCTOS

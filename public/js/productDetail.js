@@ -4,11 +4,16 @@ const btnAddCart = $("btnAddCart");
 const btnMas = $("btnMas");
 const btnMenos = $("btnMenos");
 const cantidad = $("cantidad");
+const lblCantidad = $("lblCantidad");
 
 // Función para habilitar/deshabilitar botón de agregar al carrito
 const habilitar = () => {
     if (stock.textContent === "Sin Stock") {
         btnAddCart.style.display = "none";
+        btnMas.style.display = "none";
+        btnMenos.style.display = "none";
+        cantidad.style.display = "none";
+        lblCantidad.style.display = "none";
     }
 }
 

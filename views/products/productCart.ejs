@@ -20,7 +20,7 @@
                             <div class="product-quantity">
                                 <span class="quantity-number"><%= item.quantity %></span>
                             </div>
-                            <form action="/products/cart/<%= item.prod.productId %>?_method=DELETE" method="POST">
+                            <form action="/products/cart/<%= item.prod.id_book %>?_method=DELETE" method="POST">
                                 <button class="remove-btn">Remove</button>
                             </form>
                         </div>
