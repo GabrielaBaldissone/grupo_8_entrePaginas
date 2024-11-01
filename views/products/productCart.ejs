@@ -9,11 +9,10 @@
 
     <main class="productcart-main">
         <section class="product-list">
-            <% let totalAmount = 0; %>
             <% if (cart && cart.length > 0) { %>
                 <% cart.forEach(item => { %>
                     <section class="product-item">
-                        <div><img class="product-image" src="data:image/png;base64,<%= item.prod.image %>" alt="<%= item.prod.name %>"></div>
+                        <div><img class="product-image" src="/img/<%= item.prod.image %>" alt="<%= item.prod.name %>"></div>
                         <div class="product-cart-details">
                             <span class="product-name"><%= item.prod.name %></span>
                             <span class="product-code">Cod. <%= item.prod.productId %></span>
@@ -26,7 +25,7 @@
                             </form>
                         </div>
                     </section>
-                    <% totalAmount += item.prod.price * item.quantity; %> 
+                
                 <% }) %>
             <% } else { %>
                 <div class="carritovacio">
@@ -39,9 +38,7 @@
     <section class="productcart-section">
         <div class="section-content">
             <div class="section-left">
-                <div class="total-amount">
-                    <span>TOTAL: $<%= totalAmount.toFixed(2) %> </span>
-                </div>
+
                 <div>
                     <a class="shipping-info" href="#">Calcular envío</a>
                 </div>
