@@ -93,7 +93,7 @@ const productsController = {
         });
     },
     productAddCart: async (req, res) =>{
-        const {bookId, quantity} = req.body;
+        const {productId, quantity} = req.body;
         const userId = req.session.userLogged.id_user;
 
         let order = await db.Order.findOne({
@@ -111,11 +111,11 @@ const productsController = {
         req.session.cart = req.session.cart || [];
         const cart = req.session.cart;
 
-        const bookIndex = cart.findIndex(book => book.id_book == bookId);
+        const bookIndex = cart.findIndex(book => book.id_book == productId);
         if (bookIndex >= 0) {
             cart[bookIndex].quantity += parseInt(quantity, 10);
         } else {
-            const newBook = await db.Book.findByPk(bookId);
+            const newBook = await db.Book.findByPk(productId);
 
             cart.push({prod:newBook, quantity});
         }
@@ -134,9 +134,9 @@ const productsController = {
             // Crear registros en la tabla order_product
             for (let item of cart) {
                 await db.OrderBook.create({
-                    id_order_book: orderId,
-                    id_book: item.prod.id_product,
-                    quantity: item.quantity,
+                    id_order: orderId,
+                    id_book: item.prod.id_book,
+                    quantity: 2,
                     price: item.prod.price, // Incluye el precio
                     date: date // Incluye la fecha actual
                 });
