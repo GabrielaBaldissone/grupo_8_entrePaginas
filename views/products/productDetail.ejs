@@ -23,12 +23,12 @@
                     <a href="/products/<%=book.id_category%>>"><p class="category"><%= book.category.category %></p></a>
                     <img class="img-pagos" src="/img/pagos.png" alt="pagos">
                 <form class="cantidad-box" action="/products" method="POST">
-                    <!-- <div class="cantidad-controls">
+                    <div class="cantidad-controls">
                             <label for="cantidad" id="lblCantidad">Cantidad:</label>
                             <button id="btnMas">+</button>
                             <input type="number" id="cantidad" name="quantity" min="1" value="1" readonly>
                             <button id="btnMenos">-</button>
-                        </div>                -->
+                        </div>               
                         <input type="hidden" name="productId" value="<%= book.id_book %>">
                     <button id="btnAddCart" type="submit" class="agregar-carrito-btn">Agregar al carrito</button>
                 </form>
