@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('./partials/head.ejs',{'datos':datos.activar}) %>
-    <title>Essenciana</title>
+    <title>EntrePáginas | Libreria</title>
 </head>
 <body>
     <%- include('partials/navbar.ejs') %>
@@ -12,8 +12,43 @@
     </div>
     <main>
     
+    <div class="generos">
+        <div class="icons-genero">
+            <a href="/products/1">
+                <i class="fa-solid fa-laptop-code icon-genre"></i>
+                <p class="title-genre">Programación</p>
+            </a>
+        </div>
+        <div class="icons-genero">
+            <a href="/products/2">
+                <i class="fa-solid fa-comments-dollar icon-genre"></i>
+                <p class="title-genre">Economía</p>
+            </a>
+        </div>
+        <div class="icons-genero">
+            <a href="/products/3">
+                <i class="fa-solid fa-brain icon-genre"></i>
+                <p class="title-genre">Psicología</p>
+            </a>
+        </div>
+        <div class="icons-genero">
+            <a href="/products/4">
+                <i class="fa-solid fa-book-open-reader icon-genre"></i>
+                <p class="title-genre">Ficción</p>
+            </a>
+        </div>
+        <div class="icons-genero"> 
+            <a href="/products/5">
+                <i class="fa-solid fa-graduation-cap icon-genre"></i>
+                <p class="title-genre">Educación</p>
+            </a>
+        </div>
+    </div>
     
-    <p class="title">PROGRAMACION</p>
+    <div class="conteiner-title">
+        <a href="/products/1" class="title">PROGRAMACIÓN</a> 
+    </div>
+
     <section class="box-flex">
         <% programacion.forEach(book => { %>
             <article class="article-style">
@@ -25,10 +60,11 @@
                     />
                 </div>
                 <div class="info">
-                    <p class="descripcion"><%= book.name %></p>                    
+                    <p class="descripcion"><%= book.name %></p> 
+                    <p class="author"><%= book.author %></p>                   
                     <div class="box-linea">
+                        <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>                        
                         <p class="precios">$<%= book.price %></p>
-                        <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
                     </div>
 
                 </div>
@@ -37,7 +73,9 @@
         <%}) %>
     </section>
 
-    <p class="title">ECONOMIA</p>
+    <div class="conteiner-title">
+        <a href="/products/2" class="title">ECONOMÍA</a>
+    </div>
     <section class="box-flex">
         <% economia.forEach(book => { %>
 
@@ -50,17 +88,21 @@
                     />
                     </div>
                     <div class="info">
-                        <p class="descripcion"><%= book.name %></p>                        
+                        <p class="descripcion"><%= book.name %></p>  
+                        <p class="author"><%= book.author %></p>  
                         <div class="box-linea">
+                            <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>                            
                             <p class="precios">$<%= book.price %></p>
-                            <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>
             </article>
         <%}) %>
     </section>
-    <p class="title">PSICOLOGIA</p>
+
+    <div class="conteiner-title">
+        <a href="/products/3" class="title">PSICOLOGÍA</a> 
+    </div>
     <section class="box-flex">
         <% psicologia.forEach(book => { %>
 
@@ -73,17 +115,22 @@
                     />
                     </div>
                     <div class="info">
-                        <p class="descripcion"><%= book.name %></p>                        
+                        <p class="descripcion"><%= book.name %></p>
+                        <p class="author"><%= book.author %></p>                          
                         <div class="box-linea">
+                            <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>                            
                             <p class="precios">$<%= book.price %></p>
-                            <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>
             </article>
         <%}) %>
     </section>
-    <p class="title">FICCION</p>
+
+    <div class="conteiner-title">
+        <a href="/products/4" class="title">FICCIÓN</a> 
+
+    </div>
     <section class="box-flex">
         <% ficcion.forEach(book => { %>
 
@@ -96,17 +143,21 @@
                     />
                     </div>
                     <div class="info">
-                        <p class="descripcion"><%= book.name %></p>        
+                        <p class="descripcion"><%= book.name %></p>
+                        <p class="author"><%= book.author %></p>          
                         <div class="box-linea">
-                            <p class="precios">$<%= book.price %></p>
                             <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
+                            <p class="precios">$<%= book.price %></p>
                         </div>
                     </div>
                 </a>
             </article>
         <%}) %>
     </section>
-    <p class="title">EDUCACION</p>
+
+    <div class="conteiner-title">
+        <a href="/products/5" class="title">EDUCACIÓN</a> 
+    </div>
     <section class="box-flex">
         <% educacion.forEach(book => { %>
 
@@ -119,10 +170,11 @@
                     />
                     </div>
                     <div class="info">
-                        <p class="descripcion"><%= book.name %></p>                        
+                        <p class="descripcion"><%= book.name %></p>
+                        <p class="author"><%= book.author %></p>                          
                         <div class="box-linea">
+                            <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>                            
                             <p class="precios">$<%= book.price %></p>
-                            <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>
                         </div>
                     </div>
                 </a>
