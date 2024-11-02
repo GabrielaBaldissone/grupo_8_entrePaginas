@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head.ejs',{'datos':datos.activar}) %>
+    <title>Resultados de Búsqueda</title>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <div class="banner">
+        <img class="img-banner" src="/img/banner-e.png" alt="Essenciana" />
+    </div>
+    <main>
+        <div class="conteiner-title">
+            <h1 class="title">Resultados para "<%= query %>"</h1>
+        </div>
+        <ul>
+            <% if (results.length > 0) { %>
+            <section class="box-flex">
+                <% results.forEach(book => { %>
+                    <article class="article-style">
+                        <a href="/products/detail/<%= book.id_book %>">
+                            <div class="conteiner-img">
+                            <img
+                            src="/img/<%= book.image %>"
+                            alt="<%= book.name %>"
+                            />
+                            </div>
+                            <div class="info">
+                                <p class="descripcion"><%= book.name %></p>
+                                <p class="author"><%= book.author %></p>                          
+                                <div class="box-linea">
+                                    <p class="desc"><%= book.stock ? "Disponible" : "Sin Stock" %></p>                            
+                                    <p class="precios">$<%= book.price %></p>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                <% }) %>
+            </section>
+            <% } else { %>
+                <div class="conteiner-title">
+                    <h3 class="title">No se encontraron resultados</h1>
+                </div>
+            <% } %>
+        </ul>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>
