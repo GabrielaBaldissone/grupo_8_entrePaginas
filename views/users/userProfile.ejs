@@ -16,6 +16,7 @@
             <p class="description-user"><strong>Apellido:</strong> <%= user.last_name %></p>
             <p class="description-user"><strong>Email:</strong> <%= user.email %></p>
             <p class="description-user"><strong>Telefono:</strong> <%= user.phone %></p>
+            <a class="update-btn" href="/users/edit/<%= user.id_user %>">Editar Perfil</a>
         </div>
     </main>
     <%- include('../partials/footer.ejs') %>
