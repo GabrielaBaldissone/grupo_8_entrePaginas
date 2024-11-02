@@ -42,6 +42,10 @@
                 <div>
                     <a class="shipping-info" href="#">Calcular envío</a>
                 </div>
+                <%if(totalPrice){%>
+                    <div>Precio Total: $<%= totalPrice %></div>
+                    
+                <%}%>
             </div>
             <div class="section-right">
                 <a href="/">

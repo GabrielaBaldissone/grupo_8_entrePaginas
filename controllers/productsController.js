@@ -13,34 +13,11 @@ const productsController = {
     products: null,
     productCart: async (req, res) => {
         const cart = req.session.cart || [];
-        res.render('products/productCart', { cart, datos });
-        // const userId = req.session.userLogged.id_user;
-    
-        // try {
-        //     const order = await db.Order.findOne({
-        //         where: { id_user: userId },
-        //         order: [['id_order', 'DESC']]
-        //     });
-    
-        //     if (!order) {
-        //         return res.status(404).json({ error: 'Carrito vacío, ¿quieres comprar?' });
-        //     }
-    
-        //     const productsCart = await db.OrderProduct.findAll({
-        //         where: { id_order: order.id_order },
-        //         attributes: ['quantity'],
-        //         include: [{
-        //             model: db.Product,
-        //             as: 'product',
-        //             attributes: ['id_product', 'name', 'price', 'stock', 'image', 'description'] 
-        //         }]
-        //     });
-    
-        //     res.render("products/productCart", { productsCart, datos });
-        // } catch (error) {
-        //     console.error("Error al mostrar el carrito:", error);
-        //     res.status(500).send("Error interno del servidor");
-        // }
+        // Calcular el precio total
+        const totalPrice = cart.reduce((total, item) => {
+            return total + (item.prod.price * item.quantity);
+        }, 0);
+        res.render('products/productCart', { cart, totalPrice, datos });
     },
     productDetail: (req, res) => {
         const { id } = req.params;
