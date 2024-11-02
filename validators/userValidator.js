@@ -49,6 +49,13 @@ const userValidationRules = [
             }
             return true;
         }),
+    body("confirmPassword")
+    .notEmpty()
+    .withMessage("Debe completar el campo confirmar contraseña")
+    .bail()
+    .isLength({ min: 8 })
+    .withMessage("La confirmacion de contraseña debe tener al menos 8 caracteres")
+    .custom((value, { req }) => { if (value !== req.body.password) { throw new Error('Las contraseñas no coinciden'); } return true; }),
 
     body("avatar").custom((value, { req })=>{
         let file = req.file;
