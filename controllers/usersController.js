@@ -119,7 +119,66 @@ const usersController = {
         res.clearCookie("userEmail");
         req.session.destroy();
         return res.redirect("/users/login");
+    },
+    editUser: async (req, res) => {
+        try {
+            const { id } = req.params;
+    
+            // Obtén el producto y las categorías utilizando async/await
+            const user = await db.User.findByPk(id);
+            // Renderiza la vista con los datos obtenidos
+            res.render("users/editUser", { datos, user, oldData: null});
+        } catch (error) {
+            console.error("Error al editar el usuario:", error);
+            res.status(500).send("Error interno del servidor");
+        }
+    },
+    updateUser: async (req, res) => {
+        const errors = validationResult(req);
+        const { id } = req.params;
+        
+        if (!errors.isEmpty()) {
+            const user = await db.User.findByPk(id);
+            return res.render("users/editUser", {
+                errors: errors.mapped(),
+                oldData: req.body,
+                datos,
+                user
+            });
+        }        
+
+
+        const { firstName, lastName, phone } = req.body;
+        let newImage = req.file ? req.file.filename : null;
+    
+        const user = await db.User.findByPk(id);
+        try {
+            if (req.file.filename == "default-profile.jpg") {
+                newImage = user.image;
+            }
+            await db.User.update(
+                {
+                    first_name: firstName,
+                    last_name: lastName,
+                    phone,
+                    image: newImage,
+                },
+                {
+                    where: { id_user: id }
+                }
+            );
+            res.redirect(`/users/profile`);
+        } catch (err) {
+            console.error(err.message);
+            res.render("users/editUser", {
+                errors: { general: { msg: "Ocurrió un error al actualizar el usuario" } },
+                oldData: req.body,
+                user,
+                datos: {}
+            });
+        }
     }
+    
 };
 
 module.exports = usersController;

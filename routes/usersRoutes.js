@@ -17,5 +17,10 @@ router.post('/register', fileValidator("avatar", "users/register"), userValidati
 router.get("/profile", authMiddleware, usersController.getUserProfile);
 router.post("/logout", usersController.logout);
 
+// MOSTRAR VISTA PARA EDITAR UN PRODUCTO
+router.get("/edit/:id", authMiddleware, usersController.editUser);
+router.put("/edit/:id", fileValidator("avatar", "users/edit"), userValidationRules, usersController.updateUser);
+
+
 
 module.exports = router; 
