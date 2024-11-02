@@ -6,6 +6,8 @@ const productsController = require("../controllers/productsController.js");
 const fileValidator = require('../middlewares/fileValidatorMiddleware.js');
 const productValidators = require('../validators/productValidators');
 
+router.get('/search', productsController.searchProducts);
+
 // RUTA DE PRODUCT CART
 router.get('/cart', productsController.productCart);
 

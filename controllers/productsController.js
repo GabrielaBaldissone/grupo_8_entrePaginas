@@ -312,6 +312,21 @@ const productsController = {
                 oldData: req.body
             });
         }
+    },
+    searchProducts: async(req, res) =>{
+        const query = req.query.search;
+        try {
+            const results = await db.Book.findAll({ 
+                where: { 
+                    name: { 
+                        [db.Sequelize.Op.like]: `%${query}%` 
+                    } 
+                } 
+            }); 
+            res.render('products/searchResult', { results, query, datos});
+        } catch (error) { 
+            console.error('Error al realizar la búsqueda:', error); 
+            res.status(500).send('Error interno del servidor'); }
     }
 };
 
