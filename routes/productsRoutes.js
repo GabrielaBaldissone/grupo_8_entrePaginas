@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const adminMiddleware = require("../middlewares/adminMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware.js");
 const productsController = require("../controllers/productsController.js");
 const fileValidator = require('../middlewares/fileValidatorMiddleware.js');
 const productValidators = require('../validators/productValidators');
@@ -18,7 +19,7 @@ router.get('/:id_category', adminMiddleware, productsController.productAll);
 router.get('/admin', productsController.getProductAdmin);
 
 // AGREGAR PRODUCTO AL CARRITO DE COMPRAS
-router.post("/", productsController.productAddCart);
+router.post("/", authMiddleware, productsController.productAddCart);
 router.post("/checkout", productsController.checkout);
 
 // ELIMINAR UN PRODUCTO DEL CARRITO DE COMPRAS
