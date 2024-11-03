@@ -62,10 +62,6 @@ body {
     border-width: 1.7px;
 }
 
-.span-nav{
-    display: none;
-}
-
 /*Estilos del contenedor del fomulario que tiene el input search*/
 .box-input{    
     width: 40%;
@@ -99,7 +95,7 @@ body {
     color: rgb(255, 255, 255);
     padding: 1px;
     transition: transform 0.3s ease;
-    /* display: none; */
+    display: none;
 }
 
 .icons-style:hover {  
@@ -143,7 +139,7 @@ body {
     color: #3483fa;
 }
 
-.header__navbar-items{
+.span-nav {
     display: none;
 }
 
