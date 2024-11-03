@@ -9,15 +9,17 @@
     <main class="user-profile">
         <p class="name-user">Hola, <%= user.first_name.toUpperCase() %> <%= user.last_name.toUpperCase() %></p>
         <div class="conteiner-img-user">
-            <img  src="/img/<%= user.image %>" alt="Imagen de Perfil" >
+            <img  class="img-profile" src="/img/<%= user.image %>" alt="Imagen de Perfil" >
         </div>
         <div class="user-profile-box">
             <p class="description-user"><strong>Nombre:</strong> <%= user.first_name %></p>
             <p class="description-user"><strong>Apellido:</strong> <%= user.last_name %></p>
             <p class="description-user"><strong>Email:</strong> <%= user.email %></p>
             <p class="description-user"><strong>Telefono:</strong> <%= user.phone %></p>
-            <a class="update-btn" href="/users/edit/<%= user.id_user %>">Editar Perfil</a>
         </div>
+            <div class="update-btn-user">
+            <a class="btn-profile" href="/users/edit/<%= user.id_user %>">Editar Perfil</a>
+            </div>    
     </main>
     <%- include('../partials/footer.ejs') %>
     <script src="https://kit.fontawesome.com/6868278fd3.js" crossorigin="anonymous"></script>
