@@ -2,17 +2,17 @@
 <html lang="es">
 <head>
     <%- include('../partials/head.ejs',{'datos':datos.activar}) %>
-    <title>Actualización de productos</title>
+    <title>Actualización de libros</title>
 </head>
 <body>
 
     <%- include('../partials/navbar.ejs') %>
 
     <div class="login-box">
-    <form class="register__form" action="/products/edit/<%= product.id_book %>?_method=PUT"  method="POST" enctype="multipart/form-data" id="form-edit">
+    <form class="register__form" action="/products/edit/<%= book.id_book %>?_method=PUT"  method="POST" enctype="multipart/form-data" id="form-edit">
         <div>
-            <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
-            <input type="text" id="nombreProducto" name="name" value="<%= oldData ? oldData.name : product.name %>" required autofocus minlength="6">
+            <label for="nombreProducto">Nombre del Libro:<span class="register__required--red">*</span></label>
+            <input type="text" id="nombreProducto" name="name" value="<%= oldData ? oldData.name : book.name %>" required autofocus minlength="6">
                 <div class="error-message" id="errName">
                     <% if (locals.errors && errors.name) { %>
                         <%= errors.name.msg %>
@@ -21,10 +21,20 @@
         </div>
 
         <div>
+            <label for="autorProducto">Autor del Libro::<span class="register__required--red">*</span></label>
+            <input type="text" id="autorProducto" name="author" value="<%= oldData ? oldData.author : book.author %>" required autofocus minlength="6">
+                <div class="error-message" id="errName">
+                    <% if (locals.errors && errors.author) { %>
+                        <%= errors.author.msg %>
+                    <% } %>
+                </div>
+        </div>
+
+        <div>
             <label for="category">Categoria:<span class="register__required--red">*</span></label>
             <select name="category" id="categoriaProducto" required>
                 <% categories.forEach(category => { %>
-                    <option value="<%= category.id_category %>" <%= (oldData && oldData.category == category.id_category) || (product.category.id_category == category.id_category) ? 'selected' : '' %>><%= category.category %></option>
+                    <option value="<%= category.id_category %>" <%= (oldData && oldData.category == category.id_category) || (book.category.id_category == category.id_category) ? 'selected' : '' %>><%= category.category %></option>
                 <% }); %>
             </select>
                 <div class="error-message" id="errCategory"></div>
@@ -32,7 +42,7 @@
 
         <div>
             <label for="stock">Stock:<span class="register__required--red">*</span></label>
-            <input type="number" id="stock" name="stock" value="<%= oldData ? oldData.stock : product.stock %>" required min="0">
+            <input type="number" id="stock" name="stock" value="<%= oldData ? oldData.stock : book.stock %>" required min="0">
                 <div class="error-message" id="errStock">
                     <% if (locals.errors && errors.stock) { %>
                         <%= errors.stock.msg %>
@@ -52,7 +62,7 @@
 
         <div>
             <label for="precioProducto">Precio:<span class="register__required--red">*</span></label>
-            <input type="number" name="price" id="precioProducto" value="<%= oldData ? oldData.price : product.price %>" required min="0" step="0.01">
+            <input type="number" name="price" id="precioProducto" value="<%= oldData ? oldData.price : book.price %>" required min="0" step="0.01">
                 <div class="error-message" id="errPrice">
                     <% if (locals.errors && errors.price) { %>
                         <%= errors.price.msg %>
@@ -62,7 +72,7 @@
 
         <div>
             <label for="descripcionProducto">Descripción:<span class="register__required--red">*</span></label>
-            <textarea name="description" id="descripcionProducto" minlength="10" required><%= oldData ? oldData.description : product.description %></textarea>
+            <textarea name="description" id="descripcionProducto" minlength="10" required><%= oldData ? oldData.description : book.description %></textarea>
                 <div class="error-message" id="errDescription">
                     <% if (locals.errors && errors.description) { %>
                         <%= errors.description.msg %>
