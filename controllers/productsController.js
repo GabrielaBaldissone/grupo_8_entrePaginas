@@ -182,14 +182,14 @@ const productsController = {
     // ESTO ES PRODUCTOS
     editProduct: (req, res) =>{
         const {id} = req.params;
-        const product = db.Book.findByPk(id, {
+        const book = db.Book.findByPk(id, {
             include: [{association: "category"}]
         })
         const categories = db.Category.findAll();
-        Promise.all([product, categories])
-        .then(([product, categories])=>{
+        Promise.all([book, categories])
+        .then(([book, categories])=>{
             
-            res.render("products/editProduct", {datos, product, categories, oldData: null});
+            res.render("products/editProduct", {datos, book, categories, oldData: null});
         })
         
     },
@@ -211,7 +211,7 @@ const productsController = {
             });
         }
 
-        const { name, category, price, stock, description } = req.body;
+        const { name, author, category, price, stock, description } = req.body;
         let newImage = req.file ? req.file.filename : null;
     
         try {
@@ -223,7 +223,7 @@ const productsController = {
             await db.Book.update(
                 {
                     name,
-                    author: "autor editado",
+                    author,
                     price,
                     stock,
                     image: newImage,
@@ -290,13 +290,13 @@ const productsController = {
             });
         }
     
-        const { name, category, price, stock, description } = req.body;
+        const { name, author, category, price, stock, description } = req.body;
         const image = req.file ? req.file.filename : "default-product.png";
     
         try {
             await db.Book.create({
                 name,
-                author: "prueba",
+                author,
                 price,
                 stock,
                 description,
