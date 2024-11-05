@@ -49,3 +49,8 @@ Durante el sprint N° 6, logramos mejorar la comunicación en comparación con s
 
 **Retrospectiva del Sprint N° 7 – Grupo N° 8:**
 Durante el sprint Nº 7 la distribución de tareas fue más equilibrada y hubo buena resolución de conflictos y resolución de problemas en cuanto al desarrollo del proyecto, quedaron detalles pendientes por terminar que se resolveran en el próximo sprint de manera prioritaria.
+
+**Retrospectiva del Sprint N° 8 – Grupo N° 8:**
+Durante el sprint N° 8, tanto la comunicación como la resolución de conflictos fueron gestionadas con éxito, lo que permitió al equipo coordinarse efectivamente y cerrar el trabajo de manera satisfactoria. Gracias a la experiencia acumulada en los sprints anteriores, logramos un flujo de trabajo eficiente y un ambiente colaborativo sólido, asegurando que cada tarea fuera completada a tiempo y en los estándares esperados.
+
+A modo de cierre, nos gustaría agradecer el esfuerzo de todos los miembros a lo largo de estos meses. Los aprendizajes y mejoras constantes en cada sprint fueron clave para superar los desafíos y alcanzar nuestros objetivos. ¡Gracias!
