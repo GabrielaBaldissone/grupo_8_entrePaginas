@@ -1,8 +1,8 @@
-# ESSENCIANA 
+<h1>Entre páginas</h1>
 
-*¡Bienvenido a nuestro oasis aromático y de comodidad!* Sumérgete en el mundo de la aromaterapia y la suavidad con nuestra exquisita selección de productos. Desde aceites esenciales que despiertan tus sentidos hasta lujosa blanquería que acaricia tu piel, en nuestro sitio encontrarás todo lo necesario para crear un ambiente de serenidad y bienestar en tu hogar. Déjate llevar por la delicadeza de nuestras fragancias y la calidad de nuestros textiles, y convierte cada momento en una experiencia sensorial única. ¡Descubre la magia de equilibrar cuerpo y mente con nosotros!
+**¡Bienvenido a nuestro rincón literario!** Sumérgete en el fascinante mundo de los libros con nuestra cuidada selección de títulos. Desde novelas que te harán soñar hasta ensayos que despiertan tu curiosidad, aquí encontrarás historias para cada momento y cada emoción. En nuestra librería, descubrirás autores consagrados y nuevos talentos, todos listos para acompañarte en cada página.
 
-Nuestros productos de aromaterapia y blanquería están diseñados para personas que buscan crear espacios de calma y confort en sus vidas diarias. Generalmente personas mayores de 20 años que buscan independizarse.
+Nuestros libros están pensados para lectores apasionados y exploradores de ideas, desde jóvenes adultos hasta quienes buscan expandir sus conocimientos o perderse en mundos imaginarios. ¡Déjate llevar por el poder de las palabras y encuentra tu próxima gran lectura con nosotros!
 
 **Nosotros somos:**
 
@@ -21,15 +21,15 @@ Nuestros productos de aromaterapia y blanquería están diseñados para personas
 
 Paginas de referencias:
 
-#1 https://www.shirinatural.com.ar/tienda/linea-aromaterapia/?mpage=2
+#1 https://cuspide.com
 
-#2 https://audocph.com/#
+#2 https://www.yenny-elateneo.com
 
-#3 https://parklanecph.com/
+#3 https://www.elatril.com.ar
 
-#4 https://www.maitenaika.com.ar/?gad_source=1&gclid=CjwKCAjwgdayBhBQEiwAXhMxthjkmhzg4A6hfxLYLEITHo5xGlP8am4i6GAz21zJAmmnzs6aIg231xoCRZgQAvD_BwE
+#4 https://www.penguinlibros.com/ar
 
-#5 https://www.shenzen.com.ar/
+#5 https://www.tematika.com
 
 
 Nuestro trello donden nos organizamos para el trabajo:
