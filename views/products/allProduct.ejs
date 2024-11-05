@@ -8,8 +8,47 @@
     <%- include('../partials/navbar.ejs') %>
     <main>
 
+        <div class="generos">
+            <div class="icons-genero">
+                <a href="/products/1">
+                    <i class="fa-solid fa-laptop-code icon-genre"></i>
+                    <p class="title-genre">Programación</p>
+                </a>
+            </div>
+            <div class="icons-genero">
+                <a href="/products/2">
+                    <i class="fa-solid fa-comments-dollar icon-genre"></i>
+                    <p class="title-genre">Economía</p>
+                </a>
+            </div>
+            <div class="icons-genero">
+                <a href="/products/3">
+                    <i class="fa-solid fa-brain icon-genre"></i>
+                    <p class="title-genre">Psicología</p>
+                </a>
+            </div>
+            <div class="icons-genero">
+                <a href="/products/4">
+                    <i class="fa-solid fa-book-open-reader icon-genre"></i>
+                    <p class="title-genre">Ficción</p>
+                </a>
+            </div>
+            <div class="icons-genero"> 
+                <a href="/products/5">
+                    <i class="fa-solid fa-graduation-cap icon-genre"></i>
+                    <p class="title-genre">Educación</p>
+                </a>
+            </div>
+        </div>
+        
+        <div class="conteiner-title">
+            <a class="title"><%= categoryName %></a> 
+        </div>
+
         <section class="box-flex">
             <% allProduct.forEach(book => { %>
+
+                
     
                 <article class="article-style">
                     <a href="/products/detail/<%= book.id_book %>">

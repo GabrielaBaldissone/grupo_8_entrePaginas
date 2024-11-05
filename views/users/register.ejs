@@ -71,7 +71,7 @@
                 </div>
                 <div>
                     <label class="description-login" for="contrasenia">Confirmar Contraseña:<span class="span-login-red">*</span></label>
-                    <input class="input-login" type="password" id="contrasenia" name="confirmPassword" placeholder="Ingrese su contraseña" minlength="8">
+                    <input class="input-login" type="password" id="confirmPassword" name="confirmPassword" placeholder="Ingrese su contraseña" minlength="8">
                     <div class="error-message" id="errPassword">
                         <% if (locals.errors && errors.confirmPassword) { %>
                             <%= errors.confirmPassword.msg %>

@@ -5,6 +5,7 @@ const authMiddleware = require("../middlewares/authMiddleware.js");
 const productsController = require("../controllers/productsController.js");
 const fileValidator = require('../middlewares/fileValidatorMiddleware.js');
 const productValidators = require('../validators/productValidators');
+router.get("/create", productsController.getCreateForm);
 
 router.get('/search', productsController.searchProducts);
 
@@ -37,7 +38,6 @@ router.get("/edit/:id", adminMiddleware, productsController.editProduct);
 router.put("/edit/:id", fileValidator("image", "products/edit"), productValidators, productsController.updateProduct); 
 
 // CREAR NUEVO PRODUCTO
-router.get("/create", productsController.getCreateForm);
 router.post("/create", fileValidator("image", "products/create"), productValidators, productsController.createProduct);
 
 module.exports = router;

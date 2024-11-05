@@ -72,6 +72,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/,
                 errorMessage: "La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial", 
             }
+        ]).addField("#confirmPassword",[
+
+            {
+                rule: "required",
+                errorMessage: "Confirmación de contraseña requerida", 
+            },
+            {
+                validator: (value, fields) => {
+                const passwordValue = fields['#contrasenia'].elem.value;
+                return value === passwordValue;
+                },
+                errorMessage: "Las contraseñas deben ser iguales",
+            }
+
         ])
         .onSuccess((event) => {
             event.target.submit();

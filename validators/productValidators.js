@@ -5,6 +5,10 @@ const productValidators = [
     body('name')
         .trim().notEmpty().withMessage('El nombre es obligatorio').bail()
         .isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres'),
+        
+    body('author')
+    .trim().notEmpty().withMessage('El nombre es obligatorio').bail()
+    .isLength({ min: 2 }).withMessage('El nombre debe tener al menos 2 caracteres'),
     
     body('stock')
         .notEmpty().withMessage("El stock es obligatorio").bail()

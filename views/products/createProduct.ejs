@@ -11,7 +11,7 @@
     <div class="login-box">
     <form class="register__form" action="/products/create"  method="POST" enctype="multipart/form-data" id="form-create">
         <div>
-            <label for="nombreProducto">Nombre del Producto:<span class="register__required--red">*</span></label>
+            <label for="nombreProducto">Nombre del Libro:<span class="register__required--red">*</span></label>
             <input type="text" id="nombreProducto" name="name" value="<%= locals.oldData ? oldData.name : null %>" autofocus minlength="6">
                 <div class="error-message" id="errName">
                     <% if (locals.errors && errors.name) { %>
@@ -19,15 +19,24 @@
                     <% } %>
                 </div>
         </div>
+        <div>
+            <label for="autorProducto">Autor del Libro:<span class="register__required--red">*</span></label>
+            <input type="text" id="autorProducto" name="author" value="<%= locals.oldData ? oldData.author : null %>" autofocus minlength="6">
+                <div class="error-message" id="errName">
+                    <% if (locals.errors && errors.author) { %>
+                        <%= errors.author.msg %>
+                    <% } %>
+                </div>
+        </div>
 
         <div>
             <label for="category">Categoria:<span class="register__required--red">*</span></label>
             <select name="category" id="categoriaProducto" value="<%= locals.oldData ? oldData.category : null %>">
-                <option value="1">Sabanas</option>
-                <option value="2">Acolchados</option>
-                <option value="3">Cortinas</option>
-                <option value="4">Velas</option>
-                <option value="5">Esencias</option>
+                <option value="1">Programacion</option>
+                <option value="2">Economia</option>
+                <option value="3">Psicologia</option>
+                <option value="4">Ficcion</option>
+                <option value="5">Educacion</option>
             </select>
                 <div class="error-message" id="errCategory">
                 </div>
