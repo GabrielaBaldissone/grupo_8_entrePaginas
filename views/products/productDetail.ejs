@@ -31,6 +31,12 @@
                         </div>               
                         <input type="hidden" name="productId" value="<%= book.id_book %>">
                     <button id="btnAddCart" type="submit" class="agregar-carrito-btn">Agregar al carrito</button>
+                    <% if (isAdmin) { %>
+                        <a class="update-btn" href="/products/edit/<%= book.id_book %>">Editar</a>
+                        <form action="/products/delete/<%= book.id_book %>?_method=DELETE" method="POST">
+                            <button class="delete-btn">ELIMINAR</button>
+                        </form>
+                    <% } %>
                 </form>
                 </div>
             </div>
@@ -39,13 +45,6 @@
             <span >Descripción:</span>
             <p style="text-align: justify; margin-top: 10px"><%= book.description %> </p>
         </div>
-            <% if (isAdmin) { %>
-                <a class="update-btn" href="/products/edit/<%= book.id_book %>">Editar</a>
-                <form action="/products/delete/<%= book.id_book %>?_method=DELETE" method="POST">
-                    <button class="delete-btn">ELIMINAR</button>
-                </form>
-            <% } %>
-
         </section>
         <p class="parrafo-relacionado">Te pueden interesar...</p>
         <section class="productos-relacionados">
