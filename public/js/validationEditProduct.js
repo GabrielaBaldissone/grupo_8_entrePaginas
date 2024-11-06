@@ -21,6 +21,17 @@ document.addEventListener("DOMContentLoaded", function() {
             errorMessage: "Como mínimo el nombre debe tener 5 caracteres",
         }
     ])
+    .addField('#autorProducto', [
+        {
+            rule: "required",
+            errorMessage: "El autor del producto es obligatorio",
+        },
+        {
+            rule: "minLength",
+            value: 3, 
+            errorMessage: "El autor debe tener al menos 3 caracteres",
+        }
+    ])
     .addField("#categoriaProducto", [
         {
             rule: "required",
