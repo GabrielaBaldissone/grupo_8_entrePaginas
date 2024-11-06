@@ -22,7 +22,11 @@ const usersApiController = {
                 };
             });
 
-            return res.status(200).json({count, usersArray});
+            const lastUser = await db.User.findOne({
+                order: [['id_user', 'DESC']]
+            });
+
+            return res.status(200).json({count, usersArray, lastUser});
         }catch(error){
             console.log("Error al obtener los usuarios: ", error);
         }
