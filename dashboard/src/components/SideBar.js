@@ -2,9 +2,9 @@ import React from 'react';
 import image from '../assets/images/logo-DH.png';
 import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
-import LastMovieInDb from './LastMovieInDb';
+import LastBookInDb from './LastBookInDb';
 import Chart from './Chart';
-import ContentRowMovies from './ContentRowMovies';
+import ContentRowBooks from './ContentRowBooks';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -117,7 +117,7 @@ function SideBar(){
                     <Chart products={products}/>
                 </Route>
                 <Route path="/LastMovieInDb">
-                    <LastMovieInDb />
+                    <LastBookInDb />
                 </Route>
                 {/* <Route path="/ContentRowMovies">
                     <ContentRowMovies users={users} products={products}/>

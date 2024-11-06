@@ -2,7 +2,7 @@ import React from 'react';
 
 // import noPoster from '../assets/images/no-poster.jpg';
 
-function SearchMovies(){
+function SearchBooks(){
 
 	const movies = [
 		{
@@ -78,4 +78,4 @@ function SearchMovies(){
 	)
 }
 
-export default SearchMovies;
+export default SearchBooks;

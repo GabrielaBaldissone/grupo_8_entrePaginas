@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function LastMovieInDb() {
+function LastBookInDb() {
     const [products, setProducts] = useState({ count: 0, countByCategory: {}, productsArray: [], lastBook: {} });
 
     useEffect(() => {
@@ -36,4 +36,4 @@ function LastMovieInDb() {
     );
 }
 
-export default LastMovieInDb;
+export default LastBookInDb;

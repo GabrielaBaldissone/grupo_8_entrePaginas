@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentRowCenter from './ContentRowCenter';
-import ContentRowMovies from './ContentRowMovies';
+import ContentRowBooks from './ContentRowBooks';
 import Chart from './Chart';
 import { useState, useEffect } from 'react';
 
@@ -31,7 +31,7 @@ function ContentRowTop(){
 					</div>
 				
 					{/*<!-- Content Row Movies-->*/}
-					<ContentRowMovies products={products} users={users}/>
+					<ContentRowBooks products={products} users={users}/>
 					<ContentRowCenter products={products}/>
 					<Chart products={products}/>
 	

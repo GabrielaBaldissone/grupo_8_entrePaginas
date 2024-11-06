@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 /* <!-- Movies in DB --> */
 
 
-function ContentRowMovies({products, users}){
+function ContentRowBooks({products, users}){
           
     let totalProductos = {
         title: 'Cantidad de Libros',
@@ -49,4 +49,4 @@ function ContentRowMovies({products, users}){
     )
 }
 
-export default ContentRowMovies;
+export default ContentRowBooks;
