@@ -66,7 +66,7 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `id_order` int NOT NULL AUTO_INCREMENT,
   `id_user` int DEFAULT NULL,
-  `available` tinyint DEFAULT NULL,
+  `status` enum('paid','pending') DEFAULT NULL,
   PRIMARY KEY (`id_order`),
   KEY `id_user` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
