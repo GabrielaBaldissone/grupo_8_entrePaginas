@@ -74,7 +74,7 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link" to="/LastMovieInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
+                        <span>LastBook</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
