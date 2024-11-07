@@ -763,6 +763,7 @@ section.productcart-section {
 }
 
 .update-btn{
+    width: 80px;
     margin-top: 10px;
     background-color: #ffffffca;
     color: #ffbb00;

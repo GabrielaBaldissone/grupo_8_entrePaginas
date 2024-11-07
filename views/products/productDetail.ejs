@@ -31,11 +31,11 @@
                         </div>               
                         <input type="hidden" name="productId" value="<%= book.id_book %>">
                     <button id="btnAddCart" type="submit" class="agregar-carrito-btn">Agregar al carrito</button>
+                        </form>
                     <% if (isAdmin) { %>
                         <a class="update-btn" href="/products/edit/<%= book.id_book %>">Editar</a>
                         <form action="/products/delete/<%= book.id_book %>?_method=DELETE" method="POST">
                             <button class="delete-btn">ELIMINAR</button>
-                        </form>
                     <% } %>
                 </form>
                 </div>
