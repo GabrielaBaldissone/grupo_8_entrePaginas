@@ -1,6 +1,5 @@
 import React from 'react';
 import ChartRow from './ChartRow';
-import LastUserInDb from './LastUserInDb';
 
 function Chart(props) {
     const { products, users } = props;
@@ -44,7 +43,6 @@ function Chart(props) {
                     </table>
                 </div>
             </div>
-            <LastUserInDb />
 
         </div>
         
